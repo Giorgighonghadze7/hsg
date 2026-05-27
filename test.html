@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSG Educational Platform</title>
+<style>
+:root{
+  --bg:#111111;
+  --text:#f0f0f0;
+  --muted:#1c1c1c;
+  --accent:#d10000;
+  --card:#1a1a1a;
+}
+body.light{
+  --bg:#f9f9f9;
+  --text:#1a1a1a;
+  --muted:#e6e6e6;
+  --card:#ffffff;
+}
+*{margin:0;box-sizing:border-box;font-family:"Inter",Arial,sans-serif;}
+body{background:var(--bg);color:var(--text);transition:background .3s,color .3s;}
+
+/* HEADER */
+.header{
+  display:flex;justify-content:center;align-items:center;
+  padding:18px 80px;background:var(--bg);
+  border-bottom:1px solid rgba(0,0,0,.12);
+  flex-wrap:wrap;gap:20px;z-index:100;position:sticky;top:0;
+}
+.header nav{flex:1 1 auto;display:flex;justify-content:center;flex-wrap:wrap;}
+.header nav a{margin:0 14px;text-decoration:none;color:var(--text);font-weight:500;position:relative;}
+nav a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:.3s;}
+nav a:hover::after{width:100%;}
+nav a:hover{color:var(--accent);}
+.header-actions{display:flex;gap:10px;align-items:center;}
+.icon-btn{background:none;border:none;font-size:18px;cursor:pointer;}
+.btn-primary{background:var(--accent);color:white;padding:10px 22px;border-radius:999px;text-decoration:none;font-weight:600;transition:transform .25s,box-shadow .25s,border .25s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(209,0,0,.35);border-color:var(--accent);}
+
+/* HERO */
+.hero{
+  height:100vh;padding:0 80px;
+  display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;
+  background:url("images/qaveri.jpg") center/cover no-repeat;
+  position:relative;overflow:hidden;color:white;
+  opacity:0;transform:translateY(30px);
+}
+.hero.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
+.hero::before{
+  content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.1));z-index:0;
+}
+.hero h1,.hero p{position:relative;z-index:1;max-width:600px;margin:0;text-shadow:1px 1px 6px rgba(0,0,0,0.5);}
+.hero h1{font-size:48px;margin-bottom:10px;}
+.hero p{font-size:18px;opacity:.9;}
+
+/* ABOUT */
+.about{
+  padding:60px 80px;text-align:center;
+  opacity:0;transform:translateY(30px);
+}
+.about.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
+.about h2{font-size:32px;margin-bottom:20px;}
+.about p{font-size:18px;max-width:800px;margin:0 auto;opacity:.9;}
+.about .btn-primary{margin-top:20px;display:inline-block;}
+
+/* SECTIONS */
+.section{padding:100px 80px;position:relative;}
+.section.muted{background:var(--muted);}
+.section h2{font-size:32px;margin-bottom:50px;text-align:center;}
+
+.cards-grid{
+  display:grid;gap:30px;
+}
+.card{
+  background:var(--card);border-radius:16px;overflow:visible;
+  box-shadow:0 15px 40px rgba(31,30,30,0.06);
+  transition:transform .3s,box-shadow .3s,border .3s;
+  border:2px solid transparent;position:relative;min-height:300px;padding:10px;
+  opacity:0;transform:translateY(40px);
+}
+.card.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
+.card:hover{transform:scale(1.05);box-shadow:0 15px 30px rgba(209,0,0,0.25);border-color:var(--accent);z-index:10;}
+
+.img{
+  height:200px;background-size:cover;background-position:center;border-radius:16px 16px 0 0;
+}
+
+/* INTELLECTUAL CHAMPIONSHIP */
+.highlight-champ {
+  display:flex;
+  align-items:center;
+  gap:30px;
+  max-width:1000px;
+  margin:50px auto;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.highlight-champ.visible {
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity .8s ease-out, transform .8s ease-out;
+}
+
+.highlight-champ .img {
+  width:50%;
+  border-radius:20px;
+  object-fit:cover;
+  height:auto;
+  transition: transform .3s, box-shadow .3s, border .3s;
+}
+
+.highlight-champ .img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(209,0,0,0.25);
+  border: 2px solid var(--accent);
+}
+
+.highlight-champ .champ-text {
+  width:50%;
+}
+.highlight-champ .champ-text p {
+  margin-bottom: 30px; /* მანძილი ტექსტიდან ღილაკამდე */
+}
+
+@media(max-width:768px) {
+  .highlight-champ {
+    flex-direction:column;
+    align-items:center;
+  }
+  .highlight-champ .img,
+  .highlight-champ .champ-text {
+    width:100%;
+  }
+  .highlight-champ .img {
+    aspect-ratio:16/9;
+    background-size:cover;
+    margin-bottom:20px;
+  }
+  .highlight-champ .champ-text {
+    text-align:center;
+  }
+}
+
+/* REGISTER BUTTON */
+.register-section{text-align:center;margin-top:40px;opacity:0;transform:translateY(40px);}
+.register-section.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
+
+/* Responsive grids */
+#modules .cards-grid{grid-template-columns:repeat(3,1fr);}
+#championships .cards-grid{grid-template-columns:repeat(4,1fr);}
+#gallery .cards-grid{grid-template-columns:repeat(4,1fr);}
+#events .cards-grid{grid-template-columns:repeat(4,1fr);}
+@media(max-width:1024px){
+  #modules .cards-grid,#championships .cards-grid,#gallery .cards-grid,#events .cards-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .header{flex-direction:column;align-items:center;padding:18px 20px;position:static;}
+  .header-actions{order:2;margin-top:10px;}
+  .header nav{order:1;justify-content:center;margin-top:10px;}
+  #modules .cards-grid,#championships .cards-grid,#gallery .cards-grid,#events .cards-grid{grid-template-columns:1fr;}
+
+}
+
+/* FOOTER */
+footer.footer{text-align:center;padding:30px 0;}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">HSG</div>
+  <nav>
+    <a href="#about">რა არის HSG?</a>
+    <a href="#modules">მოდულები</a>
+    <a href="#championships">ჩემპიონატები</a>
+    <a href="#gallery">ბანაკები</a>
+    <a href="#events">ღონისძიებები</a>
+  </nav>
+  <div class="header-actions">
+    <button id="themeToggle" class="icon-btn">🌙</button>
+    <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform">რეგისტრაცია</a>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>High School of Georgia</h1>
+  <p>დამამთავრებელი კლასის მოსწავლეებისთვის განკუთვნილი სასწავლო და საკომუნიკაციო პროგრამა</p>
+</section>
+
+<section id="about" class="about">
+  <h2>რა არის HSG?</h2>
+  <p>HSG არის ინოვაციური სასწავლო პლატფორმა, რომელიც აერთიანებს სასწავლო მოდულებს, ჩემპიონატებს, ბანაკებს და ღონისძიებებს, მოსწავლეების განვითარებისათვის. აქ შეგიძლიათ გაიუმჯობესოთ ცოდნა, კომუნიკაციის უნარები და მიიღოთ რეალური გამოცდილება.</p>
+</section>
+<div class="register-section"><a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform">რეგისტრაცია</a></div>
+
+<section id="modules" class="section">
+<h2>მოდულები</h2>
+<div class="cards-grid">
+  <div class="card"><div class="img" style="background-image:url('images/BIZNES1.jpg')"></div><h3>ბიზნესი</h3><p>როგორ ვიშოვოთ ფული?</p></div>
+  <div class="card"><div class="img" style="background-image:url('images/LAW.jpg')"></div><h3>სამართალი</h3><p>სად მთავრდება შენი თავისუფლება?</p></div>
+  <div class="card"><div class="img" style="background-image:url('images/politika.jpg')"></div><h3>პოლიტიკა</h3><p>რა არ არის პოლიტიკა?</p></div>
+  <div class="card"><div class="img" style="background-image:url('images/art.jpg')"></div><h3>ხელოვნება</h3><p>ხელოვანი და ხელოვნება ერთია?</p></div>
+  <div class="card"><div class="img" style="background-image:url('images/FSIXALOGIA.jpg')"></div><h3>ფსიქოლოგია</h3><p>ვინ ხარ შენ?</p></div>
+  <div class="card"><div class="img" style="background-image:url('images/MECNIEREBA.jpg')"></div><h3>ტექნოლოგიები და მეცნიერება</h3><p>მომავლის უნდა გეშინოდეს?</p></div>
+</div>
+<div class="register-section"><a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform">რეგისტრაცია</a></div>
+</section>
+
+<section id="championships" class="section muted">
+<h2>ჩემპიონატები</h2>
+<div class="cards-grid">
+  <div class="card"><div class="img" style="background-image:url('images/abc.jpg')"></div><h3>ABC</h3><p>შენც შეგეშლებოდა?</p></div>
+  <div class="card"><div class="img" style="background-image:url('images/itest.jpg')"></div><h3>i-Test</h3><p>რამდენად ჩქარა აზროვნებ?</p></div>
+  <div class="card"><div class="img" style="background-image:url('images/kinomani.jpg')"></div><h3>კინომანი</h3><p>ტახტის ექსპერტი შენც ხარ?</p></div>
+  <div class="card"><div class="img" style="background-image:url('images/meloman.jpg')"></div><h3>მელომანი</h3><p>აბა ბითლზის სამი სიმღერა მითხარი</p></div>
+</div>
+
+<div class="highlight-champ">
+  <img src="images/INTELEQTUALUR.jpg" alt="Intel Championship" class="img">
+  <div class="champ-text">
+    <h3>ინტელექტუალური ჩემპიონატი</h3>
+    <p>გაიმარჯვე და გახდი 100% გრანტის მფლობელი საქართველოს უნივერსიტეტის ნებისმიერ საბაკალავრო პროგრამაზე!</p>
+    <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform">რეგისტრაცია</a>
+  </div>
+</div>
+
+</section>
+
+<section id="gallery" class="section">
+<h2>ბანაკები</h2>
+<div class="cards-grid">
+  <div class="card"><div class="img" style="background-image:url('images/PIRVRL.jpg')"></div><h3>HSG ზამთრის ბანაკი 2023</h3></div>
+  <div class="card"><div class="img" style="background-image:url('images/BANAK\ AGVISTO.jpg')"></div><h3>HSG გაზაფხულის ბანაკი 2024</h3></div>
+  <div class="card"><div class="img" style="background-image:url('images/474602897_122191421414041058_9122084221671524407_n.jpg')"></div><h3>HSG ზაფხულის ბანაკი 2024</h3></div>
+  <div class="card"><div class="img" style="background-image:url('images/BANAKI NEMVER.jpg')"></div><h3>HSG შემოდგომის ბანაკი 2024</h3></div>
+  <div class="card"><div class="img" style="background-image:url('images/RIGGAREsSHE.jpg')"></div><h3>HSG ზამთრის 2024</h3></div>
+  <div class="card"><div class="img" style="background-image:url('images/BANAK MART.jpg')"></div><h3>HSG გაზაფხულის ბანაკი 2025</h3></div>
+  <div class="card"><div class="img" style="background-image:url('images/banak zafxul.jpg')"></div><h3>HSG ზაფხულის ბანაკი 2025</h3></div>
+  <div class="card"><div class="img" style="background-image:url('images/BANAK BOLO.jpg')"></div><h3>HSG შემოდგომის 2025</h3></div>
+</div>
+<div class="register-section"><a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform">რეგისტრაცია</a></div>
+</section>
+
+<section id="events" class="section muted">
+<h2>ღონისძიებები</h2>
+<div class="cards-grid">
+  <div class="card"><div class="img" style="background-image:url('images/rsr.jpg')"></div><h3>რა? სად? როდის?</h3><p>აუ ეგ როგორ არ ჩათვალეს</p></div>
+  <div class="card"><div class="img" style="background-image:url('images/FILMCLUB.jpg')"></div><h3>კინოკლუბი</h3><p>აუ ამ ფილმის რეჟისორი ვინ არის?</p></div>
+  <div class="card"><div class="img" style="background-image:url('images/კაი ხალიხ.jpg')"></div><h3>მასტერკლასები</h3><p>ახალი საინტერესო თმები</p></div>
+  <div class="card"><div class="img" style="background-image:url('images/OLIMP.jpg')"></div><h3>ოლიმპიადები</h3><p>გახდი გამარჯვებული და მიიღე დაუვიწყარი პრიზები</p></div>
+</div>
+<div class="register-section"><a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform">რეგისტრაცია</a></div>
+</section>
+
+<footer class="footer">© 2026 All Rights Reserved</footer>
+
+<script>
+// THEME TOGGLE
+document.getElementById('themeToggle').onclick=()=>{document.body.classList.toggle('light');};
+
+// SCROLL ANIMATION
+const faders=document.querySelectorAll('.card, .highlight-champ, .register-section, .hero, .about');
+const appearOnScroll=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+  if(entry.isIntersecting){entry.target.classList.add('visible');} 
+  else{entry.target.classList.remove('visible');}
+});
+},{threshold:0.1});
+faders.forEach(fader=>appearOnScroll.observe(fader));
+</script>
+
+</body>
+</html>

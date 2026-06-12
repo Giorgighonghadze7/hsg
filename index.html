@@ -122,7 +122,7 @@ nav a:hover{color:var(--accent);}
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* ── მოდულების მართკუთხა ღილაკების სტილები ── */
+/* ── MODULES CARD BUTTONS ── */
 .card-btn {
   position: relative;
   border: none;
@@ -144,18 +144,15 @@ nav a:hover{color:var(--accent);}
   text-align: left;
   width: 100%;
 }
-
 .card-btn.visible {
   opacity: 1;
   transform: translateY(0);
   transition: opacity .8s ease-out, transform .8s ease-out;
 }
-
 .card-btn:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
   box-shadow: 0 12px 30px rgba(0,0,0,0.3);
 }
-
 .mod-logo {
   height: 55px;
   width: auto;
@@ -164,7 +161,6 @@ nav a:hover{color:var(--accent);}
   position: relative;
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.3));
 }
-
 .card-bg-img {
   position: absolute;
   inset: 0;
@@ -174,41 +170,178 @@ nav a:hover{color:var(--accent);}
   transition: opacity 0.4s ease;
   z-index: 1;
 }
-
 .card-bg-img::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.65);
 }
+.card-btn:hover .card-bg-img { opacity: 1; }
+.card-btn-content { position: relative; z-index: 2; pointer-events: none; }
+.card-btn h3 { font-size: 24px; font-weight: 700; text-shadow: 1px 1px 4px rgba(0,0,0,0.3); }
 
-.card-btn:hover .card-bg-img {
-  opacity: 1;
-}
-
-.card-btn-content {
-  position: relative;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.card-btn h3 {
-  font-size: 24px;
-  font-weight: 700;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-}
-
-/* ინდივიდუალური ფერები */
+/* MODULE COLORS */
 .mod-business { background-color: #27ae60; }
 .mod-law { background-color: #f39c12; }
 .mod-politics { background-color: #2980b9; }
-.mod-politics .card-bg-img { background-position: center top; }
 .mod-art { background-color: #8e44ad; }
 .mod-psychology { background-color: #c0392b; }
 .mod-tech { background-color: #16a085; }
 
 
-/* ── POP-UP (MODAL) სტილები ── */
+/* ── 🆕 ახალი „სხვა პროექტები“ სექციის სტილები (IMAGE_2026-06-12_163521161.PNG მიხედვით) ── */
+.projects-section {
+  padding: 90px 80px;
+}
+.projects-heading {
+  font-size: 32px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(128,128,128,0.15);
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.projects-heading .live-tag {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+.projects-grid-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 25px;
+  width: 100%;
+}
+
+/* დიდი ბარათი (მარცხენა მხარე) */
+.large-project-card {
+  position: relative;
+  min-height: 460px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+  cursor: pointer;
+  border: 1px solid rgba(128,128,128,0.15);
+  opacity: 0;
+  transform: translateY(40px);
+}
+.large-project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0.2) 100%);
+  z-index: 1;
+}
+.large-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+.card-badge {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  background: var(--accent);
+  color: white;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+.large-card-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+.large-card-content h3 {
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.large-card-content p {
+  font-size: 16px;
+  opacity: 0.85;
+  line-height: 1.5;
+  max-width: 90%;
+}
+
+/* პატარა გვერდითა ბარათები (მარჯვენა მხარე) */
+.side-cards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.side-project-card {
+  background: var(--card);
+  border: 1px solid rgba(128,128,128,0.15);
+  border-radius: 16px;
+  padding: 30px;
+  min-height: 217px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.side-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  border-color: var(--accent);
+}
+.side-card-top .side-badge {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: block;
+}
+.side-card-top h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.side-card-top p {
+  font-size: 15px;
+  color: var(--text);
+  opacity: 0.75;
+  line-height: 1.4;
+}
+.side-card-arrow {
+  align-self: flex-end;
+  color: var(--text);
+  opacity: 0.5;
+  font-size: 22px;
+  line-height: 1;
+  transition: transform 0.2s, color 0.2s, opacity 0.2s;
+}
+.side-project-card:hover .side-card-arrow {
+  transform: translateX(6px);
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* ანიმაციის კლასი */
+.large-project-card.visible, .side-project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .8s ease-out, transform .8s ease-out;
+}
+
+
+/* ── POP-UP (MODAL) სტილები სლაიდერით ── */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -222,12 +355,10 @@ nav a:hover{color:var(--accent);}
   pointer-events: none;
   transition: opacity 0.4s ease;
 }
-
 .modal-overlay.active {
   opacity: 1;
   pointer-events: auto;
 }
-
 .modal-box {
   background-color: var(--card);
   width: 90vw;
@@ -242,25 +373,48 @@ nav a:hover{color:var(--accent);}
   transform: translateY(40px) scale(0.95);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .modal-overlay.active .modal-box {
   transform: translateY(0) scale(1);
 }
 
-/* მარცხენა მხარე - ფოტო */
+/* მარცხენა მხარე - სლაიდერიანი ფოტო */
 .modal-img-side {
   flex: 1;
   background-size: cover;
   background-position: center;
   position: relative;
+  transition: background-image 0.3s ease;
 }
-
 .modal-img-side::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(to right, rgba(0,0,0,0.3), transparent);
 }
+
+/* პოპაპის სლაიდერის ისრები */
+.modal-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 12;
+  font-size: 16px;
+  transition: background 0.2s, transform 0.2s;
+}
+.modal-arrow:hover { background: var(--accent); transform: translateY(-50%) scale(1.1); }
+.modal-arrow.prev { left: 20px; }
+.modal-arrow.next { right: 20px; }
 
 /* მარჯვენა მხარე - კონტენტი */
 .modal-text-side {
@@ -272,7 +426,6 @@ nav a:hover{color:var(--accent);}
   position: relative;
   background-color: var(--card);
 }
-
 .modal-close-btn {
   position: absolute;
   top: 25px;
@@ -286,36 +439,10 @@ nav a:hover{color:var(--accent);}
   transition: color 0.2s, transform 0.2s;
   line-height: 1;
 }
-
-.modal-close-btn:hover {
-  color: var(--accent);
-  transform: scale(1.1);
-}
-
-.modal-text-side h2 {
-  font-size: 36px;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: var(--text);
-  position: relative;
-}
-
-.modal-text-side h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: var(--accent);
-  margin-top: 10px;
-  border-radius: 2px;
-}
-
-.modal-text-side p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--text);
-  opacity: 0.85;
-}
+.modal-close-btn:hover { color: var(--accent); transform: scale(1.1); }
+.modal-text-side h2 { font-size: 36px; font-weight: 800; margin-bottom: 20px; color: var(--text); position: relative; }
+.modal-text-side h2::after { content: ""; display: block; width: 60px; height: 4px; background-color: var(--accent); margin-top: 10px; border-radius: 2px; }
+.modal-text-side p { font-size: 18px; line-height: 1.7; color: var(--text); opacity: 0.85; }
 
 
 /* HERO SLIDER */
@@ -353,57 +480,33 @@ nav a:hover{color:var(--accent);}
 .about p{font-size:18px;max-width:800px;margin:0 auto;opacity:.9;}
 
 /* SECTIONS */
-.section{padding:100px 80px;position:relative;}
+.section{padding:90px 80px;position:relative;}
 .section.muted{background:var(--muted);}
-.section h2{font-size:32px;margin-bottom:50px;text-align:center;}
+.section h2{font-size:32px;margin-bottom:40px;text-align:center;}
 .cards-grid{display:grid;gap:30px;width:100%;}
-.card{
-  background:var(--card);border-radius:16px;overflow:hidden;
-  box-shadow:0 15px 40px rgba(31,30,30,.06);
-  transition:transform .3s,box-shadow .3s,border .3s;
-  border:2px solid transparent;position:relative;min-height:300px;padding:10px;
-  opacity:0;transform:translateY(40px);width:100%;
-}
-.card.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
-.card:hover{transform:scale(1.05);box-shadow:0 15px 30px rgba(227,18,53,.25);border-color:var(--accent);z-index:10;}
-.img{height:200px;background-size:cover;background-position:center;border-radius:12px 12px 0 0;}
-
-/* INTELLECTUAL CHAMPIONSHIP */
-.highlight-champ{
-  display:flex;align-items:center;gap:30px;max-width:1000px;
-  margin:50px auto;opacity:0;transform:translateY(40px);
-}
-.highlight-champ.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
-.highlight-champ .img{width:50%;border-radius:20px;object-fit:cover;height:auto;transition:transform .3s,box-shadow .3s,border .3s;}
-.highlight-champ .img:hover{transform:scale(1.05);box-shadow:0 15px 30px rgba(227,18,53,.25);border:2px solid var(--accent);}
-.highlight-champ .champ-text{width:50%;}
-.highlight-champ .champ-text p{margin-bottom:30px;}
 
 /* REGISTER */
 .register-section{text-align:center;margin-top:40px;opacity:0;transform:translateY(40px);}
 .register-section.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
 
-/* Responsive grids */
-#modules .cards-grid{grid-template-columns:repeat(2,1fr);}
-#championships .cards-grid{grid-template-columns:repeat(4,1fr);}
-#gallery .cards-grid{grid-template-columns:repeat(4,1fr);}
-#events .cards-grid{grid-template-columns:repeat(4,1fr);}
+/* 2-სვეტიანი გრიდი მოდულებისთვის */
+#modules .cards-grid { grid-template-columns: repeat(2, 1fr); }
 
 footer.footer{text-align:center;padding:30px 0;}
 
 /* 💻 TABLET MEDIA QUERY (MAX-WIDTH: 1024px) */
 @media(max-width:1024px){
-  #modules .cards-grid, #championships .cards-grid, #gallery .cards-grid, #events .cards-grid{grid-template-columns:repeat(2,1fr);}
+  #modules .cards-grid { grid-template-columns: repeat(2, 1fr); }
   .logo-bar{padding:15px 40px;}
-  .section, .about { padding: 60px 40px; }
+  .section, .about, .projects-section { padding: 60px 40px; }
+  .projects-grid-layout { grid-template-columns: 1.2fr 1fr; }
 }
 
 /* 📱 MOBILE MEDIA QUERY (MAX-WIDTH: 768px) */
 @media(max-width:768px){
   .header{padding:15px 20px; position:sticky; top:0; justify-content:space-between;}
-  .menu-toggle { display: block; } /* ვხსნით Hamburger ღილაკს */
+  .menu-toggle { display: block; }
   
-  /* ძირითადი მენიუ ტელეფონზე ხდება ჩამოსაშლელი კონტეინერი */
   .header-menu {
     display: none;
     flex-direction: column;
@@ -419,24 +522,9 @@ footer.footer{text-align:center;padding:30px 0;}
     z-index: 99;
     margin-left: 0;
   }
-  
-  .header-menu.active {
-    display: flex; /* ჩნდება ღილაკზე დაჭერისას */
-  }
-  
-  .header nav{
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 15px;
-  }
-  .header nav a{
-    margin: 0;
-    font-size: 17px;
-    padding: 6px 0;
-    width: 100%;
-    text-align: center;
-  }
+  .header-menu.active { display: flex; }
+  .header nav{ flex-direction: column; align-items: center; width: 100%; gap: 15px; }
+  .header nav a{ margin: 0; font-size: 17px; padding: 6px 0; width: 100%; text-align: center; }
   
   .header-actions{
     justify-content: center;
@@ -446,27 +534,24 @@ footer.footer{text-align:center;padding:30px 0;}
     gap: 20px;
   }
   
-  /* სექციები */
-  .section, .about { padding: 40px 15px; }
-  .section h2 { font-size: 26px; margin-bottom: 25px; }
+  .section, .about, .projects-section { padding: 40px 15px; }
+  .section h2, .projects-heading { font-size: 26px; margin-bottom: 25px; }
   
-  /* მოდულების და სხვა სექციების გრიდები იკავებენ 100%-ს, ცარიელი ადგილების გარეშე */
-  #modules .cards-grid, #championships .cards-grid, #gallery .cards-grid, #events .cards-grid{
-    grid-template-columns: 1fr;
-    gap: 15px;
-    width: 100%;
-  }
+  #modules .cards-grid { grid-template-columns: 1fr; gap: 15px; }
+  .projects-grid-layout { grid-template-columns: 1fr; gap: 20px; }
+  .large-project-card { min-height: 340px; padding: 25px; }
+  .large-card-content h3 { font-size: 28px; }
+  .side-project-card { padding: 25px; min-height: 180px; }
   
   .logo-bar{padding:15px 20px; justify-content:center; text-align:center;}
   .logo-bar-slot { flex-direction: column; gap: 10px; }
   .logo-bar img{height: 60px;}
   .logo-text {font-size: 24px;}
   
-  .card-btn { padding: 18px 20px; gap: 15px; min-height: 90px; width: 100%; }
+  .card-btn { padding: 18px 20px; gap: 15px; min-height: 90px; }
   .mod-logo { height: 45px; }
   .card-btn h3 { font-size: 20px; }
 
-  /* სლაიდერი */
   .hero { height: 75vh; }
   .slide{padding:0 20px 60px;}
   .slide-content h1{font-size:28px;}
@@ -474,20 +559,17 @@ footer.footer{text-align:center;padding:30px 0;}
   .slider-arrows{right:20px;bottom:55px; gap:6px;}
   .slider-arrow { width: 38px; height: 38px; font-size: 16px; }
 
-  /* ჩემპიონატი */
-  .highlight-champ{flex-direction:column; align-items:center; gap: 20px;}
-  .highlight-champ .img, .highlight-champ .champ-text{width:100%;}
-  .highlight-champ .champ-text{text-align:center;}
-  .highlight-champ .champ-text h3 { font-size: 22px; margin-bottom: 10px; }
-
-  /* პოპაპი */
+  /* პოპაპის მობილური ოპტიმიზაცია */
   .modal-box { flex-direction: column; height: 85vh; width: 92vw; max-height: 600px; }
-  .modal-img-side { flex: 0 0 35%; min-height: 180px; }
+  .modal-img-side { flex: 0 0 35%; min-height: 200px; }
   .modal-img-side::before { background: linear-gradient(to top, rgba(0,0,0,0.5), transparent); }
-  .modal-text-side { flex: 1; padding: 30px 20px; justify-content: flex-start; overflow-y: auto; }
+  .modal-arrow { width: 34px; height: 34px; font-size: 14px; }
+  .modal-arrow.prev { left: 10px; }
+  .modal-arrow.next { right: 10px; }
+  .modal-text-side { flex: 1; padding: 25px 20px; justify-content: flex-start; overflow-y: auto; }
   .modal-text-side h2 { font-size: 24px; margin-bottom: 12px; }
   .modal-text-side p { font-size: 15px; line-height: 1.6; }
-  .modal-close-btn { top: 15px; right: 20px; font-size: 32px; z-index: 10; }
+  .modal-close-btn { top: 15px; right: 20px; font-size: 32px; z-index: 15; }
 }
 
 /* 📱 პატარა ტელეფონები */
@@ -497,6 +579,8 @@ footer.footer{text-align:center;padding:30px 0;}
   .card-btn h3 { font-size: 18px; }
   .slide-content h1 { font-size: 24px; }
   .slide-content p { font-size: 14px; }
+  .large-project-card { min-height: 300px; }
+  .large-card-content h3 { font-size: 24px; }
 }
 </style>
 </head>
@@ -504,18 +588,13 @@ footer.footer{text-align:center;padding:30px 0;}
 
 <header class="header">
   <button class="home-btn" id="homeBtn" title="საწყის გვერდზე დაბრუნება">🏠︎</button>
-  
-  <!-- Hamburger ღილაკი მობილურისთვის -->
   <button class="menu-toggle" id="menuToggle">☰</button>
   
-  <!-- მთავარი კონტეინერი, რომელიც ტელეფონზე დაიმალება/გამოჩნდება -->
   <div class="header-menu" id="headerMenu">
     <nav>
       <a href="#about"    data-ka="რა არის HSG?" data-en="About HSG">რა არის HSG?</a>
       <a href="#modules"  data-ka="მოდულები"     data-en="Modules">მოდულები</a>
-      <a href="#championships" data-ka="ჩემპიონატები" data-en="Championships">ჩემპიონატები</a>
-      <a href="#gallery"  data-ka="ბანაკები"     data-en="Camps">ბანაკები</a>
-      <a href="#events"   data-ka="ღონისძიებები" data-en="Events">ღონისძიებები</a>
+      <a href="#other-projects" data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</a>
     </nav>
     <div class="header-actions">
       <button id="langToggle" class="lang-btn">EN</button>
@@ -533,7 +612,6 @@ footer.footer{text-align:center;padding:30px 0;}
 
 <section class="hero" id="hero">
   <div class="slides-wrapper" id="slidesWrapper">
-
     <div class="slide" style="background-image:url('images/qaveri.jpg')">
       <div class="slide-content">
         <h1>High School of Georgia</h1>
@@ -542,7 +620,6 @@ footer.footer{text-align:center;padding:30px 0;}
           დამამთავრებელი კლასის მოსწავლეებისთვის განკუთვნილი სასწავლო და საკომუნიკაციო პროგრამა</p>
       </div>
     </div>
-
     <div class="slide" style="background-image:url('images/BANAKI NEMVER.jpg')">
       <div class="slide-content">
         <h1 data-ka="ბანაკები" data-en="Camps">ბანაკები</h1>
@@ -551,7 +628,6 @@ footer.footer{text-align:center;padding:30px 0;}
           ახალი გამოცდილება, ახალი მეგობრები, დასამახსოვრებელი მომენტები</p>
       </div>
     </div>
-
     <div class="slide" style="background-image:url('images/INTELEQTUALUR.jpg')">
       <div class="slide-content">
         <h1 data-ka="ინტელექტუალური ჩემპიონატი" data-en="Intellectual Championship">ინტელექტუალური ჩემპიონატი</h1>
@@ -560,7 +636,6 @@ footer.footer{text-align:center;padding:30px 0;}
           გაიმარჯვე და გახდი 100% გრანტის მფლობელი</p>
       </div>
     </div>
-
     <div class="slide" style="background-image:url('images/OLIMP.jpg')">
       <div class="slide-content">
         <h1 data-ka="ოლიმპიადები" data-en="Olympiads">ოლიმპიადები</h1>
@@ -569,7 +644,6 @@ footer.footer{text-align:center;padding:30px 0;}
           გახდი გამარჯვებული და მიიღე დაუვიწყარი პრიზები</p>
       </div>
     </div>
-
   </div>
   <div class="slider-arrows">
     <button class="slider-arrow" id="prevBtn">&#8592;</button>
@@ -582,13 +656,15 @@ footer.footer{text-align:center;padding:30px 0;}
   <h2 data-ka="რა არის HSG?" data-en="What is HSG?">რა არის HSG?</h2>
   <p data-ka="HSG არის ინოვაციური სასწავლო პლატფორმა, რომელიც აერთიანებს სასწავლო მოდულებს, ჩემპიონატებს, ბანაკებს და ღონისძიებებს, მოსწავლეების განვითარებისათვის. აქ შეგიძლიათ გაიუმჯობესოთ ცოდნა, კომუნიკაციის უნარები და მიიღოთ რეალური გამოცდილება."
      data-en="HSG is an innovative learning platform that brings together educational modules, championships, camps and events for student development. Here you can improve your knowledge, communication skills and gain real-world experience.">
-    HSG არის ინოვაციური სასწავლო პლატფორმა, რომელიც აერთიანებს სასწავლო მოდულებს, ჩემპიონატებს, ბანაკებს და ღონისძიებებს, მოსწავლეების განვითარებისათვის. აქ შეგიძლიათ გაიუმატოთ ცოდნა, კომუნიკაციის უნარები და მიიღოთ რეალური გამოცდილება.</p>
+    HSG არის ინოვაციური სასწავლო პლატფორმა, რომელიც აერთიანებს სასწავლო მოდულებს, ჩემპიონატებს, ბანაკებს და ღონისძიებებს, მოსწავლეების განვითარებისათვის. აქ შეგიძლიათ გაიუმჯობესოთ ცოდნა, კომუნიკაციის უნარები და მიიღოთ რეალური გამოცდილება.</p>
 </section>
+
 <div class="register-section">
   <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform"
      data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</a>
 </div>
 
+<!-- ── მოდულების სექცია ── -->
 <section id="modules" class="section">
   <h2 data-ka="მოდულები" data-en="Modules">მოდულები</h2>
   <div class="cards-grid">
@@ -600,9 +676,7 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-en="Learn how successful startups are created, how teams are managed, and understand the foundations of modern marketing and management.">
       <div class="card-bg-img" style="background-image:url('images/BIZNES1.jpg')"></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
-      <div class="card-btn-content">
-        <h3 data-ka="ბიზნესი" data-en="Business">ბიზნესი</h3>
-      </div>
+      <div class="card-btn-content"><h3 data-ka="ბიზნესი" data-en="Business">ბიზნესი</h3></div>
     </button>
     
     <button class="card-btn mod-law" 
@@ -612,9 +686,7 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-en="Study fundamental human rights, principles of state governance, and develop legal and critical thinking skills.">
       <div class="card-bg-img" style="background-image:url('images/LAW.jpg')"></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
-      <div class="card-btn-content">
-        <h3 data-ka="სამართალი" data-en="Law">სამართალი</h3>
-      </div>
+      <div class="card-btn-content"><h3 data-ka="სამართალი" data-en="Law">სამართალი</h3></div>
     </button>
     
     <button class="card-btn mod-politics" 
@@ -624,9 +696,7 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-en="Analyze international relations, geopolitical processes, and discover how global governance systems function.">
       <div class="card-bg-img" style="background-image:url('images/politika.jpg')"></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
-      <div class="card-btn-content">
-        <h3 data-ka="პოლიტიკა" data-en="Politics">პოლიტიკა</h3>
-      </div>
+      <div class="card-btn-content"><h3 data-ka="პოლიტიკა" data-en="Politics">პოლიტიკა</h3></div>
     </button>
     
     <button class="card-btn mod-art" 
@@ -636,9 +706,7 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-en="Discover the role of cinematography, painting, music, and creative industries in human history and daily life.">
       <div class="card-bg-img" style="background-image:url('images/art.jpg')"></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
-      <div class="card-btn-content">
-        <h3 data-ka="ხელოვნება" data-en="Art">ხელოვნება</h3>
-      </div>
+      <div class="card-btn-content"><h3 data-ka="ხელოვნება" data-en="Art">ხელოვნება</h3></div>
     </button>
     
     <button class="card-btn mod-psychology" 
@@ -648,9 +716,7 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-en="Understand the motives of human behavior, emotions, interpersonal communication, and psychological aspects of personal growth.">
       <div class="card-bg-img" style="background-image:url('images/FSIXALOGIA.jpg')"></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
-      <div class="card-btn-content">
-        <h3 data-ka="ფსიქოლოგია" data-en="Psychology">ფსიქოლოგია</h3>
-      </div>
+      <div class="card-btn-content"><h3 data-ka="ფსიქოლოგია" data-en="Psychology">ფსიქოლოგია</h3></div>
     </button>
     
     <button class="card-btn mod-tech" 
@@ -660,121 +726,93 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-en="Explore modern technological innovations, programming fundamentals, and scientific breakthroughs that are reshaping our world.">
       <div class="card-bg-img" style="background-image:url('images/MECNIEREBA.jpg')"></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
-      <div class="card-btn-content">
-        <h3 data-ka="ტექნოლოგიები და მეცნიერება" data-en="Technology &amp; Science">ტექნოლოგიები და მეცნიერება</h3>
-      </div>
+      <div class="card-btn-content"><h3 data-ka="ტექნოლოგიები და მეცნიერება" data-en="Technology &amp; Science">ტექნოლოგიები და მეცნიერება</h3></div>
     </button>
-
-  </div>
-  <div class="register-section">
-    <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform"
-       data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</a>
   </div>
 </section>
 
-<section id="championships" class="section muted">
-  <h2 data-ka="ჩემპიონატები" data-en="Championships">ჩემპიონატები</h2>
-  <div class="cards-grid">
-    <div class="card">
-      <div class="img" style="background-image:url('images/abc.jpg')"></div>
-      <h3>ABC</h3>
-      <p data-ka="შენც შეგეშლებოდა?" data-en="Would you have got it wrong too?">შენც შეგეშლებოდა?</p>
-    </div>
-    <div class="card">
-      <div class="img" style="background-image:url('images/itest.jpg')"></div>
-      <h3>i-Test</h3>
-      <p data-ka="რამდენად ჩქარა აზროვნებ?" data-en="How fast do you think?">რამდენად ჩქარა აზროვნებ?</p>
-    </div>
-    <div class="card">
-      <div class="img" style="background-image:url('images/kinomani.jpg')"></div>
-      <h3 data-ka="კინომანი" data-en="Cinephile">კინომანი</h3>
-      <p data-ka="ტახტის ექსპერტი შენც ხარ?" data-en="Are you a couch-expert too?">ტახტის ექსპერტი შენც ხარ?</p>
-    </div>
-    <div class="card">
-      <div class="img" style="background-image:url('images/meloman.jpg')"></div>
-      <h3 data-ka="მელომანი" data-en="Melomaniac">მელომანი</h3>
-      <p data-ka="აბა ბითლზის სამი სიმღერა მითხარი" data-en="Name three Beatles songs then">აბა ბითლზის სამი სიმღერა მითხარი</p>
-    </div>
+
+<!-- ── 🆕 ახალი „სხვა პროექტები“ სექცია (ჩაანაცვლა ძველი 3 ცალკეული სექცია) ── -->
+<section id="other-projects" class="projects-section muted">
+  <div class="projects-heading">
+    <span data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</span>
+    <span class="live-tag">LIVE COMPETITIONS</span>
   </div>
 
-  <div class="highlight-champ">
-    <img src="images/INTELEQTUALUR.jpg" alt="Intel Championship" class="img">
-    <div class="champ-text">
-      <h3 data-ka="ინტელექტუალური ჩემპიონატი" data-en="Intellectual Championship">ინტელექტუალური ჩემპიონატი</h3>
-      <p data-ka="გაიმარჯვე და გახდი 100% გრანტის მფლობელი საქართველოს უნივერსიტეტის ნებისმიერ საბაკალავრო პროგრამაზე!"
-         data-en="Win and become the holder of a 100% grant for any bachelor's program at the University of Georgia!">
-        გაიმარჯვე და გახდი 100% გრანტის მფლობელი საქართველოს უნივერსიტეტის ნებისმიერ საბაკალავრო პროგრამაზე!</p>
-      <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform"
-         data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</a>
+  <div class="projects-grid-layout">
+    
+    <!-- მარცხენა მხარე: დიდი ბარათი - ღონისძიებები (მრავალფოტიანი სლაიდერით) -->
+    <div class="large-project-card" 
+         id="card-events"
+         style="background-image: url('images/FILMCLUB.jpg');"
+         data-imgs="images/FILMCLUB.jpg,images/art.jpg,images/qaveri.jpg"
+         data-title-ka="ღონისძიებები" data-title-en="Events"
+         data-desc-ka="მიიღე მონაწილეობა მრავალფეროვან შიდა აქტივობებში. ჩვენი პლატფორმა გთავაზობს ლეგენდარულ ინტელექტუალურ თამაშს 'რა? სად? როდის?', საინტერესო კინოკლუბის ჩვენებებს სიღრმისეული ნარატიული ანალიზით, მასტერკლასებს მოწვეულ სპიკერებთან და სხვადასხვა აკადემიურ ოლიმპიადებს."
+         data-desc-en="Take part in a wide variety of internal activities. Our platform offers the legendary 'What? Where? When?' game, engaging Film Club screenings with deep narrative analysis, masterclasses with guest speakers, and diverse academic olympiads.">
+      <div class="card-badge">ABC</div>
+      <div class="large-card-content">
+        <h3 data-ka="ღონისძიებები" data-en="Events">ღონისძიებები</h3>
+        <p data-ka="შემოუერთდი საუკეთესო ინტელექტუალურ და კინო თავგადასავლებს. დაგეგმე და გააანალიზე პროექტები გამოცდილ გუნდთან ერთად."
+           data-en="Join the ultimate test of wit and speed. A championship designed for the bold and creative minds.">
+          შემოუერთდი საუკეთესო ინტელექტუალურ და კინო თავგადასავლებს. დაგეგმე და გააანალიზე პროექტები გამოცდილ გუნდთან ერთად.
+        </p>
+      </div>
+    </div>
+
+    <!-- მარჯვენა მხარე: ორი პატარა ბარათი (ბანაკები და ჩემპიონატები) -->
+    <div class="side-cards-col">
+      
+      <!-- ზედა ბარათი: ბანაკები (მრავალფოტიანი სლაიდერით) -->
+      <div class="side-project-card" 
+           id="card-camps"
+           data-imgs="images/BANAKI NEMVER.jpg,images/qaveri.jpg,images/BIZNES1.jpg"
+           data-title-ka="ბანაკები" data-title-en="Camps"
+           data-desc-ka="შემოუერთდი HSG-ის სეზონურ ბანაკებს! ეს არის საუკეთესო შესაძლებლობა აქტიური დასვენებისთვის, გუნდური სპორტული თამაშებისთვის, ლიდერული თვისებების განვითარებისა და ახალი, დაუვიწყარი მეგობრების შესაძენად მყუდრო და თბილ გარემოში."
+           data-desc-en="Join HSG's seasonal camps! It is the ultimate opportunity for active recreation, team sports, leadership development, and making lifelong, unforgettable friends in a warm and welcoming environment.">
+        <div class="side-card-top">
+          <span class="side-badge">QUICK CAMP</span>
+          <h3 data-ka="ბანაკები" data-en="Camps">ბანაკები</h3>
+          <p data-ka="აღმოაჩინე ახალი მეგობრები და განავითარე ლიდერული უნარები დაუვიწყარ გარემოში." data-en="How fast can you adapt? Team building, sports and activities in nature.">აღმოაჩინე ახალი მეგობრები და განავითარე ლიდერული უნარები დაუვიწყარ გარემოში.</p>
+        </div>
+        <div class="side-card-arrow">&rarr;</div>
+      </div>
+
+      <!-- ქვედა ბარათი: ჩემპიონატები (მრავალფოტიანი სლაიდერით) -->
+      <div class="side-project-card" 
+           id="card-championships"
+           data-imgs="images/INTELEQTUALUR.jpg,images/OLIMP.jpg,images/MECNIEREBA.jpg"
+           data-title-ka="ჩემპიონატები" data-title-en="Championships"
+           data-desc-ka="გამოსცადე საკუთარი თავი სხვადასხვა შემეცნებით და ინტელექტუალურ შეჯიბრებაში. მიიღე მონაწილეობა ისეთ პროექტებში, როგორებიცაა ABC, i-Test, კინომანი და მელომანი, დაგროვე ქულები და მოიპოვე საუნივერსიტეტო გრანტები თუ სხვადასხვა ფასიანი პრიზები."
+           data-desc-en="Test yourself in various educational and intellectual competitions. Participate in projects like ABC, i-Test, Cinephile, and Melomaniac, accumulate points, and win university grants along with exciting prizes.">
+        <div class="side-card-top">
+          <span class="side-badge">INTELLECTUAL</span>
+          <h3 data-ka="ჩემპიონატები" data-en="Championships">ჩემპიონატები</h3>
+          <p data-ka="გაიმარჯვე შემეცნებით შეჯიბრებებში და მოიპოვე 100% საუნივერსიტეტო გრანტი." data-en="Compete with the best, accumulate points and win academic grants.">გაიმარჯვე შემეცნებით შეჯიბრებებში და მოიპოვე 100% საუნივერსიტეტო გრანტი.</p>
+        </div>
+        <div class="side-card-arrow">&rarr;</div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section id="gallery" class="section">
-  <h2 data-ka="ბანაკები" data-en="Camps">ბანაკები</h2>
-  <div class="cards-grid">
-    <div class="card"><div class="img" style="background-image:url('images/PIRVRL.jpg')"></div>
-      <h3 data-ka="HSG ზამთრის ბანაკი 2023" data-en="HSG Winter Camp 2023">HSG ზამთრის ბანაკი 2023</h3></div>
-    <div class="card"><div class="img" style="background-image:url('images/BANAK AGVISTO.jpg')"></div>
-      <h3 data-ka="HSG გაზაფხულის ბანაკი 2024" data-en="HSG Spring Camp 2024">HSG გაზაფხულის ბანაკი 2024</h3></div>
-    <div class="card"><div class="img" style="background-image:url('images/474602897_122191421414041058_9122084221671524407_n.jpg')"></div>
-      <h3 data-ka="HSG ზაფხულის ბანაკი 2024" data-en="HSG Summer Camp 2024">HSG ზაფხულის ბანაკი 2024</h3></div>
-    <div class="card"><div class="img" style="background-image:url('images/BANAKI NEMVER.jpg')"></div>
-      <h3 data-ka="HSG შემოდგომის ბანაკი 2024" data-en="HSG Autumn Camp 2024">HSG შემოდგომის ბანაკი 2024</h3></div>
-    <div class="card"><div class="img" style="background-image:url('images/RIGGAREsSHE.jpg')"></div>
-      <h3 data-ka="HSG ზამთრის 2024" data-en="HSG Winter 2024">HSG ზამთრის 2024</h3></div>
-    <div class="card"><div class="img" style="background-image:url('images/BANAK MART.jpg')"></div>
-      <h3 data-ka="HSG გაზაფხულის ბანაკი 2025" data-en="HSG Spring Camp 2025">HSG გაზაფხულის ბანაკი 2025</h3></div>
-    <div class="card"><div class="img" style="background-image:url('images/banak zafxul.jpg')"></div>
-      <h3 data-ka="HSG ზაფხულის ბანაკი 2025" data-en="HSG Summer Camp 2025">HSG ზაფხულის ბანაკი 2025</h3></div>
-    <div class="card"><div class="img" style="background-image:url('images/BANAK BOLO.jpg')"></div>
-      <h3 data-ka="HSG შემოდგომის 2025" data-en="HSG Autumn 2025">HSG შემოდგომის 2025</h3></div>
-  </div>
-  <div class="register-section">
-    <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform"
-       data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</a>
-  </div>
-</section>
+<div class="register-section">
+  <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform"
+     data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</a>
+</div>
 
-<section id="events" class="section muted">
-  <h2 data-ka="ღონისძიებები" data-en="Events">ღონისძიებები</h2>
-  <div class="cards-grid">
-    <div class="card">
-      <div class="img" style="background-image:url('images/rsr.jpg')"></div>
-      <h3 data-ka="რა? სად? როდის?" data-en="What? Where? When?">რა? სად? როდის?</h3>
-      <p data-ka="აუ ეგ როგორ არ ჩათვალეს" data-en="How did they not count that?">აუ ეგ როგორ არ ჩათვალეს</p>
-    </div>
-    <div class="card">
-      <div class="img" style="background-image:url('images/FILMCLUB.jpg')"></div>
-      <h3 data-ka="კინოკლუბი" data-en="Film Club">კინოკლუბი</h3>
-      <p data-ka="აუ ამ ფილმის რეჟისორი ვინ არის?" data-en="Wait, who directed this film?">აუ ამ ფილმის რეჟისორი ვინ არის?</p>
-    </div>
-    <div class="card">
-      <div class="img" style="background-image:url('images/კაი ხალიხ.jpg')"></div>
-      <h3 data-ka="მასტერკლასები" data-en="Masterclasses">მასტერკლასები</h3>
-      <p data-ka="ახალი საინტერესო თმები" data-en="Fresh and interesting vibes">ახალი საინტერესო თმები</p>
-    </div>
-    <div class="card">
-      <div class="img" style="background-image:url('images/OLIMP.jpg')"></div>
-      <h3 data-ka="ოლიმპიადები" data-en="Olympiads">ოლიმპიადები</h3>
-      <p data-ka="გახდი გამარჯვებული და მიიღე დაუვიწყარი პრიზები"
-         data-en="Become a winner and receive unforgettable prizes">გახდი გამარჯვებული და მიიღე დაუვიწყარი პრიზები</p>
-    </div>
-  </div>
-  <div class="register-section">
-    <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform"
-       data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</a>
-  </div>
-</section>
-
-<!-- POP-UP (MODAL) სტრუქტურა -->
+<!-- POP-UP (MODAL) სტრუქტურა შიდა სლაიდერით -->
 <div class="modal-overlay" id="modModal">
   <div class="modal-box">
-    <div class="modal-img-side" id="modalImg"></div>
+    <div class="modal-img-side" id="modalImg">
+      <!-- სლაიდერის მართვის ისრები პოპაპის შიგნით -->
+      <button class="modal-arrow prev" id="modalPrevBtn">&#8592;</button>
+      <button class="modal-arrow next" id="modalNextBtn">&#8594;</button>
+    </div>
     <div class="modal-text-side">
       <button class="modal-close-btn" id="modalClose">&times;</button>
-      <h2 id="modalTitle">მოდულის სათაური</h2>
-      <p id="modalDesc">აქ გამოჩნდება მოდულის შესაბამისი დეტალური აღწერა...</p>
+      <h2 id="modalTitle">სათაური</h2>
+      <p id="modalDesc">აღწერა...</p>
     </div>
   </div>
 </div>
@@ -790,11 +828,9 @@ const headerMenu = document.getElementById('headerMenu');
 
 menuToggle.onclick = () => {
   headerMenu.classList.toggle('active');
-  // იცვლის ვიზუალს ☰ და ✕-ს შორის
   menuToggle.textContent = headerMenu.classList.contains('active') ? '✕' : '☰';
 };
 
-// მენიუს დახურვა რომელიმე ლინკზე კლიკისას
 document.querySelectorAll('.header nav a').forEach(link => {
   link.onclick = () => {
     headerMenu.classList.remove('active');
@@ -825,7 +861,7 @@ function applyLang(lang) {
   document.getElementById('langToggle').textContent = lang === 'ka' ? 'EN' : 'KA';
   document.documentElement.lang = lang;
   
-  const activeBtn = document.querySelector('.card-btn.active-modal');
+  const activeBtn = document.querySelector('.active-modal');
   if(activeBtn) {
     updateModalContent(activeBtn);
   }
@@ -835,26 +871,53 @@ document.getElementById('langToggle').onclick = () => {
   applyLang(currentLang === 'ka' ? 'en' : 'ka');
 };
 
-// ── POP-UP (MODAL) ლოგიკა ──
+
+// ── 🔄 POP-UP (MODAL) მრავალფოტიანი სლაიდერის ლოგიკა ──
+let modalImages = [];
+let currentModalImgIdx = 0;
+
 const modal = document.getElementById('modModal');
 const modalImg = document.getElementById('modalImg');
 const modalTitle = document.getElementById('modalTitle');
 const modalDesc = document.getElementById('modalDesc');
 const modalClose = document.getElementById('modalClose');
+const modalPrevBtn = document.getElementById('modalPrevBtn');
+const modalNextBtn = document.getElementById('modalNextBtn');
+
+function showModalImage(idx) {
+  if (modalImages.length === 0) return;
+  currentModalImgIdx = (idx + modalImages.length) % modalImages.length;
+  modalImg.style.backgroundImage = `url('${modalImages[currentModalImgIdx]}')`;
+}
 
 function updateModalContent(btn) {
-  const bg = btn.getAttribute('data-bg');
-  const title = btn.getAttribute(`data-title-${currentLang}`);
+  // ამოწმებს აქვს ერთზე მეტი ფოტო (data-imgs) თუ მხოლოდ ერთი (data-bg)
+  const imgsAttr = btn.getAttribute('data-imgs') || btn.getAttribute('data-bg');
+  modalImages = imgsAttr ? imgsAttr.split(',') : [];
+  currentModalImgIdx = 0;
+  
+  // ისრების გამოჩენა/დამალვა ფოტოების რაოდენობის მიხედვით
+  if (modalImages.length > 1) {
+    modalPrevBtn.style.display = 'flex';
+    modalNextBtn.style.display = 'flex';
+  } else {
+    modalPrevBtn.style.display = 'none';
+    modalNextBtn.style.display = 'none';
+  }
+  
+  showModalImage(0);
+
+  const title = btn.getAttribute(`data-title-${currentLang}`) || btn.querySelector('h3').textContent;
   const desc = btn.getAttribute(`data-desc-${currentLang}`);
   
-  modalImg.style.backgroundImage = `url('${bg}')`;
   modalTitle.textContent = title;
   modalDesc.textContent = desc;
 }
 
-document.querySelectorAll('.card-btn').forEach(btn => {
+// ივენთების მიბმა ყველა ტიპის ბარათზე (მოდულებიცა და ახალი სექციის ბარათებიც)
+document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').forEach(btn => {
   btn.onclick = () => {
-    document.querySelectorAll('.card-btn').forEach(b => b.classList.remove('active-modal'));
+    document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').forEach(b => b.classList.remove('active-modal'));
     btn.classList.add('active-modal');
     
     updateModalContent(btn);
@@ -862,18 +925,17 @@ document.querySelectorAll('.card-btn').forEach(btn => {
   };
 });
 
+// პოპაპის ისრების კლიკები (stopPropagation აჩერებს პოპაპის დახურვას ფონზე კლიკისას)
+modalPrevBtn.onclick = (e) => { e.stopPropagation(); showModalImage(currentModalImgIdx - 1); };
+modalNextBtn.onclick = (e) => { e.stopPropagation(); showModalImage(currentModalImgIdx + 1); };
+
 function closeModal() {
   modal.classList.remove('active');
-  document.querySelectorAll('.card-btn').forEach(b => b.classList.remove('active-modal'));
+  document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').forEach(b => b.classList.remove('active-modal'));
 }
 
 modalClose.onclick = closeModal;
-
-modal.onclick = (e) => {
-  if (e.target === modal) {
-    closeModal();
-  }
-};
+modal.onclick = (e) => { if (e.target === modal) closeModal(); };
 
 
 // ── HERO SLIDER ──
@@ -909,8 +971,9 @@ function resetTimer() {
 }
 resetTimer();
 
+
 // ── SCROLL ANIMATION ──
-const faders = document.querySelectorAll('.card, .card-btn, .highlight-champ, .register-section, .hero, .about');
+const faders = document.querySelectorAll('.card-btn, .large-project-card, .side-project-card, .register-section, .hero, .about');
 const appearOnScroll = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add('visible');

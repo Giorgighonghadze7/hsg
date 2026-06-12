@@ -122,7 +122,7 @@ nav a:hover{color:var(--accent);}
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* ── MODULES CARD BUTTONS ── */
+/* MODULES CARD BUTTONS */
 .card-btn {
   position: relative;
   border: none;
@@ -133,7 +133,7 @@ nav a:hover{color:var(--accent);}
   overflow: hidden;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between; /* შეცვლილია: ტექსტი მარცხნივ, ლოგო მარჯვნივ */
   align-items: center;
   padding: 20px 30px;
   gap: 25px;
@@ -188,8 +188,7 @@ nav a:hover{color:var(--accent);}
 .mod-psychology { background-color: #c0392b; }
 .mod-tech { background-color: #16a085; }
 
-
-/* ── 🆕 ახალი „სხვა პროექტები“ სექციის სტილები (IMAGE_2026-06-12_163521161.PNG მიხედვით) ── */
+/* სხვა პროექტები სექცია */
 .projects-section {
   padding: 90px 80px;
 }
@@ -215,7 +214,7 @@ nav a:hover{color:var(--accent);}
   width: 100%;
 }
 
-/* დიდი ბარათი (მარცხენა მხარე) */
+/* დიდი ბარათი (ღონისძიებები) */
 .large-project-card {
   position: relative;
   min-height: 460px;
@@ -228,7 +227,8 @@ nav a:hover{color:var(--accent);}
   justify-content: flex-end;
   padding: 40px;
   cursor: pointer;
-  border: 1px solid rgba(128,128,128,0.15);
+  border: 2px solid var(--accent);
+  background-clip: padding-box;
   opacity: 0;
   transform: translateY(40px);
 }
@@ -273,7 +273,7 @@ nav a:hover{color:var(--accent);}
   max-width: 90%;
 }
 
-/* პატარა გვერდითა ბარათები (მარჯვენა მხარე) */
+/* პატარა გვერდითა ბარათები */
 .side-cards-col {
   display: flex;
   flex-direction: column;
@@ -333,15 +333,13 @@ nav a:hover{color:var(--accent);}
   opacity: 1;
 }
 
-/* ანიმაციის კლასი */
 .large-project-card.visible, .side-project-card.visible {
   opacity: 1;
   transform: translateY(0);
   transition: opacity .8s ease-out, transform .8s ease-out;
 }
 
-
-/* ── POP-UP (MODAL) სტილები სლაიდერით ── */
+/* POP-UP (MODAL) */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -377,7 +375,6 @@ nav a:hover{color:var(--accent);}
   transform: translateY(0) scale(1);
 }
 
-/* მარცხენა მხარე - სლაიდერიანი ფოტო */
 .modal-img-side {
   flex: 1;
   background-size: cover;
@@ -392,7 +389,6 @@ nav a:hover{color:var(--accent);}
   background: linear-gradient(to right, rgba(0,0,0,0.3), transparent);
 }
 
-/* პოპაპის სლაიდერის ისრები */
 .modal-arrow {
   position: absolute;
   top: 50%;
@@ -416,7 +412,6 @@ nav a:hover{color:var(--accent);}
 .modal-arrow.prev { left: 20px; }
 .modal-arrow.next { right: 20px; }
 
-/* მარჯვენა მხარე - კონტენტი */
 .modal-text-side {
   flex: 1;
   padding: 50px;
@@ -444,7 +439,6 @@ nav a:hover{color:var(--accent);}
 .modal-text-side h2::after { content: ""; display: block; width: 60px; height: 4px; background-color: var(--accent); margin-top: 10px; border-radius: 2px; }
 .modal-text-side p { font-size: 18px; line-height: 1.7; color: var(--text); opacity: 0.85; }
 
-
 /* HERO SLIDER */
 .hero{height:100vh;position:relative;overflow:hidden;color:white;opacity:0;transform:translateY(30px);}
 .hero.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
@@ -459,7 +453,6 @@ nav a:hover{color:var(--accent);}
 .slide-content h1{font-size:48px;margin-bottom:10px;text-shadow:1px 1px 6px rgba(0,0,0,.5);}
 .slide-content p{font-size:18px;opacity:.9;text-shadow:1px 1px 6px rgba(0,0,0,.5);}
 
-/* SLIDER CONTROLS */
 .slider-arrows{position:absolute;bottom:80px;right:80px;display:flex;gap:10px;z-index:10;}
 .slider-arrow{
   background:rgba(255,255,255,.15);backdrop-filter:blur(6px);
@@ -489,12 +482,10 @@ nav a:hover{color:var(--accent);}
 .register-section{text-align:center;margin-top:40px;opacity:0;transform:translateY(40px);}
 .register-section.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
 
-/* 2-სვეტიანი გრიდი მოდულებისთვის */
 #modules .cards-grid { grid-template-columns: repeat(2, 1fr); }
-
 footer.footer{text-align:center;padding:30px 0;}
 
-/* 💻 TABLET MEDIA QUERY (MAX-WIDTH: 1024px) */
+/* RESPONSIVE DESIGN */
 @media(max-width:1024px){
   #modules .cards-grid { grid-template-columns: repeat(2, 1fr); }
   .logo-bar{padding:15px 40px;}
@@ -502,7 +493,6 @@ footer.footer{text-align:center;padding:30px 0;}
   .projects-grid-layout { grid-template-columns: 1.2fr 1fr; }
 }
 
-/* 📱 MOBILE MEDIA QUERY (MAX-WIDTH: 768px) */
 @media(max-width:768px){
   .header{padding:15px 20px; position:sticky; top:0; justify-content:space-between;}
   .menu-toggle { display: block; }
@@ -559,7 +549,6 @@ footer.footer{text-align:center;padding:30px 0;}
   .slider-arrows{right:20px;bottom:55px; gap:6px;}
   .slider-arrow { width: 38px; height: 38px; font-size: 16px; }
 
-  /* პოპაპის მობილური ოპტიმიზაცია */
   .modal-box { flex-direction: column; height: 85vh; width: 92vw; max-height: 600px; }
   .modal-img-side { flex: 0 0 35%; min-height: 200px; }
   .modal-img-side::before { background: linear-gradient(to top, rgba(0,0,0,0.5), transparent); }
@@ -572,13 +561,10 @@ footer.footer{text-align:center;padding:30px 0;}
   .modal-close-btn { top: 15px; right: 20px; font-size: 32px; z-index: 15; }
 }
 
-/* 📱 პატარა ტელეფონები */
 @media(max-width:480px){
   .logo-text { font-size: 20px; }
-  .card-btn { flex-direction: column; align-items: flex-start; gap: 10px; padding: 20px; }
+  .card-btn { flex-direction: row; align-items: center; gap: 15px; padding: 15px 20px; }
   .card-btn h3 { font-size: 18px; }
-  .slide-content h1 { font-size: 24px; }
-  .slide-content p { font-size: 14px; }
   .large-project-card { min-height: 300px; }
   .large-card-content h3 { font-size: 24px; }
 }
@@ -675,8 +661,8 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-ka="გაიგეთ როგორ იქმნება წარმატებული სტარტაპები, როგორ იმართება გუნდი და რა არის თანამედროვე მარკეტინგისა და მენეჯმენტის საფუძვლები."
             data-desc-en="Learn how successful startups are created, how teams are managed, and understand the foundations of modern marketing and management.">
       <div class="card-bg-img" style="background-image:url('images/BIZNES1.jpg')"></div>
-      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
       <div class="card-btn-content"><h3 data-ka="ბიზნესი" data-en="Business">ბიზნესი</h3></div>
+      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
     </button>
     
     <button class="card-btn mod-law" 
@@ -685,8 +671,8 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-ka="შეისწავლეთ ადამიანის ფუნდამენტური უფლებები, სახელმწიფო მოწყობის პრინციპები და განავითარეთ იურიდიული, კრიტიკული აზროვნება."
             data-desc-en="Study fundamental human rights, principles of state governance, and develop legal and critical thinking skills.">
       <div class="card-bg-img" style="background-image:url('images/LAW.jpg')"></div>
-      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
       <div class="card-btn-content"><h3 data-ka="სამართალი" data-en="Law">სამართალი</h3></div>
+      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
     </button>
     
     <button class="card-btn mod-politics" 
@@ -695,8 +681,8 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-ka="გააანალიზეთ საერთაშორისო ურთიერთობები, გეოპოლიტიკური პროცესები და გაიგეთ, თუ როგორ მუშაობს გლობალური მართვის სისტემები."
             data-desc-en="Analyze international relations, geopolitical processes, and discover how global governance systems function.">
       <div class="card-bg-img" style="background-image:url('images/politika.jpg')"></div>
-      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
       <div class="card-btn-content"><h3 data-ka="პოლიტიკა" data-en="Politics">პოლიტიკა</h3></div>
+      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
     </button>
     
     <button class="card-btn mod-art" 
@@ -705,8 +691,8 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-ka="აღმოაჩინეთ კინემატოგრაფიის, მხატვრობის, მუსიკისა და შემოქმედებითი ინდუსტრიების როლი კაცობრიობის ისტორიასა და ყოველდღიურობაში."
             data-desc-en="Discover the role of cinematography, painting, music, and creative industries in human history and daily life.">
       <div class="card-bg-img" style="background-image:url('images/art.jpg')"></div>
-      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
       <div class="card-btn-content"><h3 data-ka="ხელოვნება" data-en="Art">ხელოვნება</h3></div>
+      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
     </button>
     
     <button class="card-btn mod-psychology" 
@@ -715,8 +701,8 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-ka="ჩაწვდით ადამიანის ქცევის მოტივებს, ემოციებს, ინტერპერსონალურ კომუნიკაციასა და პიროვნული განვითარების ფსიქოლოგიურ ასპექტებს."
             data-desc-en="Understand the motives of human behavior, emotions, interpersonal communication, and psychological aspects of personal growth.">
       <div class="card-bg-img" style="background-image:url('images/FSIXALOGIA.jpg')"></div>
-      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
       <div class="card-btn-content"><h3 data-ka="ფსიქოლოგია" data-en="Psychology">ფსიქოლოგია</h3></div>
+      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
     </button>
     
     <button class="card-btn mod-tech" 
@@ -725,14 +711,13 @@ footer.footer{text-align:center;padding:30px 0;}
             data-desc-ka="გაეცანით თანამედროვე ტექნოლოგიურ ინოვაციებს, პროგრამირების საფუძვლებს და სამეცნიერო მიღწევებს, რომლებიც ცვლიან სამყაროს."
             data-desc-en="Explore modern technological innovations, programming fundamentals, and scientific breakthroughs that are reshaping our world.">
       <div class="card-bg-img" style="background-image:url('images/MECNIEREBA.jpg')"></div>
-      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
       <div class="card-btn-content"><h3 data-ka="ტექნოლოგიები და მეცნიერება" data-en="Technology &amp; Science">ტექნოლოგიები და მეცნიერება</h3></div>
+      <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
     </button>
   </div>
 </section>
 
-
-<!-- ── 🆕 ახალი „სხვა პროექტები“ სექცია (ჩაანაცვლა ძველი 3 ცალკეული სექცია) ── -->
+<!-- ── სლაიდერიანი სხვა პროექტები ── -->
 <section id="other-projects" class="projects-section muted">
   <div class="projects-heading">
     <span data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</span>
@@ -740,8 +725,6 @@ footer.footer{text-align:center;padding:30px 0;}
   </div>
 
   <div class="projects-grid-layout">
-    
-    <!-- მარცხენა მხარე: დიდი ბარათი - ღონისძიებები (მრავალფოტიანი სლაიდერით) -->
     <div class="large-project-card" 
          id="card-events"
          style="background-image: url('images/FILMCLUB.jpg');"
@@ -759,10 +742,7 @@ footer.footer{text-align:center;padding:30px 0;}
       </div>
     </div>
 
-    <!-- მარჯვენა მხარე: ორი პატარა ბარათი (ბანაკები და ჩემპიონატები) -->
     <div class="side-cards-col">
-      
-      <!-- ზედა ბარათი: ბანაკები (მრავალფოტიანი სლაიდერით) -->
       <div class="side-project-card" 
            id="card-camps"
            data-imgs="images/BANAKI NEMVER.jpg,images/qaveri.jpg,images/BIZNES1.jpg"
@@ -777,7 +757,6 @@ footer.footer{text-align:center;padding:30px 0;}
         <div class="side-card-arrow">&rarr;</div>
       </div>
 
-      <!-- ქვედა ბარათი: ჩემპიონატები (მრავალფოტიანი სლაიდერით) -->
       <div class="side-project-card" 
            id="card-championships"
            data-imgs="images/INTELEQTUALUR.jpg,images/OLIMP.jpg,images/MECNIEREBA.jpg"
@@ -791,7 +770,6 @@ footer.footer{text-align:center;padding:30px 0;}
         </div>
         <div class="side-card-arrow">&rarr;</div>
       </div>
-
     </div>
   </div>
 </section>
@@ -801,11 +779,10 @@ footer.footer{text-align:center;padding:30px 0;}
      data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</a>
 </div>
 
-<!-- POP-UP (MODAL) სტრუქტურა შიდა სლაიდერით -->
+<!-- POP-UP (MODAL) -->
 <div class="modal-overlay" id="modModal">
   <div class="modal-box">
     <div class="modal-img-side" id="modalImg">
-      <!-- სლაიდერის მართვის ისრები პოპაპის შიგნით -->
       <button class="modal-arrow prev" id="modalPrevBtn">&#8592;</button>
       <button class="modal-arrow next" id="modalNextBtn">&#8594;</button>
     </div>
@@ -831,8 +808,25 @@ menuToggle.onclick = () => {
   menuToggle.textContent = headerMenu.classList.contains('active') ? '✕' : '☰';
 };
 
+// ── 🎯 ჰედერში ლინკებზე დაჭერისას ზუსტი და პლასტიკური სქროლვა ──
 document.querySelectorAll('.header nav a').forEach(link => {
-  link.onclick = () => {
+  link.onclick = (e) => {
+    e.preventDefault();
+    
+    const targetId = link.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      const headerHeight = document.querySelector('.header').offsetHeight;
+      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight - 50;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+
     headerMenu.classList.remove('active');
     menuToggle.textContent = '☰';
   };
@@ -871,8 +865,7 @@ document.getElementById('langToggle').onclick = () => {
   applyLang(currentLang === 'ka' ? 'en' : 'ka');
 };
 
-
-// ── 🔄 POP-UP (MODAL) მრავალფოტიანი სლაიდერის ლოგიკა ──
+// ── POP-UP (MODAL) LOGIC ──
 let modalImages = [];
 let currentModalImgIdx = 0;
 
@@ -891,12 +884,10 @@ function showModalImage(idx) {
 }
 
 function updateModalContent(btn) {
-  // ამოწმებს აქვს ერთზე მეტი ფოტო (data-imgs) თუ მხოლოდ ერთი (data-bg)
   const imgsAttr = btn.getAttribute('data-imgs') || btn.getAttribute('data-bg');
   modalImages = imgsAttr ? imgsAttr.split(',') : [];
   currentModalImgIdx = 0;
   
-  // ისრების გამოჩენა/დამალვა ფოტოების რაოდენობის მიხედვით
   if (modalImages.length > 1) {
     modalPrevBtn.style.display = 'flex';
     modalNextBtn.style.display = 'flex';
@@ -914,7 +905,6 @@ function updateModalContent(btn) {
   modalDesc.textContent = desc;
 }
 
-// ივენთების მიბმა ყველა ტიპის ბარათზე (მოდულებიცა და ახალი სექციის ბარათებიც)
 document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').forEach(b => b.classList.remove('active-modal'));
@@ -925,7 +915,6 @@ document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').
   };
 });
 
-// პოპაპის ისრების კლიკები (stopPropagation აჩერებს პოპაპის დახურვას ფონზე კლიკისას)
 modalPrevBtn.onclick = (e) => { e.stopPropagation(); showModalImage(currentModalImgIdx - 1); };
 modalNextBtn.onclick = (e) => { e.stopPropagation(); showModalImage(currentModalImgIdx + 1); };
 
@@ -936,7 +925,6 @@ function closeModal() {
 
 modalClose.onclick = closeModal;
 modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-
 
 // ── HERO SLIDER ──
 const wrapper  = document.getElementById('slidesWrapper');
@@ -970,7 +958,6 @@ function resetTimer() {
   autoTimer = setInterval(next, 4000);
 }
 resetTimer();
-
 
 // ── SCROLL ANIMATION ──
 const faders = document.querySelectorAll('.card-btn, .large-project-card, .side-project-card, .register-section, .hero, .about');

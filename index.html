@@ -92,16 +92,16 @@ nav a:hover{color:var(--accent);}
 .logo-bar{
   background: var(--accent);
   border-bottom: 1px solid rgba(255,255,255,.15);
-  padding: 15px 80px;
+  padding: 12px 80px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100px;
+  min-height: 50px;
 }
 .logo-bar-slot {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 .logo-bar img{
   height: 75px;
@@ -110,12 +110,14 @@ nav a:hover{color:var(--accent);}
   display: block;
   filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.35));
   transition: transform 0.3s ease;
+
+  margin-left: -20px;
 }
 .logo-bar img:hover {
   transform: scale(1.03);
 }
 .logo-text {
-  font-size: 32px;
+  font-size: 35px;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.5px;
@@ -450,31 +452,31 @@ nav a:hover{color:var(--accent);}
 .modal-text-side h2::after { content: ""; display: block; width: 60px; height: 4px; background-color: var(--accent); margin-top: 10px; border-radius: 2px; }
 .modal-text-side p { font-size: 18px; line-height: 1.7; color: var(--text); opacity: 0.85; }
 
-/* HERO SLIDER */
-.hero{height:100vh;position:relative;overflow:hidden;color:white;opacity:0;transform:translateY(30px);}
+/* HERO SLIDER - გაზრდილია 80vh-მდე მეტი ეფექტურობისთვის */
+.hero{height:80vh;position:relative;overflow:hidden;color:white;opacity:0;transform:translateY(30px);}
 .hero.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
 .slides-wrapper{display:flex;height:100%;transition:transform .7s cubic-bezier(.77,0,.18,1);}
 .slide{
   min-width:100%;height:100%;background-size:cover;background-position:center;
   position:relative;display:flex;flex-direction:column;
-  justify-content:flex-end;align-items:flex-start;padding:0 80px 80px;
+  justify-content:flex-end;align-items:flex-start;padding:0 80px 100px;
 }
 .slide::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,.1));}
-.slide-content{position:relative;z-index:1;max-width:600px;}
-.slide-content h1{font-size:48px;margin-bottom:10px;text-shadow:1px 1px 6px rgba(0,0,0,.5);}
-.slide-content p{font-size:18px;opacity:.9;text-shadow:1px 1px 6px rgba(0,0,0,.5);}
+.slide-content{position:relative;z-index:1;max-width:650px;}
+.slide-content h1{font-size:52px;margin-bottom:12px;text-shadow:1px 1px 6px rgba(0,0,0,.5);font-weight:800;}
+.slide-content p{font-size:19px;opacity:.9;text-shadow:1px 1px 6px rgba(0,0,0,.5);line-height:1.4;}
 
-.slider-arrows{position:absolute;bottom:80px;right:80px;display:flex;gap:10px;z-index:10;}
+.slider-arrows{position:absolute;bottom:100px;right:80px;display:flex;gap:12px;z-index:10;}
 .slider-arrow{
   background:rgba(255,255,255,.15);backdrop-filter:blur(6px);
-  border:1px solid rgba(255,255,255,.25);color:white;width:44px;height:44px;
-  border-radius:50%;cursor:pointer;font-size:18px;
+  border:1px solid rgba(255,255,255,.25);color:white;width:48px;height:48px;
+  border-radius:50%;cursor:pointer;font-size:20px;
   display:flex;align-items:center;justify-content:center;
   transition:background .25s,transform .25s;
 }
 .slider-arrow:hover{background:var(--accent);transform:scale(1.1);}
-.slider-dots{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;}
-.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .3s,transform .3s;border:none;padding:0;}
+.slider-dots{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;}
+.dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .3s,transform .3s;border:none;padding:0;}
 .dot.active{background:white;transform:scale(1.3);}
 
 /* ABOUT */
@@ -630,21 +632,22 @@ body.light .footer-col ul li a { color: #cccccc; }
   .large-card-content h3 { font-size: 28px; }
   .side-project-card { padding: 25px; min-height: 180px; }
   
-  .logo-bar{padding:15px 20px; justify-content:center; text-align:center;}
-  .logo-bar-slot { flex-direction: column; gap: 10px; }
-  .logo-bar img{height: 60px;}
-  .logo-text {font-size: 24px;}
+  .logo-bar{padding:12px 20px; justify-content:flex-start; text-align:left;}
+  .logo-bar-slot { flex-direction: row; gap: 15px; align-items: center; justify-content: flex-start; width: 100%; }
+  .logo-bar img{height: 45px;}
+  .logo-text {font-size: 20px;}
   
   .card-btn { padding: 18px 20px; gap: 15px; min-height: 90px; }
   .mod-logo { height: 45px; }
   .card-btn h3 { font-size: 20px; }
 
-  .hero { height: 75vh; }
-  .slide{padding:0 20px 60px;}
-  .slide-content h1{font-size:28px;}
+  /* HERO მობილურზე - გაზრდილია 65vh-მდე */
+  .hero { height: 65vh; }
+  .slide{padding:0 20px 65px;}
+  .slide-content h1{font-size:32px;}
   .slide-content p{font-size:15px;}
-  .slider-arrows{right:20px;bottom:55px; gap:6px;}
-  .slider-arrow { width: 38px; height: 38px; font-size: 16px; }
+  .slider-arrows{right:20px;bottom:60px; gap:8px;}
+  .slider-arrow { width: 40px; height: 40px; font-size: 17px; }
 
   .modal-box { flex-direction: column; height: 85vh; width: 92vw; max-height: 600px; }
   .modal-img-side { flex: 0 0 35%; min-height: 200px; }
@@ -661,8 +664,8 @@ body.light .footer-col ul li a { color: #cccccc; }
   .footer-container { grid-template-columns: 1fr; gap: 30px; margin-bottom: 30px; }
 }
 
-@media(max-width:480px){
-  .logo-text { font-size: 20px; }
+@media(max-width:480px) {
+  .logo-text { font-size: 18px; }
   .card-btn { flex-direction: row; align-items: center; gap: 15px; padding: 15px 20px; }
   .card-btn h3 { font-size: 18px; }
   .large-project-card { min-height: 300px; }
@@ -1017,7 +1020,7 @@ document.getElementById('langToggle').onclick = () => {
 // ── POP-UP (MODAL) LOGIC WITH AUTOPLAY ──
 let modalImages = [];
 let currentModalImgIdx = 0;
-let modalAutoTimer; // ტაიმერის ცვლადი პოპ-აპისთვის
+let modalAutoTimer; 
 
 const modal = document.getElementById('modModal');
 const modalImg = document.getElementById('modalImg');
@@ -1033,13 +1036,12 @@ function showModalImage(idx) {
   modalImg.style.backgroundImage = `url('${modalImages[currentModalImgIdx]}')`;
 }
 
-// ავტომატური სლაიდერის ჩართვის ფუნქცია პოპ-აპში
 function startModalTimer() {
   clearInterval(modalAutoTimer);
   if (modalImages.length > 1) {
     modalAutoTimer = setInterval(() => {
       showModalImage(currentModalImgIdx + 1);
-    }, 4000); // იცვლება ყოველ 4 წამში
+    }, 4000); 
   }
 }
 
@@ -1064,7 +1066,7 @@ function updateModalContent(btn) {
   modalTitle.textContent = title;
   modalDesc.textContent = desc;
 
-  startModalTimer(); // ვრთავთ ავტომატურ ტაიმერს კონტენტის ჩატვირთვისას
+  startModalTimer(); 
 }
 
 document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').forEach(btn => {
@@ -1077,7 +1079,6 @@ document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').
   };
 });
 
-// ისრებზე კლიკისას სლაიდიც იცვლება და ტაიმერიც ნულდება (რესეტდება)
 modalPrevBtn.onclick = (e) => { 
   e.stopPropagation(); 
   showModalImage(currentModalImgIdx - 1); 
@@ -1091,7 +1092,7 @@ modalNextBtn.onclick = (e) => {
 
 function closeModal() {
   modal.classList.remove('active');
-  clearInterval(modalAutoTimer); // პოპ-აპის დახურვისას ტაიმერი მთლიანად ითიშება
+  clearInterval(modalAutoTimer); 
   document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').forEach(b => b.classList.remove('active-modal'));
 }
 

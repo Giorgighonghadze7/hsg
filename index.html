@@ -190,6 +190,10 @@ nav a:hover{color:var(--accent);}
 .mod-psychology { background-color: #c0392b; }
 .mod-tech { background-color: #16a085; }
 
+
+.mod-politics .card-bg-img {
+  background-position: center 38%; /* 👈 ეს ციფრი განსაზღვრავს ფოტოს სიმაღლეს. შეგიძლია შეცვალო (მაგ. 40% ან 42%-ზე) იდეალურ გასწორებამდე */
+}
 /* სექციების სათაურების გამოყოფა ქვედა ხაზით */
 .about h2, .section h2 {
   font-size: 32px;
@@ -451,6 +455,12 @@ nav a:hover{color:var(--accent);}
 .modal-text-side h2 { font-size: 36px; font-weight: 800; margin-bottom: 20px; color: var(--text); position: relative; }
 .modal-text-side h2::after { content: ""; display: block; width: 60px; height: 4px; background-color: var(--accent); margin-top: 10px; border-radius: 2px; }
 .modal-text-side p { font-size: 18px; line-height: 1.7; color: var(--text); opacity: 0.85; }
+
+/* როდესაც პოპაპი იხსნება ხელოვნების (Art) მოდულზე, ფოტოს ვწევთ მარცხნივ */
+.mod-art.active-modal ~ #modModal #modalImg,
+body:has(.mod-art.active-modal) #modalImg {
+  background-position: 25% center !important; /* 👈 ეს პროცენტი განსაზღვრავს პოზიციას */
+}
 
 /* HERO SLIDER - გაზრდილია 80vh-მდე მეტი ეფექტურობისთვის */
 .hero{height:80vh;position:relative;overflow:hidden;color:white;opacity:0;transform:translateY(30px);}
@@ -832,7 +842,7 @@ body.light .footer-col ul li a { color: #cccccc; }
     <div class="large-project-card" 
          id="card-events"
          style="background-image: url('images/FILMCLUB.jpg');"
-         data-imgs="images/FILMCLUB.jpg,images/art.jpg,images/qaveri.jpg"
+         data-imgs="images/FILMCLUB.jpg,images/OLIMP.jpg,images/rsr.jpg,images/კაი ხალიხ.jpg "
          data-title-ka="ღონისძიებები" data-title-en="Events"
          data-desc-ka="მიიღე მონაწილეობა მრავალფეროვან შიდა აქტივობებში. ჩვენი პლატფორმა გთავაზობს ლეგენდარულ ინტელექტუალურ თამაშს 'რა? სად? როდის?', საინტერესო კინოკლუბის ჩვენებებს სიღრმისეული ნარატიული ანალიზით, მასტერკლასებს მოწვეულ სპიკერებთან და სხვადასხვა აკადემიურ ოლიმპიადებს."
          data-desc-en="Take part in a wide variety of internal activities. Our platform offers the legendary 'What? Where? When?' game, engaging Film Club screenings with deep narrative analysis, masterclasses with guest speakers, and diverse academic olympiads.">
@@ -849,7 +859,7 @@ body.light .footer-col ul li a { color: #cccccc; }
     <div class="side-cards-col">
       <div class="side-project-card" 
            id="card-camps"
-           data-imgs="images/BANAKI NEMVER.jpg,images/qaveri.jpg,images/BIZNES1.jpg"
+           data-imgs="images/BANAKI NEMVER.jpg,images/BANAK AGVISTO.jpg,images/BANAK MART.jpg,images/BANAK BOLO.jpg, images/BANAK STU.jpg"
            data-title-ka="ბანაკები" data-title-en="Camps"
            data-desc-ka="შემოუერთდი HSG-ის სეზონურ ბანაკებს! ეს არის საუკეთესო შესაძლებლობა აქტიური დასვენებისთვის, გუნდური სპორტული თამაშებისთვის, ლიდერული თვისებების განვითარებისა და ახალი, დაუვიწყარი მეგობრების შესაძენად მყუდრო და თბილ გარემოში."
            data-en="Join HSG's seasonal camps! It is the ultimate opportunity for active recreation, team sports, leadership development, and making lifelong, unforgettable friends in a warm and welcoming environment.">
@@ -863,7 +873,7 @@ body.light .footer-col ul li a { color: #cccccc; }
 
       <div class="side-project-card" 
            id="card-championships"
-           data-imgs="images/INTELEQTUALUR.jpg,images/OLIMP.jpg,images/MECNIEREBA.jpg"
+           data-imgs="images/INTELEQTUALUR.jpg,images/itest.jpg,images/kinomani.jpg,images/meloman.jpg,images/abc.jpg"
            data-title-ka="ჩემპიონატები" data-title-en="Championships"
            data-desc-ka="გამოსცადე საკუთარი თავი სხვადასხვა შემეცნებით და ინტელექტუალურ შეჯიბრებაში. მიიღე მონაწილეობა ისეთ პროექტებში, როგორებიცაა ABC, i-Test, კინომანი და მელომანი, დაგროვე ქულები და მოიპოვე საუნივერსიტეტო გრანტები თუ სხვადასხვა ფასიანი პრიზები."
            data-en="Test yourself in various educational and intellectual competitions. Participate in projects like ABC, i-Test, Cinephile, and Melomaniac, accumulate points, and win university grants along with exciting prizes.">
@@ -1059,6 +1069,15 @@ function updateModalContent(btn) {
   
   showModalImage(0);
 
+// 🛠️ ფოტოების პოზიციონირება მოდულების მიხედვით პოპაპში
+  if (btn.classList.contains('mod-art')) {
+    modalImg.style.backgroundPosition = '25% center';      // ხელოვნება გაიწევა მარცხნივ
+  } else if (btn.classList.contains('mod-psychology')) {
+    modalImg.style.backgroundPosition = '75% center';      // 👈 ფსიქოლოგია გაიწევა მარჯვნივ (შეგიძლია შეცვალო 80% ან 85%-ზე უფრო მეტად გასაწევად)
+  } else {
+    modalImg.style.backgroundPosition = 'center center';   // დანარჩენი მოდულები დარჩება ცენტრში
+  }
+
   const title = btn.getAttribute(`data-title-${currentLang}`) || btn.querySelector('h3').textContent;
   const desc = btn.getAttribute(`data-desc-${currentLang}`);
   
@@ -1097,6 +1116,8 @@ function closeModal() {
 
 modalClose.onclick = closeModal;
 modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+
+
 
 // ── HERO SLIDER ──
 const wrapper  = document.getElementById('slidesWrapper');

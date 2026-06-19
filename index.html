@@ -208,6 +208,36 @@ nav a:hover{color:var(--accent);}
   width: 100%;
 }
 
+/* STATS SECTION (ახალი სექცია სტატისტიკებისთვის) */
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1100px;
+  margin: 50px auto 20px auto;
+  padding: 10px 40px;
+  gap: 30px;
+  text-align: center;
+}
+.stat-item {
+  flex: 1;
+}
+.stat-number {
+  font-size: 64px;
+  font-weight: 800;
+  color: #ffffff; /* აბსოლუტურად თეთრი ფერი */
+  line-height: 1;
+  margin-bottom: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+}
+
 /* სხვა პროექტები სექცია */
 .projects-section {
   padding: 90px 80px;
@@ -672,6 +702,16 @@ body.light .footer-col ul li a { color: #cccccc; }
 
   footer.footer { padding: 40px 20px 20px; }
   .footer-container { grid-template-columns: 1fr; gap: 30px; margin-bottom: 30px; }
+
+  /* სტატისტიკები მობილურზე */
+  .stats-container {
+    flex-direction: column;
+    gap: 35px;
+    padding: 10px 20px;
+  }
+  .stat-number {
+    font-size: 46px;
+  }
 }
 
 @media(max-width:480px) {
@@ -751,7 +791,6 @@ body.light .footer-col ul li a { color: #cccccc; }
   <div class="slider-dots" id="sliderDots"></div>
 </section>
 
-<!-- რა არის HSG სექცია -->
 <section id="about" class="about">
   <h2 data-ka="რა არის HSG?" data-en="What is HSG?">რა არის HSG?</h2>
   <p data-ka="HSG არის ინოვაციური სასწავლო პლატფორმა, რომელიც აერთიანებს სასწავლო მოდულებს, ჩემპიონატებს, ბანაკებს და ღონისძიებებს, მოსწავლეების განვითარებისათვის. აქ შეგიძლიათ გაიუმჯობესოთ ცოდნა, კომუნიკაციის უნარები და მიიღოთ რეალური გამოცდილება."
@@ -759,12 +798,30 @@ body.light .footer-col ul li a { color: #cccccc; }
     HSG არის ინოვაციური სასწავლო პლატფორმა, რომელიც აერთიანებს სასწავლო მოდულებს, ჩემპიონატებს, ბანაკებს და ღონისძიებებს, მოსწავლეების განვითარებისათვის. აქ შეგიძლიათ გაიუმჯობესოთ ცოდნა, კომუნიკაციის უნარები და მიიღოთ რეალური გამოცდილება.</p>
 </section>
 
+<div class="stats-container">
+  <div class="stat-item">
+    <div class="stat-number" data-target="2931">0</div>
+    <div class="stat-label" data-ka="მონაწილე" data-en="Students">მონაწილე</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number" data-target="4400">0</div>
+    <div class="stat-label" data-ka="ლექცია" data-en="lectures">ლექცია</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number" data-target="11">0</div>
+    <div class="stat-label" data-ka="მასტერკლასი" data-en="masterclasses">მასტერკლასი</div>
+  </div>
+   <div class="stat-item">
+    <div class="stat-number" data-target="9">0</div>
+    <div class="stat-label" data-ka="ბანაკი" data-en="Camps">ბანაკი</div>
+  </div>
+</div>
+
 <div class="register-section">
   <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform"
      data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</a>
 </div>
 
-<!-- მოდულების სექცია -->
 <section id="modules" class="section">
   <h2 data-ka="მოდულები" data-en="Modules">მოდულები</h2>
   <div class="cards-grid">
@@ -831,7 +888,6 @@ body.light .footer-col ul li a { color: #cccccc; }
   </div>
 </section>
 
-<!-- სხვა პროექტები სექცია -->
 <section id="other-projects" class="projects-section muted">
   <div class="projects-heading">
     <span data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</span>
@@ -888,12 +944,6 @@ body.light .footer-col ul li a { color: #cccccc; }
   </div>
 </section>
 
-<div class="register-section">
-  <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform"
-     data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</a>
-</div>
-
-<!-- POP-UP (MODAL) -->
 <div class="modal-overlay" id="modModal">
   <div class="modal-box">
     <div class="modal-img-side" id="modalImg">
@@ -908,7 +958,6 @@ body.light .footer-col ul li a { color: #cccccc; }
   </div>
 </div>
 
-<!-- ფუტერი -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-col">
@@ -1073,7 +1122,7 @@ function updateModalContent(btn) {
   if (btn.classList.contains('mod-art')) {
     modalImg.style.backgroundPosition = '25% center';      // ხელოვნება გაიწევა მარცხნივ
   } else if (btn.classList.contains('mod-psychology')) {
-    modalImg.style.backgroundPosition = '75% center';      // 👈 ფსიქოლოგია გაიწევა მარჯვნივ (შეგიძლია შეცვალო 80% ან 85%-ზე უფრო მეტად გასაწევად)
+    modalImg.style.backgroundPosition = '75% center';      // 👈 ფსიქოლოგია გაიწევა მარჯვნივ
   } else {
     modalImg.style.backgroundPosition = 'center center';   // დანარჩენი მოდულები დარჩება ცენტრში
   }
@@ -1161,6 +1210,47 @@ const appearOnScroll = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 faders.forEach(f => appearOnScroll.observe(f));
+
+// ── 📊 STATS COUNTER ANIMATION ──
+document.addEventListener("DOMContentLoaded", () => {
+  const statNumbers = document.querySelectorAll('.stat-number');
+  
+  const animateCounter = (el) => {
+    const target = +el.getAttribute('data-target');
+    const duration = 1500; // ანიმაცია გრძელდება ზუსტად 1.5 წამი
+    const startTime = performance.now();
+    
+    const updateNumber = (currentTime) => {
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+      
+      // Easing ეფექტი გლუვი და პლასტიკური გაჩერებისთვის
+      const easeProgress = progress * (2 - progress);
+      
+      const currentValue = Math.floor(easeProgress * target);
+      el.textContent = currentValue;
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateNumber);
+      } else {
+        el.textContent = target; // საბოლოო ციფრის ფიქსირება
+      }
+    };
+    
+    requestAnimationFrame(updateNumber);
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target); // ანიმაცია მუშაობს მხოლოდ ერთხელ
+      }
+    });
+  }, { threshold: 0.4 });
+
+  statNumbers.forEach(num => observer.observe(num));
+});
 </script>
 
 </body>

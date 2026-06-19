@@ -110,7 +110,6 @@ nav a:hover{color:var(--accent);}
   display: block;
   filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.35));
   transition: transform 0.3s ease;
-
   margin-left: -20px;
 }
 .logo-bar img:hover {
@@ -192,13 +191,12 @@ nav a:hover{color:var(--accent);}
 
 
 .mod-politics .card-bg-img {
-  background-position: center 34%; /* 👈 ეს ციფრი განსაზღვრავს ფოტოს სიმაღლეს. შეგიძლია შეცვალო (მაგ. 40% ან 42%-ზე) იდეალურ გასწორებამდე */
+  background-position: center 34%;
 }
 
 .mod-psychology .card-bg-img {
   background-position: center 44%;
 }
-/* სექციების სათაურების გამოყოფა ქვედა ხაზით */
 .about h2, .section h2 {
   font-size: 32px;
   margin-bottom: 40px;
@@ -208,7 +206,7 @@ nav a:hover{color:var(--accent);}
   width: 100%;
 }
 
-/* STATS SECTION (ახალი სექცია სტატისტიკებისთვის) */
+/* STATS SECTION */
 .stats-container {
   display: flex;
   justify-content: space-around;
@@ -225,7 +223,7 @@ nav a:hover{color:var(--accent);}
 .stat-number {
   font-size: 64px;
   font-weight: 800;
-  color: #ffffff; /* აბსოლუტურად თეთრი ფერი */
+  color: #ffffff;
   line-height: 1;
   margin-bottom: 14px;
   font-variant-numeric: tabular-nums;
@@ -238,7 +236,7 @@ nav a:hover{color:var(--accent);}
   letter-spacing: 0.5px;
 }
 
-/* სხვა პროექტები სექცია */
+/* PROJECTS SECTION */
 .projects-section {
   padding: 90px 80px;
 }
@@ -260,7 +258,6 @@ nav a:hover{color:var(--accent);}
   width: 100%;
 }
 
-/* დიდი ბარათი (ღონისძიებები) */
 .large-project-card {
   position: relative;
   min-height: 460px;
@@ -320,7 +317,6 @@ nav a:hover{color:var(--accent);}
   max-width: 90%;
 }
 
-/* პატარა გვერდითა ბარათები */
 .side-cards-col {
   display: flex;
   flex-direction: column;
@@ -459,6 +455,28 @@ nav a:hover{color:var(--accent);}
 .modal-arrow.prev { left: 20px; }
 .modal-arrow.next { right: 20px; }
 
+/* MODAL DOTS */
+.modal-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 12;
+}
+.modal-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.35);
+  cursor: pointer;
+  transition: background .3s, transform .3s;
+  border: none;
+  padding: 0;
+}
+.modal-dot.active { background: white; transform: scale(1.3); }
+
 .modal-text-side {
   flex: 1;
   padding: 50px;
@@ -486,13 +504,12 @@ nav a:hover{color:var(--accent);}
 .modal-text-side h2::after { content: ""; display: block; width: 60px; height: 4px; background-color: var(--accent); margin-top: 10px; border-radius: 2px; }
 .modal-text-side p { font-size: 18px; line-height: 1.7; color: var(--text); opacity: 0.85; }
 
-/* როდესაც პოპაპი იხსნება ხელოვნების (Art) მოდულზე, ფოტოს ვწევთ მარცხნივ */
 .mod-art.active-modal ~ #modModal #modalImg,
 body:has(.mod-art.active-modal) #modalImg {
-  background-position: 25% center !important; /* 👈 ეს პროცენტი განსაზღვრავს პოზიციას */
+  background-position: 25% center !important;
 }
 
-/* HERO SLIDER - გაზრდილია 80vh-მდე მეტი ეფექტურობისთვის */
+/* HERO SLIDER */
 .hero{height:80vh;position:relative;overflow:hidden;color:white;opacity:0;transform:translateY(30px);}
 .hero.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
 .slides-wrapper{display:flex;height:100%;transition:transform .7s cubic-bezier(.77,0,.18,1);}
@@ -524,23 +541,20 @@ body:has(.mod-art.active-modal) #modalImg {
 .about.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
 .about p{font-size:18px;max-width:100%;margin-bottom:0;opacity:.9;line-height:1.6;}
 
-/* SECTIONS */
 .section{padding:90px 80px;position:relative;}
 .section.muted{background:var(--muted);}
 .cards-grid{display:grid;gap:30px;width:100%;}
 
-/* REGISTER */
 .register-section{text-align:center;margin-top:40px;margin-bottom:40px;opacity:0;transform:translateY(40px);}
 .register-section.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
 
 #modules .cards-grid { grid-template-columns: repeat(2, 1fr); }
 
-/* ფუტერი */
 footer.footer {
   background: #0d0d0d;
   color: #a0a0a0;
   padding: 70px 80px 30px;
-  border-top: 1px solid rgba(128,128,128,0.15);
+  border-top: 1px solid rgba(128,128,128,.15);
   font-size: 14px;
 }
 body.light footer.footer {
@@ -621,7 +635,6 @@ body.light .footer-col ul li a { color: #cccccc; }
   color: #666666;
 }
 
-/* RESPONSIVE DESIGN */
 @media(max-width:1024px){
   #modules .cards-grid { grid-template-columns: repeat(2, 1fr); }
   .logo-bar{padding:15px 40px;}
@@ -635,7 +648,6 @@ body.light .footer-col ul li a { color: #cccccc; }
 @media(max-width:768px){
   .header{padding:15px 20px; position:sticky; top:0; justify-content:space-between;}
   .menu-toggle { display: block; }
-  
   .header-menu {
     display: none;
     flex-direction: column;
@@ -654,7 +666,6 @@ body.light .footer-col ul li a { color: #cccccc; }
   .header-menu.active { display: flex; }
   .header nav{ flex-direction: column; align-items: center; width: 100%; gap: 15px; }
   .header nav a{ margin: 0; font-size: 17px; padding: 6px 0; width: 100%; text-align: center; }
-  
   .header-actions{
     justify-content: center;
     width: 100%;
@@ -662,36 +673,28 @@ body.light .footer-col ul li a { color: #cccccc; }
     border-top: 1px solid rgba(128,128,128,.15);
     gap: 20px;
   }
-  
   .section, .about, .projects-section { padding: 40px 15px; }
   .about h2, .section h2, .projects-heading { font-size: 24px; margin-bottom: 25px; }
-  
   #modules .cards-grid { grid-template-columns: 1fr; gap: 15px; }
   .projects-grid-layout { grid-template-columns: 1fr; gap: 20px; }
   .large-project-card { min-height: 340px; padding: 25px; }
   .large-card-content h3 { font-size: 28px; }
   .side-project-card { padding: 25px; min-height: 180px; }
-  
   .logo-bar{padding:12px 20px; justify-content:flex-start; text-align:left;}
   .logo-bar-slot { flex-direction: row; gap: 15px; align-items: center; justify-content: flex-start; width: 100%; }
   .logo-bar img{height: 45px;}
   .logo-text {font-size: 20px;}
-  
   .card-btn { padding: 18px 20px; gap: 15px; min-height: 90px; }
   .mod-logo { height: 45px; }
   .card-btn h3 { font-size: 20px; }
-
-  /* HERO მობილურზე - გაზრდილია 65vh-მდე */
   .hero { height: 65vh; }
   .slide{padding:0 20px 65px;}
   .slide-content h1{font-size:32px;}
   .slide-content p{font-size:15px;}
   .slider-arrows{right:20px;bottom:60px; gap:8px;}
   .slider-arrow { width: 40px; height: 40px; font-size: 17px; }
-
   .modal-box { flex-direction: column; height: 85vh; width: 92vw; max-height: 600px; }
   .modal-img-side { flex: 0 0 35%; min-height: 200px; }
-  .modal-img-side::before { background: linear-gradient(to top, rgba(0,0,0,0.5), transparent); }
   .modal-arrow { width: 34px; height: 34px; font-size: 14px; }
   .modal-arrow.prev { left: 10px; }
   .modal-arrow.next { right: 10px; }
@@ -699,21 +702,15 @@ body.light .footer-col ul li a { color: #cccccc; }
   .modal-text-side h2 { font-size: 24px; margin-bottom: 12px; }
   .modal-text-side p { font-size: 15px; line-height: 1.6; }
   .modal-close-btn { top: 15px; right: 20px; font-size: 32px; z-index: 15; }
-
   footer.footer { padding: 40px 20px 20px; }
   .footer-container { grid-template-columns: 1fr; gap: 30px; margin-bottom: 30px; }
-
-  /* სტატისტიკები მობილურზე */
   .stats-container {
     flex-direction: column;
     gap: 35px;
     padding: 10px 20px;
   }
-  .stat-number {
-    font-size: 46px;
-  }
+  .stat-number { font-size: 46px; }
 }
-
 @media(max-width:480px) {
   .logo-text { font-size: 18px; }
   .card-btn { flex-direction: row; align-items: center; gap: 15px; padding: 15px 20px; }
@@ -728,11 +725,10 @@ body.light .footer-col ul li a { color: #cccccc; }
 <header class="header">
   <button class="home-btn" id="homeBtn" title="საწყის გვერდზე დაბრუნება">🏠︎</button>
   <button class="menu-toggle" id="menuToggle">☰</button>
-  
   <div class="header-menu" id="headerMenu">
     <nav>
-      <a href="#about"    data-ka="რა არის HSG?" data-en="About HSG">რა არის HSG?</a>
-      <a href="#modules"  data-ka="მოდულები"     data-en="Modules">მოდულები</a>
+      <a href="#about" data-ka="რა არის HSG?" data-en="About HSG">რა არის HSG?</a>
+      <a href="#modules" data-ka="მოდულები" data-en="Modules">მოდულები</a>
       <a href="#other-projects" data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</a>
     </nav>
     <div class="header-actions">
@@ -825,62 +821,32 @@ body.light .footer-col ul li a { color: #cccccc; }
 <section id="modules" class="section">
   <h2 data-ka="მოდულები" data-en="Modules">მოდულები</h2>
   <div class="cards-grid">
-    
-    <button class="card-btn mod-business" 
-            data-bg="images/BIZNES1.jpg"
-            data-title-ka="ბიზნესი" data-title-en="Business"
-            data-desc-ka="გაიგეთ როგორ იქმნება წარმატებული სტარტაპები, როგორ იმართება გუნდი და რა არის თანამედროვე მარკეტინგისა და მენეჯმენტის საფუძვლები."
-            data-desc-en="Learn how successful startups are created, how teams are managed, and understand the foundations of modern marketing and management.">
+    <button class="card-btn mod-business" data-bg="images/BIZNES1.jpg" data-title-ka="ბიზნესი" data-title-en="Business" data-desc-ka="გაიგეთ როგორ იქმნება წარმატებული სტარტაპები, როგორ იმართება გუნდი და რა არის თანამედროვე მარკეტინგისა და მენეჯმენტის საფუძვლები." data-desc-en="Learn how successful startups are created, how teams are managed, and understand the foundations of modern marketing and management.">
       <div class="card-bg-img" style="background-image:url('images/BIZNES1.jpg')"></div>
       <div class="card-btn-content"><h3 data-ka="ბიზნესი" data-en="Business">ბიზნესი</h3></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
     </button>
-    
-    <button class="card-btn mod-law" 
-            data-bg="images/LAW.jpg"
-            data-title-ka="სამართალი" data-title-en="Law"
-            data-desc-ka="შეისწავლეთ ადამიანის ფუნდამენტური უფლებები, სახელმწიფო მოწყობის პრინციპები და განავითარეთ იურიდიული, კრიტიკული აზროვნება."
-            data-desc-en="Study fundamental human rights, principles of state governance, and develop legal and critical thinking skills.">
+    <button class="card-btn mod-law" data-bg="images/LAW.jpg" data-title-ka="სამართალი" data-title-en="Law" data-desc-ka="შეისწავლეთ ადამიანის ფუნდამენტური უფლებები, სახელმწიფო მოწყობის პრინციპები და განავითარეთ იურიდიული, კრიტიკული აზროვნება." data-desc-en="Study fundamental human rights, principles of state governance, and develop legal and critical thinking skills.">
       <div class="card-bg-img" style="background-image:url('images/LAW.jpg')"></div>
       <div class="card-btn-content"><h3 data-ka="სამართალი" data-en="Law">სამართალი</h3></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
     </button>
-    
-    <button class="card-btn mod-politics" 
-            data-bg="images/politika.jpg"
-            data-title-ka="პოლიტიკა" data-title-en="Politics"
-            data-desc-ka="გააანალიზეთ საერთაშორისო ურთიერთობები, გეოპოლიტიკური პროცესები და გაიგეთ, თუ როგორ მუშაობს გლობალური მართვის სისტემები."
-            data-desc-en="Analyze international relations, geopolitical processes, and discover how global governance systems function.">
+    <button class="card-btn mod-politics" data-bg="images/politika.jpg" data-title-ka="პოლიტიკა" data-title-en="Politics" data-desc-ka="გააანალიზეთ საერთაშორისო ურთიერთობები, გეოპოლიტიკური პროცესები და გაიგეთ, თუ როგორ მუშაობს გლობალური მართვის სისტემები." data-desc-en="Analyze international relations, geopolitical processes, and discover how global governance systems function.">
       <div class="card-bg-img" style="background-image:url('images/politika.jpg')"></div>
       <div class="card-btn-content"><h3 data-ka="პოლიტიკა" data-en="Politics">პოლიტიკა</h3></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
     </button>
-    
-    <button class="card-btn mod-art" 
-            data-bg="images/art.jpg"
-            data-title-ka="ხელოვნება" data-title-en="Art"
-            data-desc-ka="აღმოაჩინეთ კინემატოგრაფიის, მხატვრობის, მუსიკისა და შემოქმედებითი ინდუსტრიების როლი კაცობრიობის ისტორიასა და ყოველდღიურობაში."
-            data-desc-en="Discover the role of cinematography, painting, music, and creative industries in human history and daily life.">
+    <button class="card-btn mod-art" data-bg="images/art.jpg" data-title-ka="ხელოვნება" data-title-en="Art" data-desc-ka="აღმოაჩინეთ კინემატოგრაფიის, მხატვრობის, მუსიკისა და შემოქმედებითი ინდუსტრიების როლი კაცობრიობის ისტორიასა და ყოველდღიურობაში." data-desc-en="Discover the role of cinematography, painting, music, and creative industries in human history and daily life.">
       <div class="card-bg-img" style="background-image:url('images/art.jpg')"></div>
       <div class="card-btn-content"><h3 data-ka="ხელოვნება" data-en="Art">ხელოვნება</h3></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
     </button>
-    
-    <button class="card-btn mod-psychology" 
-            data-bg="images/FSIXALOGIA.jpg"
-            data-title-ka="ფსიქოლოგია" data-title-en="Psychology"
-            data-desc-ka="ჩაწვდით ადამიანის ქცევის მოტივებს, ემოციებს, ინტერპერსონალურ კომუნიკაციასა და პიროვნული განვითარების ფსიქოლოგიურ ასპექტებს."
-            data-desc-en="Understand the motives of human behavior, emotions, interpersonal communication, and psychological aspects of personal growth.">
+    <button class="card-btn mod-psychology" data-bg="images/FSIXALOGIA.jpg" data-title-ka="ფსიქოლოგია" data-title-en="Psychology" data-desc-ka="ჩაწვდით ადამიანის ქცევის მოტივებს, ემოციებს, ინტერპერსონალურ კომუნიკაციასა და პიროვნული განვითარების ფსიქოლოგიურ ასპექტებს." data-desc-en="Understand the motives of human behavior, emotions, interpersonal communication, and psychological aspects of personal growth.">
       <div class="card-bg-img" style="background-image:url('images/FSIXALOGIA.jpg')"></div>
       <div class="card-btn-content"><h3 data-ka="ფსიქოლოგია" data-en="Psychology">ფსიქოლოგია</h3></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
     </button>
-    
-    <button class="card-btn mod-tech" 
-            data-bg="images/MECNIEREBA.jpg"
-            data-title-ka="ტექნოლოგიები და მეცნიერება" data-title-en="Technology &amp; Science"
-            data-desc-ka="გაეცანით თანამედროვე ტექნოლოგიურ ინოვაციებს, პროგრამირების საფუძვლებს და სამეცნიერო მიღწევებს, რომლებიც ცვლიან სამყაროს."
-            data-desc-en="Explore modern technological innovations, programming fundamentals, and scientific breakthroughs that are reshaping our world.">
+    <button class="card-btn mod-tech" data-bg="images/MECNIEREBA.jpg" data-title-ka="ტექნოლოგიები და მეცნიერება" data-title-en="Technology &amp; Science" data-desc-ka="გაეცანით თანამედროვე ტექნოლოგიურ ინოვაციებს, პროგრამირების საფუძვლებს და სამეცნიერო მიღწევებს, რომლებიც ცვლიან სამყაროს." data-desc-en="Explore modern technological innovations, programming fundamentals, and scientific breakthroughs that are reshaping our world.">
       <div class="card-bg-img" style="background-image:url('images/MECNIEREBA.jpg')"></div>
       <div class="card-btn-content"><h3 data-ka="ტექნოლოგიები და მეცნიერება" data-en="Technology &amp; Science">ტექნოლოგიები და მეცნიერება</h3></div>
       <img src="images\Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
@@ -889,36 +855,17 @@ body.light .footer-col ul li a { color: #cccccc; }
 </section>
 
 <section id="other-projects" class="projects-section muted">
-  <div class="projects-heading">
-    <span data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</span>
-    
-  </div>
-
+  <div class="projects-heading"><span data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</span></div>
   <div class="projects-grid-layout">
-    <div class="large-project-card" 
-         id="card-events"
-         style="background-image: url('images/FILMCLUB.jpg');"
-         data-imgs="images/FILMCLUB.jpg,images/OLIMP.jpg,images/rsr.jpg,images/კაი ხალიხ.jpg "
-         data-title-ka="ღონისძიებები" data-title-en="Events"
-         data-desc-ka="მიიღე მონაწილეობა მრავალფეროვან შიდა აქტივობებში. ჩვენი პლატფორმა გთავაზობს ლეგენდარულ ინტელექტუალურ თამაშს 'რა? სად? როდის?', საინტერესო კინოკლუბის ჩვენებებს სიღრმისეული ნარატიული ანალიზით, მასტერკლასებს მოწვეულ სპიკერებთან და სხვადასხვა აკადემიურ ოლიმპიადებს."
-         data-desc-en="Take part in a wide variety of internal activities. Our platform offers the legendary 'What? Where? When?' game, engaging Film Club screenings with deep narrative analysis, masterclasses with guest speakers, and diverse academic olympiads.">
+    <div class="large-project-card" id="card-events" style="background-image: url('images/FILMCLUB.jpg');" data-imgs="images/FILMCLUB.jpg,images/OLIMP.jpg,images/rsr.jpg,images/კაი ხალიხ.jpg" data-title-ka="ღონისძიებები" data-title-en="Events" data-desc-ka="მიიღე მონაწილეობა მრავალფეროვან შიდა აქტივობებში. ჩვენი პლატფორმა გთავაზობს ლეგენდარულ ინტელექტუალურ თამაშს 'რა? სად? როდის?', საინტერესო კინოკლუბის ჩვენებებს სიღრმისეული ნარატიული ანალიზით, მასტერკლასებს მოწვეულ სპიკერებთან და სხვადასხვა აკადემიურ ოლიმპიადებს." data-desc-en="Take part in a wide variety of internal activities. Our platform offers the legendary 'What? Where? When?' game, engaging Film Club screenings with deep narrative analysis, masterclasses with guest speakers, and diverse academic olympiads.">
       <div class="card-badge">ABC</div>
       <div class="large-card-content">
         <h3 data-ka="ღონისძიებები" data-en="Events">ღონისძიებები</h3>
-        <p data-ka="შემოუერთდი საუკეთესო ინტელექტუალურ და კინო თავგადასავლებს. დაგეგმე და გააანალიზე პროექტები გამოცდილ გუნდთან ერთად."
-           data-en="Join the ultimate test of wit and speed. A championship designed for the bold and creative minds.">
-          შემოუერთდი საუკეთესო ინტელექტუალურ და კინო თავგადასავლებს. დაგეგმე და გააანალიზე პროექტები გამოცდილ გუნდთან ერთად.
-        </p>
+        <p data-ka="შემოუერთდი საუკეთესო ინტელექტუალურ და კინო თავგადასავლებს. დაგეგმე და გააანალიზე პროექტები გამოცდილ გუნდთან ერთად." data-en="Join the ultimate test of wit and speed. A championship designed for the bold and creative minds.">შემოუერთდი საუკეთესო ინტელექტუალურ და კინო თავგადასავლებს. დაგეგმე და გააანალიზე პროექტები გამოცდილ გუნდთან ერთად.</p>
       </div>
     </div>
-
     <div class="side-cards-col">
-      <div class="side-project-card" 
-           id="card-camps"
-           data-imgs="images/BANAKI NEMVER.jpg,images/BANAK AGVISTO.jpg,images/BANAK MART.jpg,images/BANAK BOLO.jpg, images/BANAK STU.jpg"
-           data-title-ka="ბანაკები" data-title-en="Camps"
-           data-desc-ka="შემოუერთდი HSG-ის სეზონურ ბანაკებს! ეს არის საუკეთესო შესაძლებლობა აქტიური დასვენებისთვის, გუნდური სპორტული თამაშებისთვის, ლიდერული თვისებების განვითარებისა და ახალი, დაუვიწყარი მეგობრების შესაძენად მყუდრო და თბილ გარემოში."
-           data-en="Join HSG's seasonal camps! It is the ultimate opportunity for active recreation, team sports, leadership development, and making lifelong, unforgettable friends in a warm and welcoming environment.">
+      <div class="side-project-card" id="card-camps" data-imgs="images/BANAKI NEMVER.jpg,images/BANAK AGVISTO.jpg,images/BANAK MART.jpg,images/BANAK BOLO.jpg, images/BANAK STU.jpg" data-title-ka="ბანაკები" data-title-en="Camps" data-desc-ka="შემოუერთდი HSG-ის სეზონურ ბანაკებს! ეს არის საუკეთესო შესაძლებლობა აქტიური დასვენებისთვის, გუნდური სპორტული თამაშებისთვის, ლიდერული თვისებების განვითარებისა და ახალი, დაუვიწყარი მეგობრების შესაძენად მყუდრო და თბილ გარემოში." data-en="Join HSG's seasonal camps! It is the ultimate opportunity for active recreation, team sports, leadership development, and making lifelong, unforgettable friends in a warm and welcoming environment.">
         <div class="side-card-top">
           <span class="side-badge">QUICK CAMP</span>
           <h3 data-ka="ბანაკები" data-en="Camps">ბანაკები</h3>
@@ -926,13 +873,7 @@ body.light .footer-col ul li a { color: #cccccc; }
         </div>
         <div class="side-card-arrow">&rarr;</div>
       </div>
-
-      <div class="side-project-card" 
-           id="card-championships"
-           data-imgs="images/INTELEQTUALUR.jpg,images/itest.jpg,images/kinomani.jpg,images/meloman.jpg,images/abc.jpg"
-           data-title-ka="ჩემპიონატები" data-title-en="Championships"
-           data-desc-ka="გამოსცადე საკუთარი თავი სხვადასხვა შემეცნებით და ინტელექტუალურ შეჯიბრებაში. მიიღე მონაწილეობა ისეთ პროექტებში, როგორებიცაა ABC, i-Test, კინომანი და მელომანი, დაგროვე ქულები და მოიპოვე საუნივერსიტეტო გრანტები თუ სხვადასხვა ფასიანი პრიზები."
-           data-en="Test yourself in various educational and intellectual competitions. Participate in projects like ABC, i-Test, Cinephile, and Melomaniac, accumulate points, and win university grants along with exciting prizes.">
+      <div class="side-project-card" id="card-championships" data-imgs="images/INTELEQTUALUR.jpg,images/itest.jpg,images/kinomani.jpg,images/meloman.jpg,images/abc.jpg" data-title-ka="ჩემპიონატები" data-title-en="Championships" data-desc-ka="გამოსცადე საკუთარი თავი სხვადასხვა შემეცნებით და ინტელექტუალურ შეჯიბრებაში. მიიღე მონაწილეობა ისეთ პროექტებში, როგორებიცაა ABC, i-Test, კინომანი და მელომანი, დაგროვე ქულები და მოიპოვე საუნივერსიტეტო გრანტები თუ სხვადასხვა ფასიანი პრიზები." data-en="Test yourself in various educational and intellectual competitions. Participate in projects like ABC, i-Test, Cinephile, and Melomaniac, accumulate points, and win university grants along with exciting prizes.">
         <div class="side-card-top">
           <span class="side-badge">INTELLECTUAL</span>
           <h3 data-ka="ჩემპიონატები" data-en="Championships">ჩემპიონატები</h3>
@@ -949,6 +890,7 @@ body.light .footer-col ul li a { color: #cccccc; }
     <div class="modal-img-side" id="modalImg">
       <button class="modal-arrow prev" id="modalPrevBtn">&#8592;</button>
       <button class="modal-arrow next" id="modalNextBtn">&#8594;</button>
+      <div class="modal-dots" id="modalDots"></div>
     </div>
     <div class="modal-text-side">
       <button class="modal-close-btn" id="modalClose">&times;</button>
@@ -962,13 +904,8 @@ body.light .footer-col ul li a { color: #cccccc; }
   <div class="footer-container">
     <div class="footer-col">
       <h4>High School of Georgia</h4>
-      <p style="line-height: 1.6; font-size: 13px;" 
-         data-ka="ინოვაციური სასწავლო პლატფორმა, რომელიც ორიენტირებულია დამამთავრებელი კლასის მოსწავლეების აკადემიურ და პიროვნულ განვითარებაზე." 
-         data-en="An innovative learning platform focused on the academic and personal development of graduating high school students.">
-        ინოვაციური სასწავლო პლატფორმა, რომელიც ორიენტირებულია დამამთავრებელი კლასის მოსწავლეების აკადემიურ და პიროვნულ განვითარებაზე.
-      </p>
+      <p style="line-height: 1.6; font-size: 13px;" data-ka="ინოვაციური სასწავლო პლატფორმა, რომელიც ორიენტირებულია დამამთავრებელი კლასის მოსწავლეების აკადემიურ და პიროვნულ განვითარებაზე." data-en="An innovative learning platform focused on the academic and personal development of graduating high school students.">ინოვაციური სასწავლო პლატფორმა, რომელიც ორიენტირებულია დამამთავრებელი კლასის მოსწავლეების აკადემიურ და პიროვნულ განვითარებაზე.</p>
     </div>
-    
     <div class="footer-col">
       <h4 data-ka="ნავიგაცია" data-en="Navigation">ნავიგაცია</h4>
       <ul>
@@ -977,7 +914,6 @@ body.light .footer-col ul li a { color: #cccccc; }
         <li><a href="#other-projects" data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</a></li>
       </ul>
     </div>
-    
     <div class="footer-col">
       <h4 data-ka="კონტაქტი" data-en="Contact">კონტაქტი</h4>
       <ul style="font-size: 13px; line-height: 1.6;">
@@ -985,103 +921,69 @@ body.light .footer-col ul li a { color: #cccccc; }
         <li data-ka="📍 თბილისი, საქართველო" data-en="📍 Tbilisi, Georgia">📍 თბილისი, საქართველო</li>
       </ul>
     </div>
-    
     <div class="footer-col">
       <h4 data-ka="გამოგვიყევით" data-en="Follow Us">გამოგვიყევით</h4>
       <div class="footer-socials">
-        <a href="https://www.facebook.com/HighSchoolOfGeorgia" target="_blank" title="Facebook">
-          <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/high_school_of_georgia/" target="_blank" title="Instagram">
-          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/company/high-school-of-georgia/" target="_blank" title="LinkedIn">
-          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-        </a>
+        <a href="https://www.facebook.com/HighSchoolOfGeorgia" target="_blank" title="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg></a>
+        <a href="https://www.instagram.com/high_school_of_georgia/" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.linkedin.com/company/high-school-of-georgia/" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
       </div>
     </div>
   </div>
-  
   <div class="footer-bottom">
     <span data-ka="© 2026 All Rights Reserved" data-en="© 2026 All Rights Reserved">© 2026 All Rights Reserved</span>
   </div>
 </footer>
 
 <script>
-// ── MOBILE MENU TOGGLE ──
+// MOBILE MENU
 const menuToggle = document.getElementById('menuToggle');
 const headerMenu = document.getElementById('headerMenu');
-
 menuToggle.onclick = () => {
   headerMenu.classList.toggle('active');
   menuToggle.textContent = headerMenu.classList.contains('active') ? '✕' : '☰';
 };
 
-// ── ზუსტი და პლასტიკური სქროლვა ──
+// SMOOTH SCROLL
 document.querySelectorAll('.header nav a, .footer-col ul li a').forEach(link => {
   link.onclick = (e) => {
     const targetId = link.getAttribute('href');
     if (targetId.startsWith('#')) {
       e.preventDefault();
       const targetElement = document.querySelector(targetId);
-      
       if (targetElement) {
         const headerHeight = document.querySelector('.header').offsetHeight;
         const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerHeight - 30;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: elementPosition - headerHeight - 30, behavior: 'smooth' });
       }
-
       headerMenu.classList.remove('active');
       menuToggle.textContent = '☰';
     }
   };
 });
 
-// ── THEME TOGGLE ──
-document.getElementById('themeToggle').onclick = () => {
-  document.body.classList.toggle('light');
-};
+// THEME & LANG
+document.getElementById('themeToggle').onclick = () => document.body.classList.toggle('light');
+document.getElementById('homeBtn').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-// ── HOME BUTTON ──
-document.getElementById('homeBtn').onclick = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  headerMenu.classList.remove('active');
-  menuToggle.textContent = '☰';
-};
-
-// ── LANGUAGE TOGGLE ──
 let currentLang = 'ka';
-
 function applyLang(lang) {
   currentLang = lang;
-  document.querySelectorAll('[data-ka][data-en]').forEach(el => {
-    el.textContent = el.getAttribute('data-' + lang);
-  });
+  document.querySelectorAll('[data-ka][data-en]').forEach(el => el.textContent = el.getAttribute('data-' + lang));
   document.getElementById('langToggle').textContent = lang === 'ka' ? 'EN' : 'KA';
   document.documentElement.lang = lang;
-  
   const activeBtn = document.querySelector('.active-modal');
-  if(activeBtn) {
-    updateModalContent(activeBtn);
-  }
+  if(activeBtn) updateModalContent(activeBtn);
 }
+document.getElementById('langToggle').onclick = () => applyLang(currentLang === 'ka' ? 'en' : 'ka');
 
-document.getElementById('langToggle').onclick = () => {
-  applyLang(currentLang === 'ka' ? 'en' : 'ka');
-};
-
-// ── POP-UP (MODAL) LOGIC WITH AUTOPLAY ──
+// MODAL LOGIC
 let modalImages = [];
 let currentModalImgIdx = 0;
 let modalAutoTimer; 
-
 const modal = document.getElementById('modModal');
 const modalImg = document.getElementById('modalImg');
+const modalDots = document.getElementById('modalDots');
 const modalTitle = document.getElementById('modalTitle');
 const modalDesc = document.getElementById('modalDesc');
 const modalClose = document.getElementById('modalClose');
@@ -1092,14 +994,16 @@ function showModalImage(idx) {
   if (modalImages.length === 0) return;
   currentModalImgIdx = (idx + modalImages.length) % modalImages.length;
   modalImg.style.backgroundImage = `url('${modalImages[currentModalImgIdx]}')`;
+  
+  // Update dots
+  const dots = document.querySelectorAll('.modal-dot');
+  dots.forEach((d, i) => d.classList.toggle('active', i === currentModalImgIdx));
 }
 
 function startModalTimer() {
   clearInterval(modalAutoTimer);
   if (modalImages.length > 1) {
-    modalAutoTimer = setInterval(() => {
-      showModalImage(currentModalImgIdx + 1);
-    }, 4000); 
+    modalAutoTimer = setInterval(() => showModalImage(currentModalImgIdx + 1), 4000);
   }
 }
 
@@ -1108,7 +1012,15 @@ function updateModalContent(btn) {
   modalImages = imgsAttr ? imgsAttr.split(',') : [];
   currentModalImgIdx = 0;
   
+  // Rebuild Dots
+  modalDots.innerHTML = '';
   if (modalImages.length > 1) {
+    modalImages.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'modal-dot' + (i === 0 ? ' active' : '');
+      d.onclick = (e) => { e.stopPropagation(); showModalImage(i); startModalTimer(); };
+      modalDots.appendChild(d);
+    });
     modalPrevBtn.style.display = 'flex';
     modalNextBtn.style.display = 'flex';
   } else {
@@ -1117,58 +1029,35 @@ function updateModalContent(btn) {
   }
   
   showModalImage(0);
+  if (btn.classList.contains('mod-art')) modalImg.style.backgroundPosition = '25% center';
+  else if (btn.classList.contains('mod-psychology')) modalImg.style.backgroundPosition = '75% center';
+  else modalImg.style.backgroundPosition = 'center center';
 
-// 🛠️ ფოტოების პოზიციონირება მოდულების მიხედვით პოპაპში
-  if (btn.classList.contains('mod-art')) {
-    modalImg.style.backgroundPosition = '25% center';      // ხელოვნება გაიწევა მარცხნივ
-  } else if (btn.classList.contains('mod-psychology')) {
-    modalImg.style.backgroundPosition = '75% center';      // 👈 ფსიქოლოგია გაიწევა მარჯვნივ
-  } else {
-    modalImg.style.backgroundPosition = 'center center';   // დანარჩენი მოდულები დარჩება ცენტრში
-  }
-
-  const title = btn.getAttribute(`data-title-${currentLang}`) || btn.querySelector('h3').textContent;
-  const desc = btn.getAttribute(`data-desc-${currentLang}`);
-  
-  modalTitle.textContent = title;
-  modalDesc.textContent = desc;
-
-  startModalTimer(); 
+  modalTitle.textContent = btn.getAttribute(`data-title-${currentLang}`) || btn.querySelector('h3').textContent;
+  modalDesc.textContent = btn.getAttribute(`data-desc-${currentLang}`);
+  startModalTimer();
 }
 
 document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').forEach(b => b.classList.remove('active-modal'));
     btn.classList.add('active-modal');
-    
     updateModalContent(btn);
     modal.classList.add('active');
   };
 });
 
-modalPrevBtn.onclick = (e) => { 
-  e.stopPropagation(); 
-  showModalImage(currentModalImgIdx - 1); 
-  startModalTimer(); 
-};
-modalNextBtn.onclick = (e) => { 
-  e.stopPropagation(); 
-  showModalImage(currentModalImgIdx + 1); 
-  startModalTimer(); 
-};
-
+modalPrevBtn.onclick = (e) => { e.stopPropagation(); showModalImage(currentModalImgIdx - 1); startModalTimer(); };
+modalNextBtn.onclick = (e) => { e.stopPropagation(); showModalImage(currentModalImgIdx + 1); startModalTimer(); };
 function closeModal() {
   modal.classList.remove('active');
-  clearInterval(modalAutoTimer); 
+  clearInterval(modalAutoTimer);
   document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').forEach(b => b.classList.remove('active-modal'));
 }
-
 modalClose.onclick = closeModal;
 modal.onclick = (e) => { if (e.target === modal) closeModal(); };
 
-
-
-// ── HERO SLIDER ──
+// HERO SLIDER
 const wrapper  = document.getElementById('slidesWrapper');
 const dotsEl   = document.getElementById('sliderDots');
 const slides   = wrapper.querySelectorAll('.slide');
@@ -1191,17 +1080,15 @@ function goTo(idx) {
 }
 function next() { goTo(current + 1); }
 function prev() { goTo(current - 1); }
-
 document.getElementById('nextBtn').onclick = next;
 document.getElementById('prevBtn').onclick = prev;
-
 function resetTimer() {
   clearInterval(autoTimer);
   autoTimer = setInterval(next, 4000);
 }
 resetTimer();
 
-// ── SCROLL ANIMATION ──
+// SCROLL ANIMATION
 const faders = document.querySelectorAll('.card-btn, .large-project-card, .side-project-card, .register-section, .hero, .about');
 const appearOnScroll = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -1211,44 +1098,31 @@ const appearOnScroll = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 faders.forEach(f => appearOnScroll.observe(f));
 
-// ── 📊 STATS COUNTER ANIMATION ──
+// STATS ANIMATION
 document.addEventListener("DOMContentLoaded", () => {
   const statNumbers = document.querySelectorAll('.stat-number');
-  
   const animateCounter = (el) => {
     const target = +el.getAttribute('data-target');
-    const duration = 1500; // ანიმაცია გრძელდება ზუსტად 1.5 წამი
+    const duration = 1500;
     const startTime = performance.now();
-    
     const updateNumber = (currentTime) => {
       const elapsedTime = currentTime - startTime;
       const progress = Math.min(elapsedTime / duration, 1);
-      
-      // Easing ეფექტი გლუვი და პლასტიკური გაჩერებისთვის
       const easeProgress = progress * (2 - progress);
-      
-      const currentValue = Math.floor(easeProgress * target);
-      el.textContent = currentValue;
-      
-      if (progress < 1) {
-        requestAnimationFrame(updateNumber);
-      } else {
-        el.textContent = target; // საბოლოო ციფრის ფიქსირება
-      }
+      el.textContent = Math.floor(easeProgress * target);
+      if (progress < 1) requestAnimationFrame(updateNumber);
+      else el.textContent = target;
     };
-    
     requestAnimationFrame(updateNumber);
   };
-
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         animateCounter(entry.target);
-        observer.unobserve(entry.target); // ანიმაცია მუშაობს მხოლოდ ერთხელ
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.4 });
-
   statNumbers.forEach(num => observer.observe(num));
 });
 </script>

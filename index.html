@@ -382,6 +382,7 @@ nav a:hover{color:var(--accent);}
   transition: opacity .8s ease-out, transform .8s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+
 /* POP-UP (MODAL) */
 .modal-overlay {
   position: fixed;
@@ -425,6 +426,7 @@ nav a:hover{color:var(--accent);}
   position: relative;
   transition: background-image 0.3s ease;
 }
+
 .modal-img-side::before {
   content: "";
   position: absolute;
@@ -513,10 +515,22 @@ body:has(.mod-art.active-modal) #modalImg {
 .hero{height:80vh;position:relative;overflow:hidden;color:white;opacity:0;transform:translateY(30px);}
 .hero.visible{opacity:1;transform:translateY(0);transition:opacity .8s ease-out,transform .8s ease-out;}
 .slides-wrapper{display:flex;height:100%;transition:transform .7s cubic-bezier(.77,0,.18,1);}
-.slide{
-  min-width:100%;height:100%;background-size:cover;background-position:center;
-  position:relative;display:flex;flex-direction:column;
-  justify-content:flex-end;align-items:flex-start;padding:0 80px 100px;
+.slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover; 
+  background-position: center; /* სტანდარტულად ფოტოს შუა ნაწილს აჩვენებს */
+  background-repeat: no-repeat;  /* ფოტო არ განმეორდება */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0 80px 100px;
+}
+/* მეორე სლაიდის ფოტოს ზემოთ აწევა */
+.slide:nth-child(2) {
+    background-position: 50% 70% !important; 
 }
 .slide::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,.1));}
 .slide-content{position:relative;z-index:1;max-width:650px;}
@@ -719,6 +733,8 @@ body.light .footer-col ul li a { color: #cccccc; }
   .large-card-content h3 { font-size: 24px; }
 }
 </style>
+
+<link rel="icon" type="image/x-icon" href="images/zemocaveri.png">
 </head>
 <body>
 
@@ -755,25 +771,25 @@ body.light .footer-col ul li a { color: #cccccc; }
           დამამთავრებელი კლასის მოსწავლეებისთვის განკუთვნილი სასწავლო და საკომუნიკაციო პროგრამა</p>
       </div>
     </div>
-    <div class="slide" style="background-image:url('images/BANAKI NEMVER.jpg')">
+    <div class="slide" style="background-image:url('images/bolozari.jpg')">
       <div class="slide-content">
-        <h1 data-ka="ბანაკები" data-en="Camps">ბანაკები</h1>
-        <p data-ka="ახალი გამოცდილება, ახალი მეგობრები, დასამახსოვრებელი მომენტები"
-           data-en="New experiences, new friends, unforgettable moments">
-          ახალი გამოცდილება, ახალი მეგობრები, დასამახსოვრებელი მომენტები</p>
+        <h1 data-ka="ბოლო ზარი" data-en="last bell">ბოლო ზარი</h1>
+        <p data-ka="გააქვს ადგილი პერანგზე?"
+           data-en="გააქვს ადგილი პერანგზე?">
+     გააქვს ადგილი პერანგზე?</p>
       </div>
     </div>
-    <div class="slide" style="background-image:url('images/INTELEQTUALUR.jpg')">
+    <div class="slide" style="background-image:url('images/step.png')">
       <div class="slide-content">
-        <h1 data-ka="ინტელექტუალური ჩემპიონატი" data-en="Intellectual Championship">ინტელექტუალური ჩემპიონატი</h1>
-        <p data-ka="გაიმარჯვე და გახდი 100% გრანტის მფლობელი"
-           data-en="Win and become the holder of a 100% university grant">
-          გაიმარჯვე და გახდი 100% გრანტის მფლობელი</p>
+        <h1 data-ka="StepUpThon" data-en="StepUpThon">StepUpThon</h1>
+        <p data-ka="გახდი გამარჯვებული და მიიღე დაუვიწყარი პრიზები"
+           data-en="Become a winner and receive unforgettable prizes">
+          გახდი გამარჯვებული და მიიღე დაუვიწყარი პრიზები  </p>
       </div>
     </div>
-    <div class="slide" style="background-image:url('images/OLIMP.jpg')">
+    <div class="slide" style="background-image:url('images/concepthon_imena.jpg')">
       <div class="slide-content">
-        <h1 data-ka="ოლიმპიადები" data-en="Olympiads">ოლიმპიადები</h1>
+        <h1 data-ka="ConcepThon" data-en="ConcepThon">ConcepThon</h1>
         <p data-ka="გახდი გამარჯვებული და მიიღე დაუვიწყარი პრიზები"
            data-en="Become a winner and receive unforgettable prizes">
           გახდი გამარჯვებული და მიიღე დაუვიწყარი პრიზები</p>
@@ -858,7 +874,7 @@ body.light .footer-col ul li a { color: #cccccc; }
   <div class="projects-heading"><span data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</span></div>
   <div class="projects-grid-layout">
     <div class="large-project-card" id="card-events" style="background-image: url('images/FILMCLUB.jpg');" data-imgs="images/FILMCLUB.jpg,images/OLIMP.jpg,images/rsr.jpg,images/კაი ხალიხ.jpg" data-title-ka="ღონისძიებები" data-title-en="Events" data-desc-ka="მიიღე მონაწილეობა მრავალფეროვან შიდა აქტივობებში. ჩვენი პლატფორმა გთავაზობს ლეგენდარულ ინტელექტუალურ თამაშს 'რა? სად? როდის?', საინტერესო კინოკლუბის ჩვენებებს სიღრმისეული ნარატიული ანალიზით, მასტერკლასებს მოწვეულ სპიკერებთან და სხვადასხვა აკადემიურ ოლიმპიადებს." data-desc-en="Take part in a wide variety of internal activities. Our platform offers the legendary 'What? Where? When?' game, engaging Film Club screenings with deep narrative analysis, masterclasses with guest speakers, and diverse academic olympiads.">
-      <div class="card-badge">ABC</div>
+      <div class="card-badge">Film Club</div>
       <div class="large-card-content">
         <h3 data-ka="ღონისძიებები" data-en="Events">ღონისძიებები</h3>
         <p data-ka="შემოუერთდი საუკეთესო ინტელექტუალურ და კინო თავგადასავლებს. დაგეგმე და გააანალიზე პროექტები გამოცდილ გუნდთან ერთად." data-en="Join the ultimate test of wit and speed. A championship designed for the bold and creative minds.">შემოუერთდი საუკეთესო ინტელექტუალურ და კინო თავგადასავლებს. დაგეგმე და გააანალიზე პროექტები გამოცდილ გუნდთან ერთად.</p>
@@ -867,7 +883,7 @@ body.light .footer-col ul li a { color: #cccccc; }
     <div class="side-cards-col">
       <div class="side-project-card" id="card-camps" data-imgs="images/BANAKI NEMVER.jpg,images/BANAK AGVISTO.jpg,images/BANAK MART.jpg,images/BANAK BOLO.jpg, images/BANAK STU.jpg" data-title-ka="ბანაკები" data-title-en="Camps" data-desc-ka="შემოუერთდი HSG-ის სეზონურ ბანაკებს! ეს არის საუკეთესო შესაძლებლობა აქტიური დასვენებისთვის, გუნდური სპორტული თამაშებისთვის, ლიდერული თვისებების განვითარებისა და ახალი, დაუვიწყარი მეგობრების შესაძენად მყუდრო და თბილ გარემოში." data-en="Join HSG's seasonal camps! It is the ultimate opportunity for active recreation, team sports, leadership development, and making lifelong, unforgettable friends in a warm and welcoming environment.">
         <div class="side-card-top">
-          <span class="side-badge">QUICK CAMP</span>
+          <span class="side-badge">CAMPS</span>
           <h3 data-ka="ბანაკები" data-en="Camps">ბანაკები</h3>
           <p data-ka="აღმოაჩინე ახალი მეგობრები და განავითარე ლიდერული უნარები დაუვიწყარ გარემოში." data-en="How fast can you adapt? Team building, sports and activities in nature.">აღმოაჩინე ახალი მეგობრები და განავითარე ლიდერული უნარები დაუვიწყარ გარემოში.</p>
         </div>
@@ -875,7 +891,7 @@ body.light .footer-col ul li a { color: #cccccc; }
       </div>
       <div class="side-project-card" id="card-championships" data-imgs="images/INTELEQTUALUR.jpg,images/itest.jpg,images/kinomani.jpg,images/meloman.jpg,images/abc.jpg" data-title-ka="ჩემპიონატები" data-title-en="Championships" data-desc-ka="გამოსცადე საკუთარი თავი სხვადასხვა შემეცნებით და ინტელექტუალურ შეჯიბრებაში. მიიღე მონაწილეობა ისეთ პროექტებში, როგორებიცაა ABC, i-Test, კინომანი და მელომანი, დაგროვე ქულები და მოიპოვე საუნივერსიტეტო გრანტები თუ სხვადასხვა ფასიანი პრიზები." data-en="Test yourself in various educational and intellectual competitions. Participate in projects like ABC, i-Test, Cinephile, and Melomaniac, accumulate points, and win university grants along with exciting prizes.">
         <div class="side-card-top">
-          <span class="side-badge">INTELLECTUAL</span>
+          <span class="side-badge">Championships</span>
           <h3 data-ka="ჩემპიონატები" data-en="Championships">ჩემპიონატები</h3>
           <p data-ka="გაიმარჯვე შემეცნებით შეჯიბრებებში და მოიპოვე 100% საუნივერსიტეტო გრანტი." data-en="Compete with the best, accumulate points and win academic grants.">გაიმარჯვე შემეცნებით შეჯიბრებებში და მოიპოვე 100% საუნივერსიტეტო გრანტი.</p>
         </div>
@@ -1011,7 +1027,7 @@ function updateModalContent(btn) {
   const imgsAttr = btn.getAttribute('data-imgs') || btn.getAttribute('data-bg');
   modalImages = imgsAttr ? imgsAttr.split(',') : [];
   currentModalImgIdx = 0;
-  
+
   // Rebuild Dots
   modalDots.innerHTML = '';
   if (modalImages.length > 1) {
@@ -1027,12 +1043,20 @@ function updateModalContent(btn) {
     modalPrevBtn.style.display = 'none';
     modalNextBtn.style.display = 'none';
   }
+
+  // 🛠️ პოზიციის გასწორება - ერთხელ ვანიჭებთ მთლიან მოდალს ღილაკის მიხედვით
+  if (btn.id === 'card-events') {
+    modalImg.style.backgroundPosition = '35% center'; // ღონისძიებების ყველა ფოტოსთვის
+  } else if (btn.classList.contains('mod-art')) {
+    modalImg.style.backgroundPosition = '25% center';
+  } else if (btn.classList.contains('mod-psychology')) {
+    modalImg.style.backgroundPosition = '75% center';
+  } else {
+    modalImg.style.backgroundPosition = 'center center';
+  }
   
   showModalImage(0);
-  if (btn.classList.contains('mod-art')) modalImg.style.backgroundPosition = '25% center';
-  else if (btn.classList.contains('mod-psychology')) modalImg.style.backgroundPosition = '75% center';
-  else modalImg.style.backgroundPosition = 'center center';
-
+  
   modalTitle.textContent = btn.getAttribute(`data-title-${currentLang}`) || btn.querySelector('h3').textContent;
   modalDesc.textContent = btn.getAttribute(`data-desc-${currentLang}`);
   startModalTimer();
@@ -1049,11 +1073,13 @@ document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').
 
 modalPrevBtn.onclick = (e) => { e.stopPropagation(); showModalImage(currentModalImgIdx - 1); startModalTimer(); };
 modalNextBtn.onclick = (e) => { e.stopPropagation(); showModalImage(currentModalImgIdx + 1); startModalTimer(); };
+
 function closeModal() {
   modal.classList.remove('active');
   clearInterval(modalAutoTimer);
   document.querySelectorAll('.card-btn, .large-project-card, .side-project-card').forEach(b => b.classList.remove('active-modal'));
 }
+
 modalClose.onclick = closeModal;
 modal.onclick = (e) => { if (e.target === modal) closeModal(); };
 

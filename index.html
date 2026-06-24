@@ -1139,6 +1139,42 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.4 });
   statNumbers.forEach(num => observer.observe(num));
 });
+// HERO SLIDER TOUCH SWIPE
+let touchStartX = 0;
+let touchEndX = 0;
+
+wrapper.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+wrapper.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleHeroSwipe();
+});
+
+function handleHeroSwipe() {
+    if (touchEndX < touchStartX - 50) next();
+    if (touchEndX > touchStartX + 50) prev();
+}
+
+// MODAL TOUCH SWIPE
+let modalTouchStartX = 0;
+let modalTouchEndX = 0;
+
+modalImg.addEventListener('touchstart', e => {
+    modalTouchStartX = e.changedTouches[0].screenX;
+});
+
+modalImg.addEventListener('touchend', e => {
+    modalTouchEndX = e.changedTouches[0].screenX;
+    handleModalSwipe();
+});
+
+function handleModalSwipe() {
+    if (modalTouchEndX < modalTouchStartX - 50) showModalImage(currentModalImgIdx + 1);
+    if (modalTouchEndX > modalTouchStartX + 50) showModalImage(currentModalImgIdx - 1);
+    startModalTimer();
+}
 </script>
 
 </body>

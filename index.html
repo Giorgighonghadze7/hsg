@@ -1104,20 +1104,19 @@
 .sb-9 { background: #445c00; }
 .sb-10 { background: #5c2e00; }
 .sb-11 { background: #004d5c; }
-
-/* 📱 მედია რექვერები ტაბლეტისა და ტელეფონისთვის (ოპტიმიზირებული) */
+/* 📱 მედია რექვერები ტაბლეტისა და ტელეფონისთვის (ოპტიმიზირებული და გასწორებული) */
 @media(max-width:768px) {
   .subjects-section { padding: 40px 15px; }
   .subjects-section h2 { font-size: 24px; margin-bottom: 10px; }
   .subjects-subtitle { font-size: 14px; margin-bottom: 25px; }
   .subjects-arena { height: 600px; max-width: 100%; }
   
-  /* 🖥️ ოპტიმიზირებული ღილაკი პლანშეტისთვის (ტაბლეტი) */
+  /* ოპტიმიზირებული ღილაკი პლანშეტისთვის */
   .subjects-trigger-btn { 
-    width: 145px;          /* გავზარდეთ 130-დან 145-მდე, რომ კარგად გამოჩნდეს */
+    width: 145px; 
     height: 145px; 
-    font-size: 13px;       /* ოდნავ შევამცირეთ ტექსტი, რომ წრეში იდეალურად ჩაეტიოს */
-    gap: 8px;              /* ზომიერი დაშორება ფოტოსა და ტექსტს შორის */
+    font-size: 13px; 
+    gap: 8px; 
   }
   .trigger-icon { 
     width: 48px; 
@@ -1128,21 +1127,44 @@
 }
 
 @media(max-width:480px) {
-  .subjects-arena { height: 500px; }
+  /* არენის სიმაღლე ოპტიმალურია ვერტიკალური გაშლისთვის */
+  .subjects-arena { height: 540px; }
   
-  /* 📱 ოპტიმიზირებული ღილაკი მობილური ტელეფონისთვის */
+  /* ოპტიმიზირებული ღილაკი მობილური ტელეფონისთვის */
   .subjects-trigger-btn { 
-    width: 130px;          /* გავზარდეთ 110-დან 130-მდე, რადგან ტელეფონზე ძალიან პატარა იყო */
-    height: 130px; 
-    font-size: 12px;       /* ტექსტის იდეალური ზომა მობილურისთვის */
-    gap: 6px;              /* პატარა დაშორება, რომ ყველაფერი ჩაეტიოს */
+    width: 125px; 
+    height: 125px; 
+    font-size: 12px; 
+    gap: 6px; 
   }
   .trigger-icon { 
-    width: 42px; 
-    height: 42px; 
+    width: 40px; 
+    height: 40px; 
   }
   
-  .subject-bubble { width: 95px; height: 65px; font-size: 10px; padding: 6px; }
+  /* საგნების ბუშტების ზომა - ოდნავ შევამცირეთ სიგანე (100px), რომ გვერდებზე მეტი "ჰაერი" დარჩეს */
+  .subject-bubble { 
+    width: 100px; 
+    height: 65px; 
+    font-size: 11px; 
+    padding: 6px; 
+  }
+
+  /* ✨ განახლებული ჯადოსნური განლაგება (ღილაკიდან მოცილება და სიგანეში გაწევა) */
+  
+  /* 🛑 კენტი საგნები (რომლებიც ღილაკთან ახლოს იყო):
+     X (სიგანე) გავზარდეთ 1.25-მდე, რომ ღილაკს მთლიანად მოცილდეს გვერდებზე.
+     Y (სიმაღლე) არის 1.00, რაც ინარჩუნებს იდეალურ ვერტიკალურ დისტანციას. */
+  .subject-bubble.visible:nth-child(odd) {
+    transform: translate(calc(var(--tx) * 1.25), calc(var(--ty) * 1.00)) scale(1) rotate(var(--rot, 0deg)) !important;
+  }
+  
+  /* 🚀 ლუწი საგნები (გარე იარუსი):
+     X (სიგანე) ავიყვანეთ მაქსიმალურ 1.65-მდე, რათა ტელეფონის კიდეებამდე გაიწეს.
+     Y (სიმაღლე) არის 1.45, რაც მათ ზემოთ და ქვემოთ ლამაზად შლის. */
+  .subject-bubble.visible:nth-child(even) {
+    transform: translate(calc(var(--tx) * 1.65), calc(var(--ty) * 1.45)) scale(1) rotate(var(--rot, 0deg)) !important;
+  }
 }
   </style>
 </head>

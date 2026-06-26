@@ -626,7 +626,7 @@
       flex-direction: column;
       justify-content: flex-end;
       align-items: flex-start;
-      padding: 0 80px 100px;
+      padding: 0 80px 50px; /*დავლა ჩამოწევა ჩარჩოსი*/
     }
     .slide:nth-child(2) {
       background-position: 50% 70% !important;
@@ -637,20 +637,26 @@
       inset: 0;
       background: linear-gradient(to top, rgba(0, 0, 0, .65), rgba(0, 0, 0, .1));
     }
+    /* HERO SLIDER TEXT FRAME */
     .slide-content {
       position: relative;
       z-index: 1;
-      max-width: 650px;
+      max-width: 1000px; /* ჩარჩო საგრძნობლად დავიწროვდა, რომ ფოტოები გამოჩნდეს */
+      background: rgba(0, 0, 0, 0.4); /* ნაზი, გამჭვირვალე ფონი */
+      padding: 18px 22px; /* კომპაქტური შიდა დაშორებები */
+      border-left: 3px solid var(--accent); /* დაწვრილებული მარცხენა წითელი ზოლი */
+      border-radius: 8px; /* კუთხეების მსუბუქი მომრგვალება */
+      backdrop-filter: blur(4px); /* უკანა ფოტოს ფონური ბუნდოვნება ტექსტის კითხვადობისთვის */
     }
     .slide-content h1 {
-      font-size: 52px;
-      margin-bottom: 12px;
+      font-size: 30px; /* უფრო კომპაქტური სათაური */
+      margin-bottom: 10px;
       text-shadow: 1px 1px 6px rgba(0, 0, 0, .5);
       font-weight: 800;
     }
     .slide-content p {
-      font-size: 19px;
-      opacity: .9;
+      font-size: 18px; /* უფრო კომპაქტური აღწერა */
+      opacity: .95;
       text-shadow: 1px 1px 6px rgba(0, 0, 0, .5);
       line-height: 1.4;
     }
@@ -891,9 +897,17 @@
       .mod-logo { height: 45px; }
       .card-btn h3 { font-size: 20px; }
       .hero { height: 65vh; }
-      .slide { padding: 0 20px 65px; }
-      .slide-content h1 { font-size: 32px; }
-      .slide-content p { font-size: 15px; }
+      .slide { padding: 0 20px 25px; }
+      .slide-content {
+      max-width: 85%; /* ჩარჩო ტელეფონის ეკრანზეც ვიწრო დარჩება */
+      padding: 12px 15px; /* შიდა დაშორებების დაპატარავება */
+      background: rgba(0, 0, 0, 0.4); /* გამჭვირვალე ფონი */
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+    }
+      .slide-content h1 { font-size: 22px; }
+      .slide-content p { font-size: 13px; }
       .slider-arrow { width: 40px; height: 40px; font-size: 17px; }
       .modal-box { flex-direction: column; height: 85vh; width: 92vw; max-height: 600px; }
       .modal-img-side { flex: 0 0 35%; min-height: 200px; }
@@ -908,18 +922,18 @@
       .footer-container { grid-template-columns: 1fr; gap: 30px; margin-bottom: 30px; }
       .stats-container { flex-direction: column; gap: 35px; padding: 10px 20px; }
       .stat-number { font-size: 46px; }
-      .slider-arrows {
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 20px !important;
-        width: 100% !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        padding: 0 20px !important;
-      }
+    .slider-arrows {
+  left: 0 !important;
+  right: auto !important; /* შეიცვალა auto-თი, რომ მარჯვნიდან არ გაიჭიმოს */
+  bottom: 20px !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-end !important; /* ეს განაპირობებს ისრების მარცხნივ მოქცევას */
+  padding: 0 80px !important; /* 80px იმისათვის, რომ ისრები ზუსტად გაუსწორდეს ზედა ტექსტის კიდეს */
+}
     }
 
-    @media(max-width:480px) {
+ @media(max-width:480px) {
       .logo-text { font-size: 18px; }
       .card-btn { flex-direction: row; align-items: center; gap: 15px; padding: 15px 20px; }
       .card-btn h3 { font-size: 18px; }
@@ -938,7 +952,22 @@
         bottom: 35px !important;
       }
       .slide {
-        padding-bottom: 90px !important;
+        padding-bottom: 55px !important; /* 20px-დან გაიზარდა 80px-მდე, რამაც ჩარჩო ზემოთ აწია (ისრებისა და წერტილების თავზე) */
+      }
+       .slide-content {
+        max-width: 85%; /* ჩარჩო ტელეფონის ეკრანზეც ვიწრო დარჩება */
+        padding: 12px 15px; /* შიდა დაშორებების დაპატარავება */
+        background: rgba(0, 0, 0, 0.4); /* გამჭვირვალე ფონი */
+        border-left: 3px solid var(--accent);
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+        margin-left: 25px; /* ეს ბრძანება ჩარჩოს მთლიანად გადაწევს მარჯვენა მხარეს */
+      }
+      .slide-content h1 { 
+        font-size: 18px; /* კიდევ უფრო კომპაქტური სათაური */
+      }
+      .slide-content p { 
+        font-size: 12px; /* კიდევ უფრო კომპაქტური ტექსტი */
       }
     }
   </style>
@@ -1017,15 +1046,11 @@
     High School of Georgia არის საქართველოს ერთ-ერთი წამყვანი, დამამთავრებელი კლასების მოსწავლეებზე ორიენტირებული საგანმანათლებლო პროგრამა, რომელიც მიზნად ისახავს დაეხმაროს სკოლის მოსწავლეებს პრაქტიკული უნარების განვითარებაში, მომავალი კარიერული შესაძლებლობების შესწავლასა და საკუთარი პოტენციალის სრულად გამოვლენაში.
   </p>
 
-  <p data-ka="საგანმანათლებლო პროექტების, ლექციების, ვორქშოფების, ჩემპიონატებისა და ბანაკების საშუალებით, High School of Georgia ქმნის გარემოს, სადაც მოსწავლეებს შეუძლიათ ისწავლონ ტრადიციული საკლასო ოთახის მიღმა და მიიღონ ღირებული ცოდნა პროფესიონალებისგან, უნივერსიტეტის ლექტორებისგან, მეწარმეებისა და დარგის ექსპერტებისგან."
+  <p data-ka="საგანმანათლებლო პროექტების, ლექციების, ვორქშოფების, ჩემპიონატებისა და ბანაკების საშუალებით, High School of Georgia ქმნის გარემოს, სადაც მოსწავლეებს შეუძლიათ ისწავლონ და მიიღონ ღირებული ცოდნა პროფესიონალებისგან, უნივერსიტეტის ლექტორებისგან, მეწარმეებისა და დარგის ექსპერტებისგან."
      data-en="Through educational projects, lectures, workshops, championships, and camps, High School of Georgia creates an environment where students can learn beyond the traditional classroom and gain valuable knowledge from professionals, university lecturers, entrepreneurs, and industry experts.">
-    საგანმანათლებლო პროექტების, ლექციების, ვორქშოფების, ჩემპიონატებისა და ბანაკების საშუალებით, High School of Georgia ქმნის გარემოს, სადაც მოსწავლეებს შეუძლიათ ისწავლონ ტრადიციული საკლასო ოთახის მიღმა და მიიღონ ღირებული ცოდნა პროფესიონალებისგან, უნივერსიტეტის ლექტორებისგან, მეწარმეებისა და დარგის ექსპერტებისგან.
+    საგანმანათლებლო პროექტების, ლექციების, ვორქშოფების, ჩემპიონატებისა და ბანაკების საშუალებით, High School of Georgia ქმნის გარემოს, სადაც მოსწავლეებს შეუძლიათ ისწავლონ და მიიღონ ღირებული ცოდნა პროფესიონალებისგან, უნივერსიტეტის ლექტორებისგან, მეწარმეებისა და დარგის ექსპერტებისგან.
   </p>
 
-  <p data-ka="ჩვენი მიზანია მივაწოდოთ, საინტერესო და შედეგზე ორიენტირებულიგამოცდილება, რომელიც ხელს უწყობს პიროვნულ ზრდას, ლიდერობას, კრიტიკულ აზროვნებასა და უწყვეტ სწავლას. საქართველოს მასშტაბით ამბიციური მოსწავლეების გაერთიანებით, ჩვენ ვქმნით მძლავრ საზოგადოებას, რომელიც დაფუძნებულია თანამშრომლობაზე, ინოვაციასა და თვითგანვითარებაზე."
-     data-en="Our goal is to provide, engaging, and results-driven experiences that promote personal growth, leadership, critical thinking, and lifelong learning. By bringing together ambitious students from across Georgia, we build a strong community founded on collaboration, innovation, and self-development.">
-    ჩვენი მიზანია მივაწოდოთ, საინტერესო და შედეგზე ორიენტირებული გამოცდილება, რომელიც ხელს უწყობს პიროვნულ ზრდას, ლიდერობას, კრიტიკულ აზროვნებასა და უწყვეტ სწავლას. საქართველოს მასშტაბით ამბიციური მოსწავლეების გაერთიანებით, ჩვენ ვქმნით მძლავრ საზოგადოებას, რომელიც დაფუძნებულია თანამშრომლობაზე, ინოვაციასა და თვითგანვითარებაზე.
-  </p>
 </section>
   </section>
 

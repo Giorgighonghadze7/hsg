@@ -626,7 +626,7 @@
       flex-direction: column;
       justify-content: flex-end;
       align-items: flex-start;
-      padding: 0 80px 50px; /*დავლა ჩამოწევა ჩარჩოსი*/
+      padding: 0 80px 50px;
     }
     .slide:nth-child(2) {
       background-position: 50% 70% !important;
@@ -637,25 +637,24 @@
       inset: 0;
       background: linear-gradient(to top, rgba(0, 0, 0, .65), rgba(0, 0, 0, .1));
     }
-    /* HERO SLIDER TEXT FRAME */
     .slide-content {
       position: relative;
       z-index: 1;
-      max-width: 1000px; /* ჩარჩო საგრძნობლად დავიწროვდა, რომ ფოტოები გამოჩნდეს */
-      background: rgba(0, 0, 0, 0.4); /* ნაზი, გამჭვირვალე ფონი */
-      padding: 18px 22px; /* კომპაქტური შიდა დაშორებები */
-      border-left: 3px solid var(--accent); /* დაწვრილებული მარცხენა წითელი ზოლი */
-      border-radius: 8px; /* კუთხეების მსუბუქი მომრგვალება */
-      backdrop-filter: blur(4px); /* უკანა ფოტოს ფონური ბუნდოვნება ტექსტის კითხვადობისთვის */
+      max-width: 1000px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 18px 22px;
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
     }
     .slide-content h1 {
-      font-size: 30px; /* უფრო კომპაქტური სათაური */
+      font-size: 30px;
       margin-bottom: 10px;
       text-shadow: 1px 1px 6px rgba(0, 0, 0, .5);
       font-weight: 800;
     }
     .slide-content p {
-      font-size: 18px; /* უფრო კომპაქტური აღწერა */
+      font-size: 18px;
       opacity: .95;
       text-shadow: 1px 1px 6px rgba(0, 0, 0, .5);
       line-height: 1.4;
@@ -899,13 +898,13 @@
       .hero { height: 65vh; }
       .slide { padding: 0 20px 25px; }
       .slide-content {
-      max-width: 85%; /* ჩარჩო ტელეფონის ეკრანზეც ვიწრო დარჩება */
-      padding: 12px 15px; /* შიდა დაშორებების დაპატარავება */
-      background: rgba(0, 0, 0, 0.4); /* გამჭვირვალე ფონი */
-      border-left: 3px solid var(--accent);
-      border-radius: 6px;
-      backdrop-filter: blur(4px);
-    }
+        max-width: 85%;
+        padding: 12px 15px;
+        background: rgba(0, 0, 0, 0.4);
+        border-left: 3px solid var(--accent);
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+      }
       .slide-content h1 { font-size: 22px; }
       .slide-content p { font-size: 13px; }
       .slider-arrow { width: 40px; height: 40px; font-size: 17px; }
@@ -922,18 +921,18 @@
       .footer-container { grid-template-columns: 1fr; gap: 30px; margin-bottom: 30px; }
       .stats-container { flex-direction: column; gap: 35px; padding: 10px 20px; }
       .stat-number { font-size: 46px; }
-    .slider-arrows {
-  left: 0 !important;
-  right: auto !important; /* შეიცვალა auto-თი, რომ მარჯვნიდან არ გაიჭიმოს */
-  bottom: 20px !important;
-  width: 100% !important;
-  display: flex !important;
-  justify-content: flex-end !important; /* ეს განაპირობებს ისრების მარცხნივ მოქცევას */
-  padding: 0 80px !important; /* 80px იმისათვის, რომ ისრები ზუსტად გაუსწორდეს ზედა ტექსტის კიდეს */
-}
+      .slider-arrows {
+        left: 0 !important;
+        right: auto !important;
+        bottom: 20px !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        padding: 0 80px !important;
+      }
     }
 
- @media(max-width:480px) {
+    @media(max-width:480px) {
       .logo-text { font-size: 18px; }
       .card-btn { flex-direction: row; align-items: center; gap: 15px; padding: 15px 20px; }
       .card-btn h3 { font-size: 18px; }
@@ -952,26 +951,200 @@
         bottom: 35px !important;
       }
       .slide {
-        padding-bottom: 55px !important; /* 20px-დან გაიზარდა 80px-მდე, რამაც ჩარჩო ზემოთ აწია (ისრებისა და წერტილების თავზე) */
+        padding-bottom: 55px !important;
       }
-       .slide-content {
-        max-width: 85%; /* ჩარჩო ტელეფონის ეკრანზეც ვიწრო დარჩება */
-        padding: 12px 15px; /* შიდა დაშორებების დაპატარავება */
-        background: rgba(0, 0, 0, 0.4); /* გამჭვირვალე ფონი */
+      .slide-content {
+        max-width: 85%;
+        padding: 12px 15px;
+        background: rgba(0, 0, 0, 0.4);
         border-left: 3px solid var(--accent);
         border-radius: 6px;
         backdrop-filter: blur(4px);
-        margin-left: 25px; /* ეს ბრძანება ჩარჩოს მთლიანად გადაწევს მარჯვენა მხარეს */
+        margin-left: 25px;
       }
       .slide-content h1 { 
-        font-size: 18px; /* კიდევ უფრო კომპაქტური სათაური */
+        font-size: 18px;
       }
       .slide-content p { 
-        font-size: 12px; /* კიდევ უფრო კომპაქტური ტექსტი */
+        font-size: 12px;
       }
     }
   </style>
   <link rel="icon" type="image/x-icon" href="images/zemocaveri.png">
+
+  <style>
+/* SUBJECTS SECTION */
+.subjects-section {
+  padding: 90px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.subjects-section h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(128,128,128,0.15);
+  padding-bottom: 15px;
+  text-align: left;
+  width: 100%;
+}
+.subjects-subtitle {
+  font-size: 16px;
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  text-align: left;
+  width: 100%;
+}
+.subjects-arena {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subjects-trigger-btn {
+  position: relative;
+  z-index: 10;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: white;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 0 0 rgba(227, 18, 53, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+.subjects-trigger-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 20px rgba(227, 18, 53, 0);
+}
+.subjects-trigger-btn.pulsing {
+  animation: subjectPulse 2s infinite;
+}
+@keyframes subjectPulse {
+  0% { box-shadow: 0 0 0 0 rgba(227,18,53,0.55); }
+  70% { box-shadow: 0 0 0 28px rgba(227,18,53,0); }
+  100% { box-shadow: 0 0 0 0 rgba(227,18,53,0); }
+}
+
+/* ფოტოს კონტეინერის სტილი (კომპიუტერისთვის) */
+.trigger-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px; 
+  height: 55px;
+  transition: transform 0.4s ease;
+}
+
+/* თავად ფოტოს სტილი - გასწორდა 100%-ზე, რომ ზუსტად ჩაჯდეს კონტეინერში */
+.trigger-icon img {
+  width: 400%;
+  height: 400%;
+  object-fit: contain; 
+  display: block;
+}
+
+.subjects-trigger-btn.open .trigger-icon {
+  transform: rotate(45deg);
+}
+
+.subject-bubble {
+  position: absolute;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+  padding: 12px 18px;
+  color: white;
+  cursor: default;
+  border: 2px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  opacity: 0;
+  transform: scale(0.3) translate(0, 0) rotate(0deg);
+  transition: opacity 0.45s cubic-bezier(0.34,1.56,0.64,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+  pointer-events: none;
+  user-select: none;
+  width: 150px;
+  height: 90px;
+}
+.subject-bubble.visible {
+  opacity: 1;
+  transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot, 0deg));
+  pointer-events: auto;
+}
+.sb-0 { background: #1a6b3c; }
+.sb-1 { background: #0e6b9e; }
+.sb-2 { background: #b5440e; }
+.sb-3 { background: #6a3d99; }
+.sb-4 { background: #0d7a6a; }
+.sb-5 { background: #1e4d8c; }
+.sb-6 { background: #8a3a00; }
+.sb-7 { background: #7b1d3a; }
+.sb-8 { background: #2a5c1a; }
+.sb-9 { background: #445c00; }
+.sb-10 { background: #5c2e00; }
+.sb-11 { background: #004d5c; }
+
+/* 📱 მედია რექვერები ტაბლეტისა და ტელეფონისთვის (ოპტიმიზირებული) */
+@media(max-width:768px) {
+  .subjects-section { padding: 40px 15px; }
+  .subjects-section h2 { font-size: 24px; margin-bottom: 10px; }
+  .subjects-subtitle { font-size: 14px; margin-bottom: 25px; }
+  .subjects-arena { height: 600px; max-width: 100%; }
+  
+  /* 🖥️ ოპტიმიზირებული ღილაკი პლანშეტისთვის (ტაბლეტი) */
+  .subjects-trigger-btn { 
+    width: 145px;          /* გავზარდეთ 130-დან 145-მდე, რომ კარგად გამოჩნდეს */
+    height: 145px; 
+    font-size: 13px;       /* ოდნავ შევამცირეთ ტექსტი, რომ წრეში იდეალურად ჩაეტიოს */
+    gap: 8px;              /* ზომიერი დაშორება ფოტოსა და ტექსტს შორის */
+  }
+  .trigger-icon { 
+    width: 48px; 
+    height: 48px; 
+  }
+  
+  .subject-bubble { width: 110px; height: 75px; font-size: 11px; padding: 8px; }
+}
+
+@media(max-width:480px) {
+  .subjects-arena { height: 500px; }
+  
+  /* 📱 ოპტიმიზირებული ღილაკი მობილური ტელეფონისთვის */
+  .subjects-trigger-btn { 
+    width: 130px;          /* გავზარდეთ 110-დან 130-მდე, რადგან ტელეფონზე ძალიან პატარა იყო */
+    height: 130px; 
+    font-size: 12px;       /* ტექსტის იდეალური ზომა მობილურისთვის */
+    gap: 6px;              /* პატარა დაშორება, რომ ყველაფერი ჩაეტიოს */
+  }
+  .trigger-icon { 
+    width: 42px; 
+    height: 42px; 
+  }
+  
+  .subject-bubble { width: 95px; height: 65px; font-size: 10px; padding: 6px; }
+}
+  </style>
 </head>
 <body>
 
@@ -981,7 +1154,7 @@
     <div class="header-menu" id="headerMenu">
       <nav>
         <a href="#about" data-ka="რა არის High School of Georgia?" data-en="About High School of Georgia">რა არის High School of Georgia?</a>
-        <a href="#modules" data-ka="მოდულები" data-en="Modules">მოდულები</a>
+        <a href="#subjects" data-ka="საგნები" data-en="Subjects">საგნები</a> <a href="#modules" data-ka="მოდულები" data-en="Modules">მოდულები</a>
         <a href="#other-projects" data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</a>
       </nav>
       <div class="header-actions">
@@ -1052,7 +1225,6 @@
   </p>
 
 </section>
-  </section>
 
   <div class="stats-container">
     <div class="stat-item">
@@ -1077,6 +1249,19 @@
     <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScJM_VK4Fm3CLA9sZfVA3K9a5zCdLuOzQVpWMM3DEb0hQTZbw/viewform"
        data-ka="რეგისტრაცია" data-en="Register">რეგისტრაცია</a>
   </div>
+
+  <section class="subjects-section section muted" id="subjects">
+    <h2 data-ka="HSG-ს საგნები" data-en="HSG Subjects">HSG-ს საგნები</h2>
+    <!-- აქ დაემატა სუბტიტრი (ფლეისჰოლდერი ტექსტი) -->
+    <p class="subjects-subtitle" data-ka="აღმოაჩინე მრავალფეროვანი საგნები, რომლებიც დაგეხმარება მომავალი პროფესიის სწორად შერჩევასა და პრაქტიკული უნარების განვითარებაში." data-en="Discover a variety of subjects that will help you choose your future profession correctly and develop practical skills.">აღმოაჩინე მრავალფეროვანი საგნები, რომლებიც დაგეხმარება მომავალი პროფესიის სწორად შერჩევასა და პრაქტიკული უნარების განვითარებაში.</p>
+    
+    <div class="subjects-arena" id="subjectsArena">
+      <button class="subjects-trigger-btn pulsing" id="subjectsTrigger" aria-expanded="false">
+        <span class="trigger-icon"><img src="images/Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo"></span>
+        <span data-ka="საგნები" data-en="Subjects">რას ისწავლი ჰაისქულში</span>
+      </button>
+    </div>
+  </section>
 
   <section id="modules" class="section">
     <h2 data-ka="მოდულები" data-en="Modules">მოდულები</h2>
@@ -1426,6 +1611,148 @@
       if (modalTouchEndX > modalTouchStartX + 50) showModalImage(currentModalImgIdx - 1);
       startModalTimer();
     }
+
+    // SUBJECTS BUBBLE SYSTEM
+    (function() {
+      const subjects = [
+        { ka: 'სამართალი',                       en: 'Law' },
+        { ka: 'ტექნოლოგიები\n(IT)',               en: 'Technology\n(IT)' },
+        { ka: 'ბიზნესი',                          en: 'Business' },
+        { ka: 'მეცნიერება\n(მედიცინა და\nსაბუნ.)', en: 'Science\n(Med & Nat.)' },
+        { ka: 'ეკონომიკა',                        en: 'Economics' },
+        { ka: 'საერთაშორისო\nურთიერთობები',            en: 'International\nRelations' },
+        { ka: 'ხელოვნება',                        en: 'Art' },
+        { ka: 'ფსიქოლოგია',                      en: 'Psychology' },
+        { ka: 'ფილოსოფია',                       en: 'Philosophy' },
+        { ka: 'AI-სტილები\n(ხელოვნ. ინტ.)',      en: 'AI Skills\n(Art. Intel.)' },
+        { ka: 'კაცობრიობის\nმიღწევები',              en: 'Human\nAchievements' },
+        { ka: 'კარიერული\nგანვითარება',          en: 'Career\nDevelopment' },
+      ];
+
+      const arena   = document.getElementById('subjectsArena');
+      const trigger = document.getElementById('subjectsTrigger');
+      let open = false;
+      let bubbles = [];
+
+      // ძველი ხისტი ოფსეტების მაგივრად ვიყენებთ ალგორითმულ კომპაქტურ "სპირალს" ჯიტერით
+      function getPositions() {
+        const W  = arena.offsetWidth;
+        const H  = arena.offsetHeight;
+        const cx = W / 2;
+        const cy = H / 2;
+        
+        const calculatedOffsets = [];
+        for (let i = 0; i < subjects.length; i++) {
+          // Phyllotaxis (ოქროს კვეთის სპირალი) კომპაქტურობისთვის
+          const angle = i * 137.5 * (Math.PI / 180);
+          
+          // მზარდი რადიუსი, რათა ბარათები ერთმანეთს არ გადააჯდეს
+          const baseRadius = 160 + (i * 12);
+          
+          // დეტერმინირებული "ქაოსი" (მცირე ტალღური არევა, რომ იდეალურ წრეებად არ განლაგდეს)
+          const jitterRadius = Math.sin(i * 3) * 20;
+          const finalRadius = baseRadius + jitterRadius;
+          
+          // ვამრავლებთ X-ს 1.35-ზე და Y-ს 0.95-ზე, რადგან არენა და ეკრანები სიგანეში უფრო დიდია, ვიდრე სიმაღლეში
+          const tx = Math.cos(angle) * finalRadius * 1.35;
+          const ty = Math.sin(angle) * finalRadius * 0.95;
+          
+          calculatedOffsets.push({ tx: tx, ty: ty });
+        }
+
+        // რესპონსიული მასშტაბირება არენის ზომის მიხედვით
+        const scaleX = (W - 100) / 900;
+        const scaleY = (H - 100) / 700;
+        
+        return calculatedOffsets.map(function(o) {
+          return { x: cx + o.tx * scaleX, y: cy + o.ty * scaleY };
+        });
+      }
+
+      function build() {
+        bubbles = [];
+        arena.querySelectorAll('.subject-bubble').forEach(b => b.remove());
+
+        const pos = getPositions();
+        const W   = arena.offsetWidth;
+        const H   = arena.offsetHeight;
+        const cx  = W / 2;
+        const cy  = H / 2;
+
+        subjects.forEach(function(s, i) {
+          const el = document.createElement('div');
+          el.className = 'subject-bubble sb-' + i;
+          
+          el.style.left       = cx + 'px';
+          el.style.top        = cy + 'px';
+          
+          el.style.marginLeft = '-75px';
+          el.style.marginTop  = '-45px';
+          
+          const tx = pos[i].x - cx;
+          const ty = pos[i].y - cy;
+          el.style.setProperty('--tx', tx + 'px');
+          el.style.setProperty('--ty', ty + 'px');
+
+          // შემთხვევითი დეტერმინირებული დახრის კუთხე (-6-დან +6 გრადუსამდე) ქაოსის ეფექტისთვის
+          const rot = ((i * 7) % 13) - 6;
+          el.style.setProperty('--rot', rot + 'deg');
+
+          const lang = typeof currentLang !== 'undefined' ? currentLang : 'ka';
+          el.textContent = (s[lang] || s.ka).replace(/\\n/g, '\n');
+          el.style.whiteSpace = 'pre-line';
+          el.setAttribute('data-ka', s.ka);
+          el.setAttribute('data-en', s.en);
+
+          el.style.transitionDelay = (i * 0.045) + 's';
+          arena.appendChild(el);
+          bubbles.push(el);
+        });
+      }
+
+      function openBubbles() {
+        open = true;
+        trigger.classList.add('open');
+        trigger.classList.remove('pulsing');
+        trigger.setAttribute('aria-expanded', 'true');
+        bubbles.forEach(function(b, i) {
+          setTimeout(function() { b.classList.add('visible'); }, i * 45);
+        });
+      }
+
+      function closeBubbles() {
+        open = false;
+        trigger.classList.remove('open');
+        trigger.classList.add('pulsing');
+        trigger.setAttribute('aria-expanded', 'false');
+        bubbles.forEach(function(b) { b.classList.remove('visible'); });
+      }
+
+      trigger.addEventListener('click', function() {
+        if (open) closeBubbles(); else openBubbles();
+      });
+
+      // update text on lang toggle
+      const origApplyLang = typeof applyLang === 'function' ? applyLang : null;
+      document.getElementById('langToggle').addEventListener('click', function() {
+        setTimeout(function() {
+          const lang = typeof currentLang !== 'undefined' ? currentLang : 'ka';
+          bubbles.forEach(function(b) {
+            const t = (b.getAttribute('data-' + lang) || b.getAttribute('data-ka')).replace(/\\n/g, '\n');
+            b.textContent = t;
+            b.style.whiteSpace = 'pre-line';
+          });
+        }, 10);
+      });
+
+      build();
+      window.addEventListener('resize', function() {
+        const wasOpen = open;
+        if (wasOpen) closeBubbles();
+        build();
+        if (wasOpen) setTimeout(openBubbles, 50);
+      });
+    })();
   </script>
 </body>
 </html>

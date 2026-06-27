@@ -1080,18 +1080,25 @@
   border: 2px solid rgba(255,255,255,0.15);
   box-shadow: 0 8px 25px rgba(0,0,0,0.35);
   opacity: 0;
-  transform: scale(0.3) translate(0, 0) rotate(0deg);
-  transition: opacity 0.45s cubic-bezier(0.34,1.56,0.64,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
   pointer-events: none;
   user-select: none;
   width: 150px;
   height: 90px;
+  /* ცენტრში ვსვამთ ყველას თავიდან */
+  top: 50%;
+  left: 50%;
+  margin-top: -45px;
+  margin-left: -75px;
+  transform: scale(0.3) translate(0, 0) rotate(0deg);
+  transition: opacity 0.45s cubic-bezier(0.34,1.56,0.64,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
 }
+
 .subject-bubble.visible {
   opacity: 1;
-  transform: translate(var(--tx), var(--ty)) scale(1) rotate(var(--rot, 0deg));
   pointer-events: auto;
 }
+
+/* ბაბლების ფერები */
 .sb-0 { background: #1a6b3c; }
 .sb-1 { background: #0e6b9e; }
 .sb-2 { background: #b5440e; }
@@ -1104,6 +1111,21 @@
 .sb-9 { background: #445c00; }
 .sb-10 { background: #5c2e00; }
 .sb-11 { background: #004d5c; }
+
+/* დესკტოპის პოზიციონირება თითოეულისთვის ცალკე (როცა გაშლილია) */
+#sb-law.visible { transform: translate(216.0px, 0.0px) scale(1) rotate(-6deg); transition-delay: 0.000s; }
+#sb-tech.visible { transform: translate(-174.0px, 112.2px) scale(1) rotate(1deg); transition-delay: 0.045s; }
+#sb-business.visible { transform: translate(21.0px, -168.8px) scale(1) rotate(-5deg); transition-delay: 0.090s; }
+#sb-science.visible { transform: translate(167.9px, 153.9px) scale(1) rotate(2deg); transition-delay: 0.135s; }
+#sb-economics.visible { transform: translate(-262.3px, -32.5px) scale(1) rotate(-4deg); transition-delay: 0.180s; }
+#sb-relations.visible { transform: translate(265.3px, -118.9px) scale(1) rotate(3deg); transition-delay: 0.225s; }
+#sb-art.visible { transform: translate(-75.8px, 199.1px) scale(1) rotate(-3deg); transition-delay: 0.270s; }
+#sb-psychology.visible { transform: translate(-162.5px, -219.7px) scale(1) rotate(4deg); transition-delay: 0.315s; }
+#sb-philosophy.visible { transform: translate(301.8px, 77.3px) scale(1) rotate(-2deg); transition-delay: 0.360s; }
+#sb-ai.visible { transform: translate(-358.1px, 104.4px) scale(1) rotate(5deg); transition-delay: 0.405s; }
+#sb-achievements.visible { transform: translate(148.5px, -224.1px) scale(1) rotate(-1deg); transition-delay: 0.450s; }
+#sb-career.visible { transform: translate(126.7px, 282.7px) scale(1) rotate(6deg); transition-delay: 0.495s; }
+
 /* 📱 მედია რექვერები ტაბლეტისა და ტელეფონისთვის (ოპტიმიზირებული და გასწორებული) */
 @media(max-width:768px) {
   .subjects-section { padding: 40px 15px; }
@@ -1111,7 +1133,6 @@
   .subjects-subtitle { font-size: 14px; margin-bottom: 25px; }
   .subjects-arena { height: 600px; max-width: 100%; }
   
-  /* ოპტიმიზირებული ღილაკი პლანშეტისთვის */
   .subjects-trigger-btn { 
     width: 145px; 
     height: 145px; 
@@ -1123,14 +1144,12 @@
     height: 48px; 
   }
   
-  .subject-bubble { width: 110px; height: 75px; font-size: 11px; padding: 8px; }
+  .subject-bubble { width: 110px; height: 75px; font-size: 11px; padding: 8px; margin-top: -37.5px; margin-left: -55px; }
 }
 
 @media(max-width:480px) {
-  /* არენის სიმაღლე ოპტიმალურია ვერტიკალური გაშლისთვის */
-  .subjects-arena { height: 540px; }
+  .subjects-arena { height: 650px; }
   
-  /* ოპტიმიზირებული ღილაკი მობილური ტელეფონისთვის */
   .subjects-trigger-btn { 
     width: 125px; 
     height: 125px; 
@@ -1142,29 +1161,30 @@
     height: 40px; 
   }
   
-  /* საგნების ბუშტების ზომა - ოდნავ შევამცირეთ სიგანე (100px), რომ გვერდებზე მეტი "ჰაერი" დარჩეს */
   .subject-bubble { 
     width: 100px; 
     height: 65px; 
     font-size: 11px; 
-    padding: 6px; 
+    padding: 6px;
+    margin-top: -32.5px;
+    margin-left: -50px; 
   }
 
-  /* ✨ განახლებული ჯადოსნური განლაგება (ღილაკიდან მოცილება და სიგანეში გაწევა) */
-  
-  /* 🛑 კენტი საგნები (რომლებიც ღილაკთან ახლოს იყო):
-     X (სიგანე) გავზარდეთ 1.25-მდე, რომ ღილაკს მთლიანად მოცილდეს გვერდებზე.
-     Y (სიმაღლე) არის 1.00, რაც ინარჩუნებს იდეალურ ვერტიკალურ დისტანციას. */
-  .subject-bubble.visible:nth-child(odd) {
-    transform: translate(calc(var(--tx) * 1.25), calc(var(--ty) * 1.00)) scale(1) rotate(var(--rot, 0deg)) !important;
-  }
-  
-  /* 🚀 ლუწი საგნები (გარე იარუსი):
-     X (სიგანე) ავიყვანეთ მაქსიმალურ 1.65-მდე, რათა ტელეფონის კიდეებამდე გაიწეს.
-     Y (სიმაღლე) არის 1.45, რაც მათ ზემოთ და ქვემოთ ლამაზად შლის. */
-  .subject-bubble.visible:nth-child(even) {
-    transform: translate(calc(var(--tx) * 1.65), calc(var(--ty) * 1.45)) scale(1) rotate(var(--rot, 0deg)) !important;
-  }
+
+
+  /* მობილურის პოზიციონირება (აქ შეგიძლიათ მარტივად შეცვალოთ კოორდინატები, თუ რამე დაიმალება) */
+  #sb-law.visible { transform: translate(132.0px, 0.0px) scale(1) rotate(-6deg); }
+  #sb-tech.visible { transform: translate(-103.8px, 129.7px) scale(1) rotate(1deg); }
+  #sb-business.visible { transform: translate(13.0px, -203.2px) scale(1) rotate(-5deg); }
+  #sb-science.visible { transform: translate(96.4px, 171.4px) scale(1) rotate(2deg); }
+  #sb-economics.visible { transform: translate(-120.7px, -39.6px) scale(1) rotate(-4deg); }
+  #sb-relations.visible { transform: translate(148.4px, -129.0px) scale(1) rotate(3deg); }
+  #sb-art.visible { transform: translate(-47.8px, 243.4px) scale(1) rotate(-3deg); }
+  #sb-psychology.visible { transform: translate(-89.4px, -234.2px) scale(1) rotate(4deg); }
+  #sb-philosophy.visible { transform: translate(190.2px, 94.4px) scale(1) rotate(-2deg); }
+  #sb-ai.visible { transform: translate(-195.1px, 110.2px) scale(1) rotate(5deg); }
+  #sb-achievements.visible { transform: translate(93.0px, -271.9px) scale(1) rotate(-1deg); }
+  #sb-career.visible { transform: translate(68.8px, 297.6px) scale(1) rotate(6deg); }
 }
   </style>
 </head>
@@ -1274,7 +1294,6 @@
 
   <section class="subjects-section section muted" id="subjects">
     <h2 data-ka="HSG-ს საგნები" data-en="HSG Subjects">HSG-ს საგნები</h2>
-    <!-- აქ დაემატა სუბტიტრი (ფლეისჰოლდერი ტექსტი) -->
     <p class="subjects-subtitle" data-ka="აღმოაჩინე მრავალფეროვანი საგნები, რომლებიც დაგეხმარება მომავალი პროფესიის სწორად შერჩევასა და პრაქტიკული უნარების განვითარებაში." data-en="Discover a variety of subjects that will help you choose your future profession correctly and develop practical skills.">აღმოაჩინე მრავალფეროვანი საგნები, რომლებიც დაგეხმარება მომავალი პროფესიის სწორად შერჩევასა და პრაქტიკული უნარების განვითარებაში.</p>
     
     <div class="subjects-arena" id="subjectsArena">
@@ -1282,6 +1301,19 @@
         <span class="trigger-icon"><img src="images/Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo"></span>
         <span data-ka="საგნები" data-en="Subjects">რას ისწავლი ჰაისქულში</span>
       </button>
+
+      <div class="subject-bubble sb-0" id="sb-law" data-ka="სამართალი" data-en="Law">სამართალი</div>
+      <div class="subject-bubble sb-1" id="sb-tech" data-ka="ტექნოლოგიები\n(IT)" data-en="Technology\n(IT)">ტექნოლოგიები<br>(IT)</div>
+      <div class="subject-bubble sb-2" id="sb-business" data-ka="ბიზნესი" data-en="Business">ბიზნესი</div>
+      <div class="subject-bubble sb-3" id="sb-science" data-ka="მეცნიერება\n(მედიცინა და\nსაბუნ.)" data-en="Science\n(Med & Nat.)">მეცნიერება<br>(მედიცინა და<br>საბუნ.)</div>
+      <div class="subject-bubble sb-4" id="sb-economics" data-ka="ეკონომიკა" data-en="Economics">ეკონომიკა</div>
+      <div class="subject-bubble sb-5" id="sb-relations" data-ka="საერთაშორისო\nურთიერთობები" data-en="International\nRelations">საერთაშორისო<br>ურთიერთობები</div>
+      <div class="subject-bubble sb-6" id="sb-art" data-ka="ხელოვნება" data-en="Art">ხელოვნება</div>
+      <div class="subject-bubble sb-7" id="sb-psychology" data-ka="ფსიქოლოგია" data-en="Psychology">ფსიქოლოგია</div>
+      <div class="subject-bubble sb-8" id="sb-philosophy" data-ka="ფილოსოფია" data-en="Philosophy">ფილოსოფია</div>
+      <div class="subject-bubble sb-9" id="sb-ai" data-ka="AI-სტილები\n(ხელოვნ. ინტ.)" data-en="AI Skills\n(Art. Intel.)">AI-სტილები<br>(ხელოვნ. ინტ.)</div>
+      <div class="subject-bubble sb-10" id="sb-achievements" data-ka="კაცობრიობის\nმიღწევები" data-en="Human\nAchievements">კაცობრიობის<br>მიღწევები</div>
+      <div class="subject-bubble sb-11" id="sb-career" data-ka="კარიერული\nგანვითარება" data-en="Career\nDevelopment">კარიერული<br>განვითარება</div>
     </div>
   </section>
 
@@ -1438,6 +1470,13 @@
       document.querySelectorAll('[data-ka][data-en]').forEach(el => el.textContent = el.getAttribute('data-' + lang));
       document.getElementById('langToggle').textContent = lang === 'ka' ? 'EN' : 'KA';
       document.documentElement.lang = lang;
+      
+      // Update bubbles explicitly because they might contain HTML tags like <br>
+      document.querySelectorAll('.subject-bubble').forEach(b => {
+        const text = b.getAttribute('data-' + lang);
+        if (text) b.innerHTML = text.replace(/\\n/g, '<br>');
+      });
+
       const activeBtn = document.querySelector('.active-modal');
       if (activeBtn) updateModalContent(activeBtn);
     }
@@ -1461,7 +1500,6 @@
       currentModalImgIdx = (idx + modalImages.length) % modalImages.length;
       modalImg.style.backgroundImage = `url('${modalImages[currentModalImgIdx]}')`;
 
-      // Update dots
       const dots = document.querySelectorAll('.modal-dot');
       dots.forEach((d, i) => d.classList.toggle('active', i === currentModalImgIdx));
     }
@@ -1478,7 +1516,6 @@
       modalImages = imgsAttr ? imgsAttr.split(',') : [];
       currentModalImgIdx = 0;
 
-      // Rebuild Dots
       modalDots.innerHTML = '';
       if (modalImages.length > 1) {
         modalImages.forEach((_, i) => {
@@ -1494,7 +1531,6 @@
         modalNextBtn.style.display = 'none';
       }
 
-      // პოზიციის გასწორება
       if (btn.id === 'card-events') {
         modalImg.style.backgroundPosition = '35% center';
       } else if (btn.classList.contains('mod-art')) {
@@ -1507,7 +1543,6 @@
 
       showModalImage(0);
 
-      // თარგმანის ფიქსი
       modalTitle.textContent = btn.getAttribute(`data-title-${currentLang}`) || btn.querySelector('h3').textContent;
       modalDesc.textContent = btn.getAttribute(`data-desc-${currentLang}`) || btn.getAttribute(`data-${currentLang}`);
 
@@ -1636,109 +1671,17 @@
 
     // SUBJECTS BUBBLE SYSTEM
     (function() {
-      const subjects = [
-        { ka: 'სამართალი',                       en: 'Law' },
-        { ka: 'ტექნოლოგიები\n(IT)',               en: 'Technology\n(IT)' },
-        { ka: 'ბიზნესი',                          en: 'Business' },
-        { ka: 'მეცნიერება\n(მედიცინა და\nსაბუნ.)', en: 'Science\n(Med & Nat.)' },
-        { ka: 'ეკონომიკა',                        en: 'Economics' },
-        { ka: 'საერთაშორისო\nურთიერთობები',            en: 'International\nRelations' },
-        { ka: 'ხელოვნება',                        en: 'Art' },
-        { ka: 'ფსიქოლოგია',                      en: 'Psychology' },
-        { ka: 'ფილოსოფია',                       en: 'Philosophy' },
-        { ka: 'AI-სტილები\n(ხელოვნ. ინტ.)',      en: 'AI Skills\n(Art. Intel.)' },
-        { ka: 'კაცობრიობის\nმიღწევები',              en: 'Human\nAchievements' },
-        { ka: 'კარიერული\nგანვითარება',          en: 'Career\nDevelopment' },
-      ];
-
-      const arena   = document.getElementById('subjectsArena');
       const trigger = document.getElementById('subjectsTrigger');
+      const bubbles = document.querySelectorAll('.subject-bubble');
       let open = false;
-      let bubbles = [];
-
-      // ძველი ხისტი ოფსეტების მაგივრად ვიყენებთ ალგორითმულ კომპაქტურ "სპირალს" ჯიტერით
-      function getPositions() {
-        const W  = arena.offsetWidth;
-        const H  = arena.offsetHeight;
-        const cx = W / 2;
-        const cy = H / 2;
-        
-        const calculatedOffsets = [];
-        for (let i = 0; i < subjects.length; i++) {
-          // Phyllotaxis (ოქროს კვეთის სპირალი) კომპაქტურობისთვის
-          const angle = i * 137.5 * (Math.PI / 180);
-          
-          // მზარდი რადიუსი, რათა ბარათები ერთმანეთს არ გადააჯდეს
-          const baseRadius = 160 + (i * 12);
-          
-          // დეტერმინირებული "ქაოსი" (მცირე ტალღური არევა, რომ იდეალურ წრეებად არ განლაგდეს)
-          const jitterRadius = Math.sin(i * 3) * 20;
-          const finalRadius = baseRadius + jitterRadius;
-          
-          // ვამრავლებთ X-ს 1.35-ზე და Y-ს 0.95-ზე, რადგან არენა და ეკრანები სიგანეში უფრო დიდია, ვიდრე სიმაღლეში
-          const tx = Math.cos(angle) * finalRadius * 1.35;
-          const ty = Math.sin(angle) * finalRadius * 0.95;
-          
-          calculatedOffsets.push({ tx: tx, ty: ty });
-        }
-
-        // რესპონსიული მასშტაბირება არენის ზომის მიხედვით
-        const scaleX = (W - 100) / 900;
-        const scaleY = (H - 100) / 700;
-        
-        return calculatedOffsets.map(function(o) {
-          return { x: cx + o.tx * scaleX, y: cy + o.ty * scaleY };
-        });
-      }
-
-      function build() {
-        bubbles = [];
-        arena.querySelectorAll('.subject-bubble').forEach(b => b.remove());
-
-        const pos = getPositions();
-        const W   = arena.offsetWidth;
-        const H   = arena.offsetHeight;
-        const cx  = W / 2;
-        const cy  = H / 2;
-
-        subjects.forEach(function(s, i) {
-          const el = document.createElement('div');
-          el.className = 'subject-bubble sb-' + i;
-          
-          el.style.left       = cx + 'px';
-          el.style.top        = cy + 'px';
-          
-          el.style.marginLeft = '-75px';
-          el.style.marginTop  = '-45px';
-          
-          const tx = pos[i].x - cx;
-          const ty = pos[i].y - cy;
-          el.style.setProperty('--tx', tx + 'px');
-          el.style.setProperty('--ty', ty + 'px');
-
-          // შემთხვევითი დეტერმინირებული დახრის კუთხე (-6-დან +6 გრადუსამდე) ქაოსის ეფექტისთვის
-          const rot = ((i * 7) % 13) - 6;
-          el.style.setProperty('--rot', rot + 'deg');
-
-          const lang = typeof currentLang !== 'undefined' ? currentLang : 'ka';
-          el.textContent = (s[lang] || s.ka).replace(/\\n/g, '\n');
-          el.style.whiteSpace = 'pre-line';
-          el.setAttribute('data-ka', s.ka);
-          el.setAttribute('data-en', s.en);
-
-          el.style.transitionDelay = (i * 0.045) + 's';
-          arena.appendChild(el);
-          bubbles.push(el);
-        });
-      }
 
       function openBubbles() {
         open = true;
         trigger.classList.add('open');
         trigger.classList.remove('pulsing');
         trigger.setAttribute('aria-expanded', 'true');
-        bubbles.forEach(function(b, i) {
-          setTimeout(function() { b.classList.add('visible'); }, i * 45);
+        bubbles.forEach((b, i) => {
+          setTimeout(() => { b.classList.add('visible'); }, i * 45);
         });
       }
 
@@ -1747,32 +1690,18 @@
         trigger.classList.remove('open');
         trigger.classList.add('pulsing');
         trigger.setAttribute('aria-expanded', 'false');
-        bubbles.forEach(function(b) { b.classList.remove('visible'); });
+        bubbles.forEach(b => { b.classList.remove('visible'); });
       }
 
       trigger.addEventListener('click', function() {
         if (open) closeBubbles(); else openBubbles();
       });
-
-      // update text on lang toggle
-      const origApplyLang = typeof applyLang === 'function' ? applyLang : null;
-      document.getElementById('langToggle').addEventListener('click', function() {
-        setTimeout(function() {
-          const lang = typeof currentLang !== 'undefined' ? currentLang : 'ka';
-          bubbles.forEach(function(b) {
-            const t = (b.getAttribute('data-' + lang) || b.getAttribute('data-ka')).replace(/\\n/g, '\n');
-            b.textContent = t;
-            b.style.whiteSpace = 'pre-line';
-          });
-        }, 10);
-      });
-
-      build();
-      window.addEventListener('resize', function() {
-        const wasOpen = open;
-        if (wasOpen) closeBubbles();
-        build();
-        if (wasOpen) setTimeout(openBubbles, 50);
+      
+      // Initialize language for bubbles correctly
+      const lang = typeof currentLang !== 'undefined' ? currentLang : 'ka';
+      bubbles.forEach(b => {
+         const text = b.getAttribute('data-' + lang);
+         if (text) b.innerHTML = text.replace(/\\n/g, '<br>');
       });
     })();
   </script>

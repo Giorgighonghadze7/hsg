@@ -1038,7 +1038,7 @@
 }
 .subjects-trigger-btn:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 0 20px rgba(227, 18, 53, 0);
+  box-shadow: none;
 }
 .subjects-trigger-btn.pulsing {
   animation: subjectPulse 2s infinite;
@@ -1176,7 +1176,10 @@
     margin-top: -32.5px;
     margin-left: -50px; 
   }
-
+button {
+  -webkit-tap-highlight-color: transparent; /* აშორებს ცისფერ ფონს ტელეფონზე */
+  outline: none; /* აშორებს ჩარჩოს დაჭერისას */
+}
 
 
   /* მობილურის პოზიციონირება (აქ შეგიძლიათ მარტივად შეცვალოთ კოორდინატები, თუ რამე დაიმალება) */

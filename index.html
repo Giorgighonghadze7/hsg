@@ -123,7 +123,7 @@
       background: transparent;
       border: 1.5px solid var(--accent);
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 700 ;
       font-size: 13px;
       letter-spacing: .06em;
       padding: 5px 13px;
@@ -151,7 +151,10 @@
       transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(227, 18, 53, .35);
     }
-
+.header-title-class {
+  font-weight: normal !important;
+  font-style: normal;
+}
     /* LOGO BAR */
     .logo-bar {
       background: var(--accent);
@@ -181,7 +184,7 @@
     }
     .logo-text {
       font-size: 35px;
-      font-weight: 800;
+      font-weight: 550;
       color: #ffffff;
       letter-spacing: 0.5px;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
@@ -255,6 +258,21 @@
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
     }
 
+.about-section-container,
+.about .container {
+    gap: 10px !important;
+}
+.about-content p, 
+.about p {
+    margin-bottom: 30px !important;
+    margin-top: 20px !important;
+}
+.stats-container, 
+.about-stats {
+    margin-top: 0px !important;  /* ნულამდე მიუახლოვდა ტექსტს */
+    padding-top: 0 !important;
+    margin-bottom: 15px !important;
+}
     /* MODULE COLORS */
     .mod-business { background-color: #27ae60; }
     .mod-law { background-color: #f39c12; }
@@ -312,7 +330,7 @@
     .projects-heading {
       font-size: 32px;
       font-weight: 800;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       border-bottom: 1px solid rgba(128, 128, 128, 0.15);
       padding-bottom: 15px;
       display: flex;
@@ -712,7 +730,7 @@
 
     /* ABOUT */
     .about {
-      padding: 60px 80px;
+      padding: 60px 80px 0px 80px; /* Reduced bottom padding to zero to bring stats directly below text */
       text-align: left;
       opacity: 0;
       transform: translateY(30px);
@@ -1196,6 +1214,59 @@ button {
   #sb-achievements.visible { transform: translate(93.0px, -201.9px) scale(1) rotate(-1deg); }
   #sb-career.visible { transform: translate(68.8px, 250.6px) scale(1) rotate(6deg); }
 }
+
+/* PARTNERS SECTION STYLES */
+.partners-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 50px 0;
+  flex-wrap: wrap;
+}
+.partners-logos img {
+  width: auto;
+  object-fit: contain;
+  margin-top: -25px;
+  margin-bottom: -150px;
+}
+
+/* სპეციფიკური ზომა UG-ის ლოგოსთვის */
+.logo-ug {
+  max-height: 130px; /* ჩაწერე შენთვის სასურველი ზომა */
+}
+
+/* სპეციფიკური ზომა Startup Factory-ის ლოგოსთვის */
+.logo-factory {
+  max-height: 240px; /* ჩაწერე შენთვის სასურველი ზომა */
+}
+
+.partners-action {
+  text-align: center;
+  margin-top: 35px;
+}
+.partners-action .btn-primary {
+  padding: 14px 35px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  display: inline-block;
+}
+@media(max-width: 768px) {
+  .partners-logos {
+    gap: 150px;
+    margin: 35px 0;
+    margin-bottom: 70px;
+  }
+/* სპეციფიკური ზომა UG-ის ლოგოსთვის */
+.logo-ug {
+  max-height: 130px; /* ჩაწერე შენთვის სასურველი ზომა */
+}
+
+/* სპეციფიკური ზომა Startup Factory-ის ლოგოსთვის */
+.logo-factory {
+  max-height: 240px; /* ჩაწერე შენთვის სასურველი ზომა */
+}
+}
   </style>
 </head>
 <body>
@@ -1208,7 +1279,8 @@ button {
         <a href="#about" data-ka="რა არის High School of Georgia?" data-en="About High School of Georgia">რა არის High School of Georgia?</a>
         <a href="#subjects" data-ka="საგნები" data-en="Subjects">საგნები</a> <a href="#modules" data-ka="მოდულები" data-en="Modules">მოდულები</a>
         <a href="#other-projects" data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</a>
-      </nav>
+        <a href="#partners" data-ka="პარტნიორები" data-en="Partners">პარტნიორები</a>
+   </nav>
       <div class="header-actions">
         <button id="langToggle" class="lang-btn">EN</button>
       </div>
@@ -1227,9 +1299,9 @@ button {
       <div class="slide" style="background-image:url('images/imenaqaveri.png')">
         <div class="slide-content">
           <h1>High School of Georgia</h1>
-          <p data-ka="პროგრამა, რომელიც დამამთავრებელ კლასელებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება."
+          <p data-ka="პროგრამა, რომელიც დამამთავრებელი კლასელებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება."
              data-en="A program that helps graduating students choose the right professional direction.">
-            პროგრამა, რომელიც დამამთავრებელ კლასელებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება.</p>
+            პროგრამა, რომელიც დამამთავრებელი კლასელებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება.</p>
         </div>
       </div>
       <div class="slide" style="background-image:url('images/bolozari.jpg')">
@@ -1394,6 +1466,19 @@ button {
     </div>
   </section>
 
+<section id="partners" class="section">
+  <h2 data-ka="პარტნიორები" data-en="Partners">პარტნიორები</h2>
+  <div class="partners-logos">
+    <img src="images/ug white logo.png" class="logo-ug" alt="Partner 1">
+    
+    <img src="images/UG STARTUP FACTORY WHITE LOGO (svg)-01.svg" class="logo-factory" alt="Partner 2">
+  </div>
+</section>
+    <div class="partners-action">
+      <a class="btn-primary" href="#" data-ka="გახდი პარტნიორი" data-en="Become a Partner">გახდი პარტნიორი</a>
+    </div>
+  </section>
+
   <div class="modal-overlay" id="modModal">
     <div class="modal-box">
       <div class="modal-img-side" id="modalImg">
@@ -1453,18 +1538,55 @@ button {
       menuToggle.textContent = headerMenu.classList.contains('active') ? '✕' : '☰';
     };
 
-    // SMOOTH SCROLL
+    // SMOOTH SCROLL (ინდივიდუალური დაშორებებით თითოეული სექციისთვის)
     document.querySelectorAll('.header nav a, .footer-col ul li a').forEach(link => {
       link.onclick = (e) => {
         const targetId = link.getAttribute('href');
         if (targetId.startsWith('#')) {
           e.preventDefault();
           const targetElement = document.querySelector(targetId);
+          
           if (targetElement) {
             const headerHeight = document.querySelector('.header').offsetHeight;
-            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-            window.scrollTo({ top: elementPosition - headerHeight - 30, behavior: 'smooth' });
+            
+            // ვიყენებთ offsetTop-ს getBoundingClientRect-ის ნაცვლად,
+            // რადგან CSS transform (ანიმაციები) აცდენდა კოორდინატებს პირველ დაჭერაზე.
+            let elementPosition = 0;
+            let curr = targetElement;
+            while (curr) {
+              elementPosition += curr.offsetTop;
+              curr = curr.offsetParent;
+            }
+            
+            // 1. ვქმნით ცვლადს დამატებითი დაშორებისთვის (ნაგულისხმევად იყოს 30)
+            let customOffset = 30; 
+            
+            // 2. ვამოწმებთ კონკრეტულ ID-ებს და თითოეულს ვუწერთ თავის ზომას
+            // (დადებითი ციფრი აჩერებს უფრო მაღლა, უარყოფითი ჩამოდის უფრო დაბლა)
+             switch (targetId) {
+          case '#subjects':       // საგნების სექციის ID (შეცვალეთ თქვენი რეალური ID-ით)
+            customOffset = -37;    // ამ სექციაზე ჩამოსქროლვისას გაჩერდება ბევრად დაბლა
+            break;
+          case '#about':          // ჩვენ შესახებ სექცია
+            customOffset = -50;    // გაჩერდება საშუალო სიმაღლეზე
+            break;
+          case '#projects':       // პროექტების სექცია
+            customOffset = -80;    
+            break;
+          case '#modules':        // კონტაქტის სექცია
+            customOffset = -80;    // უფრო მაღლა გაჩერდება, რადგან პატარა სექციაა
+            break;
+          default:
+            customOffset = -87;    // ყველა სხვა დანარჩენი სექციისთვის
+        }
+
+            // 3. გაანგარიშებაში ვიყენებთ სტაბილურ offsetTop-ს
+            window.scrollTo({ 
+              top: elementPosition - headerHeight - customOffset, 
+              behavior: 'smooth' 
+            });
           }
+          
           headerMenu.classList.remove('active');
           menuToggle.textContent = '☰';
         }

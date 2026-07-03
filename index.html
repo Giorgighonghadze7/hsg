@@ -151,10 +151,10 @@
       transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(227, 18, 53, .35);
     }
-.header-title-class {
-  font-weight: normal !important;
-  font-style: normal;
-}
+    .header-title-class {
+      font-weight: normal !important;
+      font-style: normal;
+    }
     /* LOGO BAR */
     .logo-bar {
       background: var(--accent);
@@ -258,21 +258,21 @@
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
     }
 
-.about-section-container,
-.about .container {
-    gap: 10px !important;
-}
-.about-content p, 
-.about p {
-    margin-bottom: 30px !important;
-    margin-top: 20px !important;
-}
-.stats-container, 
-.about-stats {
-    margin-top: 0px !important;  /* ნულამდე მიუახლოვდა ტექსტს */
-    padding-top: 0 !important;
-    margin-bottom: 15px !important;
-}
+    .about-section-container,
+    .about .container {
+      gap: 10px !important;
+    }
+    .about-content p, 
+    .about p {
+      margin-bottom: 30px !important;
+      margin-top: 20px !important;
+    }
+    .stats-container, 
+    .about-stats {
+      margin-top: 0px !important;
+      padding-top: 0 !important;
+      margin-bottom: 15px !important;
+    }
     /* MODULE COLORS */
     .mod-business { background-color: #27ae60; }
     .mod-law { background-color: #f39c12; }
@@ -609,10 +609,6 @@
       color: var(--text);
       opacity: 0.85;
     }
-    .mod-art.active-modal ~ #modModal #modalImg,
-    body:has(.mod-art.active-modal) #modalImg {
-      background-position: 25% center !important;
-    }
 
     /* HERO SLIDER */
     .hero {
@@ -730,7 +726,7 @@
 
     /* ABOUT */
     .about {
-      padding: 60px 80px 0px 80px; /* Reduced bottom padding to zero to bring stats directly below text */
+      padding: 60px 80px 0px 80px;
       text-align: left;
       opacity: 0;
       transform: translateY(30px);
@@ -991,282 +987,318 @@
   <link rel="icon" type="image/x-icon" href="images/zemocaveri.png">
 
   <style>
-/* SUBJECTS SECTION */
-.subjects-section {
-  padding: 50px 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
+    /* ==========================================================================
+       👉 აქედან შეგიძლიათ გაასწოროთ ფოტოების პოზიციები (BACKGROUND POSITION)
+       --------------------------------------------------------------------------
+       პროცენტები მუშაობს ასე:
+       - პირველი პროცენტი (X): მარცხნივ / მარჯვნივ (მაგ. 50% ან center)
+       - მეორე პროცენტი (Y): ზემოთ / ქვემოთ. (მაგ. 20% აწევს ზემოთ, 80% ჩამოწევს ქვემოთ)
+       ========================================================================== */
 
-  
-  background-color: var(--bg) !important; 
-  background: var(--bg) !important;
-}
+    /* 1. 🎬 ღონისძიებების (Events) ფოტოს პოზიცია მთავარ გვერდზე (დიდ ბარათზე) */
+    .img-pos-events-card {
+      background-position: center 20% !important; /* 👈 შეცვალეთ აქ */
+    }
 
-.subjects-section h2 {
-  font-size: 32px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid rgba(128,128,128,0.15);
-  padding-bottom: 15px;
-  text-align: left;
-  width: 100%;
-  
-}
-.subjects-subtitle {
-  font-size: 16px;
-  opacity: 0.8;
-  line-height: 1.5;
-  margin-bottom: 40px;
-  text-align: left;
-  width: 100%;
-}
-.subjects-arena {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  height: 550px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
-.subjects-trigger-btn {
-  position: relative;
-  z-index: 10;
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  color: white;
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  box-shadow: 0 0 0 0 rgba(227, 18, 53, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex-shrink: 0;
-}
-.subjects-trigger-btn:hover {
-  transform: scale(1.06);
-  box-shadow: none;
-}
-.subjects-trigger-btn.pulsing {
-  animation: subjectPulse 2s infinite;
-}
-@keyframes subjectPulse {
-  0% { box-shadow: 0 0 0 0 rgba(227,18,53,0.55); }
-  70% { box-shadow: 0 0 0 28px rgba(227,18,53,0); }
-  100% { box-shadow: 0 0 0 0 rgba(227,18,53,0); }
-}
+    /* 2. 🎬 ღონისძიებების (Events) ფოტოს პოზიცია პოპ-აპ ფანჯარაში (Modal) */
+    .img-pos-events-modal {
+      background-position: center -100% !important; /* 👈 შეცვალეთ აქ */
+    }
 
-/* ფოტოს კონტეინერის სტილი (კომპიუტერისთვის) */
-.trigger-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 55px; 
-  height: 55px;
-  transition: transform 0.4s ease;
-}
+    /* 3. ⛺ ბანაკების (Camps) ფოტოს პოზიცია პოპ-აპ ფანჯარაში (Modal) */
+    .img-pos-camps-modal {
+      background-position: center 0px!important; /* 👈 შეცვალეთ აქ */
+    }
 
-/* თავად ფოტოს სტილი - გასწორდა 100%-ზე, რომ ზუსტად ჩაჯდეს კონტეინერში */
-.trigger-icon img {
-  width: 400%;
-  height: 400%;
-  object-fit: contain; 
-  display: block;
-}
+    /* 4. 🏆 ჩემპიონატების (Championships) ფოტოს პოზიცია პოპ-აპ ფანჯარაში (Modal) */
+    .img-pos-championships-modal {
+      background-position: 80% center !important; /* 👈 შეცვალეთ აქ */
+    }
 
-.subjects-trigger-btn.open .trigger-icon {
-  transform: rotate(360deg);
-}
+    /* 5. 🎨 ხელოვნების (Art) მოდულის ფოტოს პოზიცია პოპ-აპში */
+    .img-pos-art-modal {
+      background-position: 25% center !important;
+    }
 
-.subject-bubble {
-  position: absolute;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.3;
-  padding: 12px 18px;
-  color: white;
-  cursor: default;
-  border: 2px solid rgba(255,255,255,0.15);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-  opacity: 0;
-  pointer-events: none;
-  user-select: none;
-  width: 150px;
-  height: 90px;
-  /* ცენტრში ვსვამთ ყველას თავიდან */
-  top: 50%;
-  left: 50%;
-  margin-top: -45px;
-  margin-left: -75px;
-  transform: scale(0.3) translate(0, 0) rotate(0deg);
-  transition: opacity 0.45s cubic-bezier(0.34,1.56,0.64,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
-}
+    /* 6. 🧠 ფსიქოლოგიის (Psychology) მოდულის ფოტოს პოზიცია პოპ-აპში */
+    .img-pos-psychology-modal {
+      background-position: 75% center !important;
+    }
 
-.subject-bubble.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
+    /* 7. ⚙️ ნაგულისხმევი (Default) პოზიცია ყველა სხვა ფოტოსთვის პოპ-აპში */
+    .img-pos-default-modal {
+      background-position: center center !important;
+    }
+  </style>
 
-/* ბაბლების ფერები */
-.sb-0 { background: #1e0a68; }
-.sb-1 { background: #0e6b9e; }
-.sb-2 { background: #087016; }
-.sb-3 { background: #6a3d99; }
-.sb-4 { background: #0d7a6a; }
-.sb-5 { background: #1e4d8c; }
-.sb-6 { background: #830764; }
-.sb-7 { background: #7b1d3a; }
-.sb-8 { background: #2a5c1a; }
-.sb-9 { background: #b44c06; }
-.sb-10 { background: #5c2e00; }
-.sb-11 { background: #004d5c; }
+  <style>
+    /* SUBJECTS SECTION */
+    .subjects-section {
+      padding: 50px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      background-color: var(--bg) !important; 
+      background: var(--bg) !important;
+    }
 
-/* დესკტოპის პოზიციონირება თითოეულისთვის ცალკე (როცა გაშლილია) */
-#sb-law.visible { transform: translate(216.0px, 0.0px) scale(1) rotate(-6deg); transition-delay: 0.000s; }
-#sb-tech.visible { transform: translate(-174.0px, 112.2px) scale(1) rotate(1deg); transition-delay: 0.045s; }
-#sb-business.visible { transform: translate(21.0px, -168.8px) scale(1) rotate(-5deg); transition-delay: 0.090s; }
-#sb-science.visible { transform: translate(167.9px, 153.9px) scale(1) rotate(2deg); transition-delay: 0.135s; }
-#sb-economics.visible { transform: translate(-262.3px, -32.5px) scale(1) rotate(-4deg); transition-delay: 0.180s; }
-#sb-relations.visible { transform: translate(265.3px, -118.9px) scale(1) rotate(3deg); transition-delay: 0.225s; }
-#sb-art.visible { transform: translate(-75.8px, 199.1px) scale(1) rotate(-3deg); transition-delay: 0.270s; }
-#sb-psychology.visible { transform: translate(-162.5px, -219.7px) scale(1) rotate(4deg); transition-delay: 0.315s; }
-#sb-philosophy.visible { transform: translate(301.8px, 77.3px) scale(1) rotate(-2deg); transition-delay: 0.360s; }
-#sb-ai.visible { transform: translate(-358.1px, 104.4px) scale(1) rotate(5deg); transition-delay: 0.405s; }
-#sb-achievements.visible { transform: translate(148.5px, -224.1px) scale(1) rotate(-1deg); transition-delay: 0.450s; }
-#sb-career.visible { transform: translate(126.7px, 240.7px) scale(1) rotate(6deg); transition-delay: 0.495s; }
+    .subjects-section h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid rgba(128,128,128,0.15);
+      padding-bottom: 15px;
+      text-align: left;
+      width: 100%;
+    }
+    .subjects-subtitle {
+      font-size: 16px;
+      opacity: 0.8;
+      line-height: 1.5;
+      margin-bottom: 40px;
+      text-align: left;
+      width: 100%;
+    }
+    .subjects-arena {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      height: 550px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .subjects-trigger-btn {
+      position: relative;
+      z-index: 10;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: white;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 0 0 rgba(227, 18, 53, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0;
+    }
+    .subjects-trigger-btn:hover {
+      transform: scale(1.06);
+      box-shadow: none;
+    }
+    .subjects-trigger-btn.pulsing {
+      animation: subjectPulse 2s infinite;
+    }
+    @keyframes subjectPulse {
+      0% { box-shadow: 0 0 0 0 rgba(227,18,53,0.55); }
+      70% { box-shadow: 0 0 0 28px rgba(227,18,53,0); }
+      100% { box-shadow: 0 0 0 0 rgba(227,18,53,0); }
+    }
 
-/* 📱 მედია რექვერები ტაბლეტისა და ტელეფონისთვის (ოპტიმიზირებული და გასწორებული) */
-@media(max-width:768px) {
-  .subjects-section { padding: 40px 15px; }
-  .subjects-section h2 { font-size: 24px; margin-bottom: 10px; }
-  .subjects-subtitle { font-size: 14px; margin-bottom: 25px; }
-  .subjects-arena { height: 600px; max-width: 100%; }
-  
-  .subjects-trigger-btn { 
-    width: 145px; 
-    height: 145px; 
-    font-size: 13px; 
-    gap: 8px; 
-  }
-  .trigger-icon { 
-    width: 48px; 
-    height: 48px; 
-  }
-  
-  .subject-bubble { width: 110px; height: 75px; font-size: 11px; padding: 8px; margin-top: -37.5px; margin-left: -55px; }
-}
+    /* ფოტოს კონტეინერის სტილი (კომპიუტერისთვის) */
+    .trigger-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px; 
+      height: 55px;
+      transition: transform 0.4s ease;
+    }
 
-@media(max-width:480px) {
-  .subjects-arena { height: 650px; }
-  
-  .subjects-trigger-btn { 
-    width: 125px; 
-    height: 125px; 
-    font-size: 12px; 
-    gap: 6px; 
-  }
-  .trigger-icon { 
-    width: 40px; 
-    height: 40px; 
-  }
-  
-  .subject-bubble { 
-    width: 100px; 
-    height: 65px; 
-    font-size: 11px; 
-    padding: 6px;
-    margin-top: -32.5px;
-    margin-left: -50px; 
-  }
-button {
-  -webkit-tap-highlight-color: transparent; /* აშორებს ცისფერ ფონს ტელეფონზე */
-  outline: none; /* აშორებს ჩარჩოს დაჭერისას */
-}
+    /* თავად ფოტოს სტილი */
+    .trigger-icon img {
+      width: 400%;
+      height: 400%;
+      object-fit: contain; 
+      display: block;
+    }
 
+    .subjects-trigger-btn.open .trigger-icon {
+      transform: rotate(360deg);
+    }
 
-  /* მობილურის პოზიციონირება (აქ შეგიძლიათ მარტივად შეცვალოთ კოორდინატები, თუ რამე დაიმალება) */
-  #sb-law.visible { transform: translate(120.0px, 0.0px) scale(1) rotate(-6deg); }
-  #sb-tech.visible { transform: translate(-70.8px, 129.7px) scale(1) rotate(1deg); }
-  #sb-business.visible { transform: translate(13.0px, -135.2px) scale(1) rotate(-5deg); }
-  #sb-science.visible { transform: translate(96.4px, 171.4px) scale(1) rotate(2deg); }
-  #sb-economics.visible { transform: translate(-120.7px, -39.6px) scale(1) rotate(-4deg); }
-  #sb-relations.visible { transform: translate(118.4px, -110.0px) scale(1) rotate(3deg); }
-  #sb-art.visible { transform: translate(-47.8px, 243.4px) scale(1) rotate(-3deg); }
-  #sb-psychology.visible { transform: translate(-89.4px, -174.2px) scale(1) rotate(4deg); }
-  #sb-philosophy.visible { transform: translate(120.2px, 94.4px) scale(1) rotate(-2deg); }
-  #sb-ai.visible { transform: translate(-120.1px, 50.2px) scale(1) rotate(5deg); }
-  #sb-achievements.visible { transform: translate(93.0px, -201.9px) scale(1) rotate(-1deg); }
-  #sb-career.visible { transform: translate(68.8px, 250.6px) scale(1) rotate(6deg); }
-}
+    .subject-bubble {
+      position: absolute;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.3;
+      padding: 12px 18px;
+      color: white;
+      cursor: default;
+      border: 2px solid rgba(255,255,255,0.15);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+      width: 150px;
+      height: 90px;
+      top: 50%;
+      left: 50%;
+      margin-top: -45px;
+      margin-left: -75px;
+      transform: scale(0.3) translate(0, 0) rotate(0deg);
+      transition: opacity 0.45s cubic-bezier(0.34,1.56,0.64,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+    }
 
-/* PARTNERS SECTION STYLES */
-.partners-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  margin: 50px 0;
-  flex-wrap: wrap;
-}
-.partners-logos img {
-  width: auto;
-  object-fit: contain;
-  margin-top: -25px;
-  margin-bottom: -150px;
-}
+    .subject-bubble.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-/* სპეციფიკური ზომა UG-ის ლოგოსთვის */
-.logo-ug {
-  max-height: 130px; /* ჩაწერე შენთვის სასურველი ზომა */
-}
+    /* ბაბლების ფერები */
+    .sb-0 { background: #1e0a68; }
+    .sb-1 { background: #0e6b9e; }
+    .sb-2 { background: #087016; }
+    .sb-3 { background: #6a3d99; }
+    .sb-4 { background: #0d7a6a; }
+    .sb-5 { background: #1e4d8c; }
+    .sb-6 { background: #830764; }
+    .sb-7 { background: #7b1d3a; }
+    .sb-8 { background: #2a5c1a; }
+    .sb-9 { background: #b44c06; }
+    .sb-10 { background: #5c2e00; }
+    .sb-11 { background: #004d5c; }
 
-/* სპეციფიკური ზომა Startup Factory-ის ლოგოსთვის */
-.logo-factory {
-  max-height: 240px; /* ჩაწერე შენთვის სასურველი ზომა */
-}
+    /* დესკტოპის პოზიციონირება თითოეულისთვის ცალკე (როცა გაშლილია) */
+    #sb-law.visible { transform: translate(216.0px, 0.0px) scale(1) rotate(-6deg); transition-delay: 0.000s; }
+    #sb-tech.visible { transform: translate(-174.0px, 112.2px) scale(1) rotate(1deg); transition-delay: 0.045s; }
+    #sb-business.visible { transform: translate(21.0px, -168.8px) scale(1) rotate(-5deg); transition-delay: 0.090s; }
+    #sb-science.visible { transform: translate(167.9px, 153.9px) scale(1) rotate(2deg); transition-delay: 0.135s; }
+    #sb-economics.visible { transform: translate(-262.3px, -32.5px) scale(1) rotate(-4deg); transition-delay: 0.180s; }
+    #sb-relations.visible { transform: translate(265.3px, -118.9px) scale(1) rotate(3deg); transition-delay: 0.225s; }
+    #sb-art.visible { transform: translate(-75.8px, 199.1px) scale(1) rotate(-3deg); transition-delay: 0.270s; }
+    #sb-psychology.visible { transform: translate(-162.5px, -219.7px) scale(1) rotate(4deg); transition-delay: 0.315s; }
+    #sb-philosophy.visible { transform: translate(301.8px, 77.3px) scale(1) rotate(-2deg); transition-delay: 0.360s; }
+    #sb-ai.visible { transform: translate(-358.1px, 104.4px) scale(1) rotate(5deg); transition-delay: 0.405s; }
+    #sb-achievements.visible { transform: translate(148.5px, -224.1px) scale(1) rotate(-1deg); transition-delay: 0.450s; }
+    #sb-career.visible { transform: translate(126.7px, 240.7px) scale(1) rotate(6deg); transition-delay: 0.495s; }
 
-.partners-action {
-  text-align: center;
-  margin-top: 35px;
-}
-.partners-action .btn-primary {
-  padding: 14px 35px;
-  margin-bottom: 30px;
-  font-size: 16px;
-  display: inline-block;
-}
-@media(max-width: 768px) {
-  .partners-logos {
-    gap: 150px;
-    margin: 35px 0;
-    margin-bottom: 70px;
-  }
-/* სპეციფიკური ზომა UG-ის ლოგოსთვის */
-.logo-ug {
-  max-height: 130px; /* ჩაწერე შენთვის სასურველი ზომა */
-}
+    /* 📱 მედია რექვერები ტაბლეტისა და ტელეფონისთვის */
+    @media(max-width:768px) {
+      .subjects-section { padding: 40px 15px; }
+      .subjects-section h2 { font-size: 24px; margin-bottom: 10px; }
+      .subjects-subtitle { font-size: 14px; margin-bottom: 25px; }
+      .subjects-arena { height: 600px; max-width: 100%; }
+      
+      .subjects-trigger-btn { 
+        width: 145px; 
+        height: 145px; 
+        font-size: 13px; 
+        gap: 8px; 
+      }
+      .trigger-icon { 
+        width: 48px; 
+        height: 48px; 
+      }
+      
+      .subject-bubble { width: 110px; height: 75px; font-size: 11px; padding: 8px; margin-top: -37.5px; margin-left: -55px; }
+    }
 
-/* სპეციფიკური ზომა Startup Factory-ის ლოგოსთვის */
-.logo-factory {
-  max-height: 240px; /* ჩაწერე შენთვის სასურველი ზომა */
-}
-}
+    @media(max-width:480px) {
+      .subjects-arena { height: 650px; }
+      
+      .subjects-trigger-btn { 
+        width: 125px; 
+        height: 125px; 
+        font-size: 12px; 
+        gap: 6px; 
+      }
+      .trigger-icon { 
+        width: 40px; 
+        height: 40px; 
+      }
+      
+      .subject-bubble { 
+        width: 100px; 
+        height: 65px; 
+        font-size: 11px; 
+        padding: 6px;
+        margin-top: -32.5px;
+        margin-left: -50px; 
+      }
+      button {
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+      }
+
+      /* მობილურის პოზიციონირება */
+      #sb-law.visible { transform: translate(120.0px, 0.0px) scale(1) rotate(-6deg); }
+      #sb-tech.visible { transform: translate(-70.8px, 129.7px) scale(1) rotate(1deg); }
+      #sb-business.visible { transform: translate(13.0px, -135.2px) scale(1) rotate(-5deg); }
+      #sb-science.visible { transform: translate(96.4px, 171.4px) scale(1) rotate(2deg); }
+      #sb-economics.visible { transform: translate(-120.7px, -39.6px) scale(1) rotate(-4deg); }
+      #sb-relations.visible { transform: translate(118.4px, -110.0px) scale(1) rotate(3deg); }
+      #sb-art.visible { transform: translate(-47.8px, 243.4px) scale(1) rotate(-3deg); }
+      #sb-psychology.visible { transform: translate(-89.4px, -174.2px) scale(1) rotate(4deg); }
+      #sb-philosophy.visible { transform: translate(120.2px, 94.4px) scale(1) rotate(-2deg); }
+      #sb-ai.visible { transform: translate(-120.1px, 50.2px) scale(1) rotate(5deg); }
+      #sb-achievements.visible { transform: translate(93.0px, -201.9px) scale(1) rotate(-1deg); }
+      #sb-career.visible { transform: translate(68.8px, 250.6px) scale(1) rotate(6deg); }
+    }
+
+    /* PARTNERS SECTION STYLES */
+    .partners-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin: 50px 0;
+      flex-wrap: wrap;
+    }
+    .partners-logos img {
+      width: auto;
+      object-fit: contain;
+      margin-top: -25px;
+      margin-bottom: -150px;
+    }
+
+    /* სპეციფიკური ზომა UG-ის ლოგოსთვის */
+    .logo-ug {
+      max-height: 130px;
+    }
+
+    /* სპეციფიკური ზომა Startup Factory-ის ლოგოსთვის */
+    .logo-factory {
+      max-height: 240px;
+    }
+
+    .partners-action {
+      text-align: center;
+      margin-top: 35px;
+    }
+    .partners-action .btn-primary {
+      padding: 14px 35px;
+      margin-bottom: 30px;
+      font-size: 16px;
+      display: inline-block;
+    }
+    @media(max-width: 768px) {
+      .partners-logos {
+        gap: 150px;
+        margin: 35px 0;
+        margin-bottom: 70px;
+      }
+      .logo-ug {
+        max-height: 130px;
+      }
+      .logo-factory {
+        max-height: 240px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1277,10 +1309,11 @@ button {
     <div class="header-menu" id="headerMenu">
       <nav>
         <a href="#about" data-ka="რა არის High School of Georgia?" data-en="About High School of Georgia">რა არის High School of Georgia?</a>
-        <a href="#subjects" data-ka="საგნები" data-en="Subjects">საგნები</a> <a href="#modules" data-ka="მოდულები" data-en="Modules">მოდულები</a>
+        <a href="#subjects" data-ka="საგნები" data-en="Subjects">საგნები</a> 
+        <a href="#modules" data-ka="მოდულები" data-en="Modules">მოდულები</a>
         <a href="#other-projects" data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</a>
         <a href="#partners" data-ka="პარტნიორები" data-en="Partners">პარტნიორები</a>
-   </nav>
+      </nav>
       <div class="header-actions">
         <button id="langToggle" class="lang-btn">EN</button>
       </div>
@@ -1335,20 +1368,20 @@ button {
     </div>
     <div class="slider-dots" id="sliderDots"></div>
   </section>
-<section id="about" class="about">
-  <h2 data-ka="რა არის High School of Georgia?" data-en="What is High School of Georgia?">რა არის High School of Georgia?</h2>
-  
-  <p data-ka="High School of Georgia არის საქართველოს ერთ-ერთი წამყვანი, დამამთავრებელი კლასების მოსწავლეებზე ორიენტირებული საგანმანათლებლო პროგრამა, რომელიც მიზნად ისახავს დაეხმაროს სკოლის მოსწავლეებს პრაქტიკული უნარების განვითარებაში, მომავალი კარიერული შესაძლებლობების შესწავლასა და საკუთარი პოტენციალის სრულად გამოვლენაში."
-     data-en="High School of Georgia is one of Georgia's leading educational programs oriented toward graduating students, dedicated to helping school students develop practical skills, explore future career opportunities, and unlock their full potential.">
-    High School of Georgia არის საქართველოს ერთ-ერთი წამყვანი, დამამთავრებელი კლასების მოსწავლეებზე ორიენტირებული საგანმანათლებლო პროგრამა, რომელიც მიზნად ისახავს დაეხმაროს სკოლის მოსწავლეებს პრაქტიკული უნარების განვითარებაში, მომავალი კარიერული შესაძლებლობების შესწავლასა და საკუთარი პოტენციალის სრულად გამოვლენაში.
-  </p>
 
-  <p data-ka="საგანმანათლებლო პროექტების, ლექციების, ვორქშოფების, ჩემპიონატებისა და ბანაკების საშუალებით, High School of Georgia ქმნის გარემოს, სადაც მოსწავლეებს შეუძლიათ ისწავლონ და მიიღონ ღირებული ცოდნა პროფესიონალებისგან, უნივერსიტეტის ლექტორებისგან, მეწარმეებისა და დარგის ექსპერტებისგან."
-     data-en="Through educational projects, lectures, workshops, championships, and camps, High School of Georgia creates an environment where students can learn beyond the traditional classroom and gain valuable knowledge from professionals, university lecturers, entrepreneurs, and industry experts.">
-    საგანმანათლებლო პროექტების, ლექციების, ვორქშოფების, ჩემპიონატებისა და ბანაკების საშუალებით, High School of Georgia ქმნის გარემოს, სადაც მოსწავლეებს შეუძლიათ ისწავლონ და მიიღონ ღირებული ცოდნა პროფესიონალებისგან, უნივერსიტეტის ლექტორებისგან, მეწარმეებისა და დარგის ექსპერტებისგან.
-  </p>
+  <section id="about" class="about">
+    <h2 data-ka="რა არის High School of Georgia?" data-en="What is High School of Georgia?">რა არის High School of Georgia?</h2>
+    
+    <p data-ka="High School of Georgia არის საქართველოს ერთ-ერთი წამყვანი, დამამთავრებელი კლასების მოსწავლეებზე ორიენტირებული საგანმანათლებლო პროგრამა, რომელიც მიზნად ისახავს დაეხმაროს სკოლის მოსწავლეებს პრაქტიკული უნარების განვითარებაში, მომავალი კარიერული შესაძლებლობების შესწავლასა და საკუთარი პოტენციალის სრულად გამოვლენაში."
+       data-en="High School of Georgia is one of Georgia's leading educational programs oriented toward graduating students, dedicated to helping school students develop practical skills, explore future career opportunities, and unlock their full potential.">
+      High School of Georgia არის საქართველოს ერთ-ერთი წამყვანი, დამამთავრებელი კლასების მოსწავლეებზე ორიენტირებული საგანმანათლებლო პროგრამა, რომელიც მიზნად ისახავს დაეხმაროს სკოლის მოსწავლეებს პრაქტიკული უნარების განვითარებაში, მომავალი კარიერული შესაძლებლობების შესწავლასა და საკუთარი პოტენციალის სრულად გამოვლენაში.
+    </p>
 
-</section>
+    <p data-ka="საგანმანათლებლო პროექტების, ლექციების, ვორქშოფების, ჩემპიონატებისა და ბანაკების საშუალებით, High School of Georgia ქმნის გარემოს, სადაც მოსწავლეებს შეუძლიათ ისწავლონ და მიიღონ ღირებული ცოდნა პროფესიონალებისგან, უნივერსიტეტის ლექტორებისგან, მეწარმეებისა და დარგის ექსპერტებისგან."
+       data-en="Through educational projects, lectures, workshops, championships, and camps, High School of Georgia creates an environment where students can learn beyond the traditional classroom and gain valuable knowledge from professionals, university lecturers, entrepreneurs, and industry experts.">
+      საგანმანათლებლო პროექტების, ლექციების, ვორქშოფების, ჩემპიონატებისა და ბანაკების საშუალებით, High School of Georgia ქმნის გარემოს, სადაც მოსწავლეებს შეუძლიათ ისწავლონ და მიიღონ ღირებული ცოდნა პროფესიონალებისგან, უნივერსიტეტის ლექტორებისგან, მეწარმეებისა და დარგის ექსპერტებისგან.
+    </p>
+  </section>
 
   <div class="stats-container">
     <div class="stat-item">
@@ -1438,15 +1471,16 @@ button {
   <section id="other-projects" class="projects-section muted">
     <div class="projects-heading"><span data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</span></div>
     <div class="projects-grid-layout">
-      <div class="large-project-card" id="card-events" style="background-image: url('images/FILMCLUB.jpg');" data-imgs="images/FILMCLUB.jpg,images/OLIMP.jpg,images/rsr.jpg,images/კაი ხალიხ.jpg" data-title-ka="ღონისძიებები" data-title-en="Events" data-desc-ka='მიიღე მონაწილეობა მრავალფეროვან აქტივობებში — გამოსცადე თავი ლეგენდარულ ინტელექტუალურ თამაშში "რა? სად? როდის?", აღმოაჩინე კინოს სამყარო კინოკლუბში, გაიღრმავე ცოდნა მოწვეულ ლექტორებთან მასტერკლასებზე და დაამტკიცე შენი ძალა აკადემიურ ოლიმპიადებზე.' data-desc-en='Take part in a variety of activities — test yourself in the legendary intellectual game "What? Where? When?", discover the world of cinema in the film club, deepen your knowledge at masterclasses with invited lecturers, and prove your strength at academic olympiads.'>
-        <div class="card-badge">Film Club</div>
+      <!-- Added .img-pos-events-card class here for layout control -->
+      <div class="large-project-card img-pos-events-card" id="card-events" style="background-image: url('images/rsrimena.jpg');" data-imgs="images/rsrimena.jpg" data-title-ka="ღონისძიებები" data-title-en="Events" data-desc-ka='მიიღე მონაწილეობა მრავალფეროვან აქტივობებში — გამოსცადე თავი ლეგენდარულ ინტელექტუალურ თამაშში "რა? სად? როდის?", აღმოაჩინე კინოს სამყარო კინოკლუბში, გაიღრმავე ცოდნა მოწვეულ ლექტორებთან მასტერკლასებზე და დაამტკიცე შენი ძალა აკადემიურ ოლიმპიადებზე.' data-desc-en='Take part in a variety of activities — test yourself in the legendary intellectual game "What? Where? When?", discover the world of cinema in the film club, deepen your knowledge at masterclasses with invited lecturers, and prove your strength at academic olympiads.'>
+        <div class="card-badge">What? Where? When?</div>
         <div class="large-card-content">
           <h3 data-ka="ღონისძიებები" data-en="Events">ღონისძიებები</h3>
           <p data-ka='მრავალფეროვანი აქტივობები — "რა? სად? როდის?", კინოკლუბი, მასტერკლასები და აკადემიური ოლიმპიადები.' data-en='A variety of activities — "What? Where? When?", film club, masterclasses, and academic olympiads.'>მრავალფეროვანი აქტივობები — "რა? სად? როდის?", კინოკლუბი, მასტერკლასები და აკადემიური ოლიმპიადები.</p>
         </div>
       </div>
       <div class="side-cards-col">
-        <div class="side-project-card" id="card-camps" data-imgs="images/BANAKI NEMVER.jpg,images/BANAK AGVISTO.jpg,images/BANAK MART.jpg,images/BANAK BOLO.jpg, images/BANAK STU.jpg" data-title-ka="ბანაკები" data-title-en="Camps" data-desc-ka="შემოუერთდი HSG-ის სეზონურ ბანაკებს და გაემგზავრე ახალ გარემოში, სადაც მეგობრებთან ერთად შექმნი დაუვიწყარ მოგონებებს! აქტიური დასვენება, გუნდური თამაშები და საჭირო უნარების განვითარება — ყველაფერი ეს გელოდება მყუდრო და თბილ გარემოში, სადაც ყოველი დღე სავსე იქნება სიცილით, თავგადასავლებითა და განუმეორებელი გამოცდილებებით." data-en="Join HSG's seasonal camps! It is the ultimate opportunity for active recreation, team sports, leadership development, and making lifelong, unforgettable friends in a warm and welcoming environment.">
+        <div class="side-project-card" id="card-camps" data-imgs="images/banakigaret.jpg" data-title-ka="ბანაკები" data-title-en="Camps" data-desc-ka="შემოუერთდი HSG-ის სეზონურ ბანაკებს და გაემგზავრე ახალ გარემოში, სადაც მეგობრებთან ერთად შექმნი დაუვიწყარ მოგონებებს! აქტიური დასვენება, გუნდური თამაშები და საჭირო უნარების განვითარება — ყველაფერი ეს გელოდება მყუდრო და თბილ გარემოში, სადაც ყოველი დღე სავსე იქნება სიცილით, თავგადასავლებითა და განუმეორებელი გამოცდილებებით." data-en="Join HSG's seasonal camps! It is the ultimate opportunity for active recreation, team sports, leadership development, and making lifelong, unforgettable friends in a warm and welcoming environment.">
           <div class="side-card-top">
             <span class="side-badge">CAMPS</span>
             <h3 data-ka="ბანაკები" data-en="Camps">ბანაკები</h3>
@@ -1454,7 +1488,7 @@ button {
           </div>
           <div class="side-card-arrow">&rarr;</div>
         </div>
-        <div class="side-project-card" id="card-championships" data-imgs="images/INTELEQTUALUR.jpg,images/itest.jpg,images/kinomani.jpg,images/meloman.jpg,images/abc.jpg" data-title-ka="ჩემპიონატები" data-title-en="Championships" data-desc-ka="High School of Georgia-ში ყველა მოსწავლეს შეუძლია მონაწილეობა მიიღოს სხვადასხვა საინტერესო ჩემპიონატში!  საუკეთესოები გაემგზავრებიან HSG-ს სეზონურ ბანაკში, ხოლო ინტელექტუალური ჩემპიონატის გამარჯვებული იღებს საქართველოს უნივერსიტეტის 100%-იან დაფინანსებას." data-en="Test yourself in various educational and intellectual competitions. Participate in projects like ABC, i-Test, Cinephile, and Melomaniac, accumulate points, and win university grants along with exciting prizes.">
+        <div class="side-project-card" id="card-championships" data-imgs="images/chempionatimena.jpg" data-title-ka="ჩემპიონატები" data-title-en="Championships" data-desc-ka="High School of Georgia-ში ყველა მოსწავლეს შეუძლია მონაწილეობა მიიღოს სხვადასხვა საინტერესო ჩემპიონატში!  საუკეთესოები გაემგზავრებიან HSG-ს სეზონურ ბანაკში, ხოლო ინტელექტუალური ჩემპიონატის გამარჯვებული იღებს საქართველოს უნივერსიტეტის 100%-იან დაფინანსებას." data-en="Test yourself in various educational and intellectual competitions. Participate in projects like ABC, i-Test, Cinephile, and Melomaniac, accumulate points, and win university grants along with exciting prizes.">
           <div class="side-card-top">
             <span class="side-badge">Championships</span>
             <h3 data-ka="ჩემპიონატები" data-en="Championships">ჩემპიონატები</h3>
@@ -1466,19 +1500,18 @@ button {
     </div>
   </section>
 
-<section id="partners" class="section">
-  <h2 data-ka="პარტნიორები" data-en="Partners">პარტნიორები</h2>
-  <div class="partners-logos">
-    <img src="images/ug white logo.png" class="logo-ug" alt="Partner 1">
-    
-    <img src="images/UG STARTUP FACTORY WHITE LOGO (svg)-01.svg" class="logo-factory" alt="Partner 2">
-  </div>
-</section>
+  <section id="partners" class="section">
+    <h2 data-ka="პარტნიორები" data-en="Partners">პარტნიორები</h2>
+    <div class="partners-logos">
+      <img src="images/ug white logo.png" class="logo-ug" alt="Partner 1">
+      <img src="images/UG STARTUP FACTORY WHITE LOGO (svg)-01.svg" class="logo-factory" alt="Partner 2">
+    </div>
     <div class="partners-action">
       <a class="btn-primary" href="#" data-ka="გახდი პარტნიორი" data-en="Become a Partner">გახდი პარტნიორი</a>
     </div>
   </section>
 
+  <!-- Popup Modal Structure -->
   <div class="modal-overlay" id="modModal">
     <div class="modal-box">
       <div class="modal-img-side" id="modalImg">
@@ -1549,8 +1582,6 @@ button {
           if (targetElement) {
             const headerHeight = document.querySelector('.header').offsetHeight;
             
-            // ვიყენებთ offsetTop-ს getBoundingClientRect-ის ნაცვლად,
-            // რადგან CSS transform (ანიმაციები) აცდენდა კოორდინატებს პირველ დაჭერაზე.
             let elementPosition = 0;
             let curr = targetElement;
             while (curr) {
@@ -1558,29 +1589,25 @@ button {
               curr = curr.offsetParent;
             }
             
-            // 1. ვქმნით ცვლადს დამატებითი დაშორებისთვის (ნაგულისხმევად იყოს 30)
             let customOffset = 30; 
             
-            // 2. ვამოწმებთ კონკრეტულ ID-ებს და თითოეულს ვუწერთ თავის ზომას
-            // (დადებითი ციფრი აჩერებს უფრო მაღლა, უარყოფითი ჩამოდის უფრო დაბლა)
-             switch (targetId) {
-          case '#subjects':       // საგნების სექციის ID (შეცვალეთ თქვენი რეალური ID-ით)
-            customOffset = -37;    // ამ სექციაზე ჩამოსქროლვისას გაჩერდება ბევრად დაბლა
-            break;
-          case '#about':          // ჩვენ შესახებ სექცია
-            customOffset = -50;    // გაჩერდება საშუალო სიმაღლეზე
-            break;
-          case '#projects':       // პროექტების სექცია
-            customOffset = -80;    
-            break;
-          case '#modules':        // კონტაქტის სექცია
-            customOffset = -80;    // უფრო მაღლა გაჩერდება, რადგან პატარა სექციაა
-            break;
-          default:
-            customOffset = -87;    // ყველა სხვა დანარჩენი სექციისთვის
-        }
+            switch (targetId) {
+              case '#subjects':
+                customOffset = -37;
+                break;
+              case '#about':
+                customOffset = -50;
+                break;
+              case '#projects':
+                customOffset = -80;    
+                break;
+              case '#modules':
+                customOffset = -80;
+                break;
+              default:
+                customOffset = -87;
+            }
 
-            // 3. გაანგარიშებაში ვიყენებთ სტაბილურ offsetTop-ს
             window.scrollTo({ 
               top: elementPosition - headerHeight - customOffset, 
               behavior: 'smooth' 
@@ -1603,7 +1630,6 @@ button {
       document.getElementById('langToggle').textContent = lang === 'ka' ? 'EN' : 'KA';
       document.documentElement.lang = lang;
       
-      // Update bubbles explicitly because they might contain HTML tags like <br>
       document.querySelectorAll('.subject-bubble').forEach(b => {
         const text = b.getAttribute('data-' + lang);
         if (text) b.innerHTML = text.replace(/\\n/g, '<br>');
@@ -1614,7 +1640,7 @@ button {
     }
     document.getElementById('langToggle').onclick = () => applyLang(currentLang === 'ka' ? 'en' : 'ka');
 
-    // MODAL LOGIC
+    // MODAL LOGIC WITH CLASS-BASED BACKGROUND POSITIONING
     let modalImages = [];
     let currentModalImgIdx = 0;
     let modalAutoTimer;
@@ -1663,14 +1689,21 @@ button {
         modalNextBtn.style.display = 'none';
       }
 
+      // Reset modal background classes to standard base, then assign unique class dynamically
+      modalImg.className = 'modal-img-side';
+
       if (btn.id === 'card-events') {
-        modalImg.style.backgroundPosition = '35% center';
+        modalImg.classList.add('img-pos-events-modal');
+      } else if (btn.id === 'card-camps') {
+        modalImg.classList.add('img-pos-camps-modal');
+      } else if (btn.id === 'card-championships') {
+        modalImg.classList.add('img-pos-championships-modal');
       } else if (btn.classList.contains('mod-art')) {
-        modalImg.style.backgroundPosition = '25% center';
+        modalImg.classList.add('img-pos-art-modal');
       } else if (btn.classList.contains('mod-psychology')) {
-        modalImg.style.backgroundPosition = '75% center';
+        modalImg.classList.add('img-pos-psychology-modal');
       } else {
-        modalImg.style.backgroundPosition = 'center center';
+        modalImg.classList.add('img-pos-default-modal');
       }
 
       showModalImage(0);
@@ -1829,7 +1862,6 @@ button {
         if (open) closeBubbles(); else openBubbles();
       });
       
-      // Initialize language for bubbles correctly
       const lang = typeof currentLang !== 'undefined' ? currentLang : 'ka';
       bubbles.forEach(b => {
          const text = b.getAttribute('data-' + lang);

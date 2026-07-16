@@ -3,7 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- მთავარი სათაური SEO-სთვის (მაქსიმუმ 60 სიმბოლო) -->
   <title>High School of Georgia</title>
+  
+  <!-- საიტის აღწერა Google-ისთვის (ყველა ძირითადი საკვანძო სიტყვით) -->
+  <meta name="description" content="High School of Georgia (ჰაისქული / HSG) არის საგანმანათლებლო პროგრამა მე-10, მე-11 და მე-12 კლასის მოსწავლეებისთვის. აღმოაჩინე შენი პროფესია ჩვენთან ერთად.">
+  
+  <!-- საკვანძო სიტყვები საძიებო სისტემებისთვის -->
+  <meta name="keywords" content="hsg, high school of georgia, ჰაისქული, ჰაისქულ ოფ ჯორჯია, განათლება, პროფესიული ორიენტაცია, სკოლა საქართველოში">
+  <meta name="author" content="High School of Georgia">
+
+  <!-- Open Graph ტეგები Facebook და LinkedIn გაზიარების ვიზუალისთვის -->
+  <meta property="og:title" content="High School of Georgia | ჰაისქული">
+  <meta property="og:description" content="პროგრამა, რომელიც დამამთავრებელი კლასელებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება.">
+  <meta property="og:image" content="https://hsg.edu.ge/images/imenaqaveri.png"> <!-- ჩაწერეთ თქვენი რეალური დომენი -->
+  <meta property="og:url" content="https://hsg.edu.ge">
+  <meta property="og:type" content="website">
+
+  <!-- სტრუქტურირებული მონაცემები (Google Schema JSON-LD) ორგანიზაციისთვის -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "High School of Georgia",
+    "alternateName": ["ჰაისქული", "HSG", "ჰაისქულ ოფ ჯორჯია"],
+    "url": "https://hsg.edu.ge", 
+    "logo": "https://hsg.edu.ge/images/Untitled%20-%20June%2010,%202026%20at%2017.20.15.png",
+    "description": "საგანმანათლებლო პროგრამა მე-10, მე-11 და მე-12 კლასის მოსწავლეებისთვის საქართველოში.",
+    "sameAs": [
+      "https://www.facebook.com/HighSchoolOfGeorgia",
+      "https://www.instagram.com/high_school_of_georgia/",
+      "https://www.linkedin.com/company/high-school-of-georgia/"
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/x-icon" href="images/zemocaveri.png">
+
   <style>
     :root {
       --bg: #111111;
@@ -984,35 +1021,30 @@
       }
     }
   </style>
-  <link rel="icon" type="image/x-icon" href="images/zemocaveri.png">
 
   <style>
     /* ==========================================================================
        👉 აქედან შეგიძლიათ გაასწოროთ ფოტოების პოზიციები (BACKGROUND POSITION)
-       --------------------------------------------------------------------------
-       პროცენტები მუშაობს ასე:
-       - პირველი პროცენტი (X): მარცხნივ / მარჯვნივ (მაგ. 50% ან center)
-       - მეორე პროცენტი (Y): ზემოთ / ქვემოთ. (მაგ. 20% აწევს ზემოთ, 80% ჩამოწევს ქვემოთ)
        ========================================================================== */
 
     /* 1. 🎬 ღონისძიებების (Events) ფოტოს პოზიცია მთავარ გვერდზე (დიდ ბარათზე) */
     .img-pos-events-card {
-      background-position: center 20% !important; /* 👈 შეცვალეთ აქ */
+      background-position: center 20% !important;
     }
 
     /* 2. 🎬 ღონისძიებების (Events) ფოტოს პოზიცია პოპ-აპ ფანჯარაში (Modal) */
     .img-pos-events-modal {
-      background-position: center -100% !important; /* 👈 შეცვალეთ აქ */
+      background-position: center -100% !important;
     }
 
     /* 3. ⛺ ბანაკების (Camps) ფოტოს პოზიცია პოპ-აპ ფანჯარაში (Modal) */
     .img-pos-camps-modal {
-      background-position: center 0px!important; /* 👈 შეცვალეთ აქ */
+      background-position: center 0px!important;
     }
 
     /* 4. 🏆 ჩემპიონატების (Championships) ფოტოს პოზიცია პოპ-აპ ფანჯარაში (Modal) */
     .img-pos-championships-modal {
-      background-position: 80% center !important; /* 👈 შეცვალეთ აქ */
+      background-position: 80% center !important;
     }
 
     /* 5. 🎨 ხელოვნების (Art) მოდულის ფოტოს პოზიცია პოპ-აპში */
@@ -1104,7 +1136,6 @@
       100% { box-shadow: 0 0 0 0 rgba(227,18,53,0); }
     }
 
-    /* ფოტოს კონტეინერის სტილი (კომპიუტერისთვის) */
     .trigger-icon {
       display: flex;
       align-items: center;
@@ -1114,7 +1145,6 @@
       transition: transform 0.4s ease;
     }
 
-    /* თავად ფოტოს სტილი */
     .trigger-icon img {
       width: 400%;
       height: 400%;
@@ -1173,7 +1203,7 @@
     .sb-10 { background: #5c2e00; }
     .sb-11 { background: #004d5c; }
 
-    /* დესკტოპის პოზიციონირება თითოეულისთვის ცალკე (როცა გაშლილია) */
+    /* დესკტოპის პოზიციონირება თითოეულისთვის ცალკე */
     #sb-law.visible { transform: translate(216.0px, 0.0px) scale(1) rotate(-6deg); transition-delay: 0.000s; }
     #sb-tech.visible { transform: translate(-174.0px, 112.2px) scale(1) rotate(1deg); transition-delay: 0.045s; }
     #sb-business.visible { transform: translate(21.0px, -168.8px) scale(1) rotate(-5deg); transition-delay: 0.090s; }
@@ -1269,12 +1299,10 @@
       margin-bottom: -150px;
     }
 
-    /* სპეციფიკური ზომა UG-ის ლოგოსთვის */
     .logo-ug {
       max-height: 130px;
     }
 
-    /* სპეციფიკური ზომა Startup Factory-ის ლოგოსთვის */
     .logo-factory {
       max-height: 240px;
     }
@@ -1305,24 +1333,24 @@
       }
     }
 
-    /* PARTNERS ACTION FRAMED BOX (MODIFIED) */
+    /* PARTNERS ACTION FRAMED BOX */
     .partners-action-box {
       display: inline-block;
       position: relative;
+      background: rgba(227, 18, 53, 0.04);
       padding: 20px 45px;
-      border: none; /* გარეთა ჩარჩო მოშორებულია */
+      border: none;
       border-radius: 12px;
       backdrop-filter: blur(8px);
       text-decoration: none;
-      cursor: default; /* 👈 შეიცვალა default-ით, რომ კურსორმა ფორმა არ იცვალოს */
+      cursor: default;
     }
     
-    /* ჩარჩოს შიდა კუთხეები წითელ ფერში */
     .partners-action-box::before {
       content: "";
       position: absolute;
-      width: 80px;
-      height: 25px;
+      width: 65px; 
+      height: 25px; 
       border-top: 3px solid var(--accent);
       border-left: 3px solid var(--accent);
       top: 10px;
@@ -1332,11 +1360,11 @@
     .partners-action-box::after {
       content: "";
       position: absolute;
-      width: 80px;
-      height: 25px;
+      width: 65px; 
+      height: 25px; 
       border-bottom: 3px solid var(--accent);
       border-right: 3px solid var(--accent);
-      bottom: 6px;
+      bottom: 10px;
       right: 10px;
       pointer-events: none;
     }
@@ -1423,6 +1451,7 @@
 Module II: An in-depth introduction to your chosen direction/profession, with more hands-on practice and real cases.
 Through educational projects, workshops, and camps, you gain real experience from leading lecturers and industry experts.">
       I მოდული: საბაზისო ეტაპი, სადაც ეცნობი სხვადასხვა სფეროს და ავითარებ საჭირო უნარებს.    II მოდული: შერჩეული მიმართულების/პროფესიის სიღრმისეული გაცნობა, მეტი პრაქტიკითა და რეალური ქეისებით.    საგანმანათლებლო პროექტების, ვორქშოფებისა და ბანაკების საშუალებით, თქვენ იღებთ რეალურ გამოცდილებას წამყვანი ლექტორებისა და დარგის ექსპერტებისგან.
+    </p>
   </section>
 
   <div class="stats-container">
@@ -1479,7 +1508,7 @@ Through educational projects, workshops, and camps, you gain real experience fro
     <div class="cards-grid">
       <button class="card-btn mod-business" data-bg="images/BIZNES1.jpg" data-title-ka="ბიზნესი და ეკონომიკა" data-title-en="Business and Economics" data-desc-ka="გაიგეთ როგორ იქმნება წარმატებული ბიზნესი ნულიდან და რა დგას თანამედროვე მენეჯმენტის, ფინანსებისა და მარკეტინგის უკან. მოდული შეგასწავლის გუნდისა და პროექტების მართვას, მოგცემს პრაქტიკულ ცოდნას და მოგამზადებთ საკუთარი იდეის შესამუშავებლად, განსავითარებლად და წარსადგენად." data-desc-en="Learn how a successful business is built from scratch and what lies behind modern management, finance, and marketing. The module will teach you how to manage teams and projects, provide you with practical knowledge, and prepare you to develop, grow, and present your own idea.">
         <div class="card-bg-img" style="background-image:url('images/BIZNES1.jpg')"></div>
-        <div class="card-btn-content"><h3 data-ka="ბიზნესი და ეკონომიკა" data-en="Business and Economics">ბიზნესი და ეკონომიკაი</h3></div>
+        <div class="card-btn-content"><h3 data-ka="ბიზნესი და ეკონომიკა" data-en="Business and Economics">ბიზნესი და ეკონომიკა</h3></div>
         <img src="images/Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
       </button>
       <button class="card-btn mod-law" data-bg="images/LAW.jpg" data-title-ka="სამართალი" data-title-en="Law" data-desc-ka="მოდულის ფარგლებში გაარჩევთ რეალურ ქეისებს, შეხვდებით პრაქტიკოს ადვოკატს და ჩაატარებთ იმიტირებულ სასამართლო პროცესს. ისწავლით, როგორ მუშაობს პარლამენტი და  მედიაცია, როგორ იღებენ გადაწყვეტილებებს მოსამართლეები და ნაფიცი მსაჯულები." data-desc-en="Within the module, you will analyze real cases, meet with a practicing attorney, and conduct a simulated court trial. You will learn how parliament and mediation work, and how judges and juries make decisions.">
@@ -1513,7 +1542,6 @@ Through educational projects, workshops, and camps, you gain real experience fro
   <section id="other-projects" class="projects-section muted">
     <div class="projects-heading"><span data-ka="სხვა პროექტები" data-en="Other Projects">სხვა პროექტები</span></div>
     <div class="projects-grid-layout">
-      <!-- Added .img-pos-events-card class here for layout control -->
       <div class="large-project-card img-pos-events-card" id="card-events" style="background-image: url('images/rsrimena.jpg');" data-imgs="images/rsrimena.jpg" data-title-ka="ღონისძიებები" data-title-en="Events" data-desc-ka='მიიღე მონაწილეობა მრავალფეროვან აქტივობებში — გამოსცადე თავი ლეგენდარულ ინტელექტუალურ თამაშში "რა? სად? როდის?", აღმოაჩინე კინოს სამყარო კინოკლუბში, გაიღრმავე ცოდნა მოწვეულ ლექტორებთან მასტერკლასებზე და დაამტკიცე შენი ძალა აკადემიურ ოლიმპიადებზე.' data-desc-en='Take part in a variety of activities — test yourself in the legendary intellectual game "What? Where? When?", discover the world of cinema in the film club, deepen your knowledge at masterclasses with invited lecturers, and prove your strength at academic olympiads.'>
         <div class="card-badge">What? Where? When?</div>
         <div class="large-card-content">
@@ -1542,7 +1570,6 @@ Through educational projects, workshops, and camps, you gain real experience fro
     </div>
   </section>
 
-  <!-- Wrapping partners section images in anchor tags with layout-safe styles -->
   <section id="partners" class="section">
     <h2 data-ka="პარტნიორები" data-en="Partners">პარტნიორები</h2>
     <div class="partners-logos">
@@ -1554,7 +1581,6 @@ Through educational projects, workshops, and camps, you gain real experience fro
       </a>
     </div>
     <div class="partners-action" style="text-align: center; margin-top: 40px;">
-      <!-- 👈 <a> ტეგი შეიცვალა <div>-ით, რომ სრულიად გაქრეს ლინკის ქცევა -->
       <div class="partners-action-box">
         <p style="font-size: 18px; color: var(--text); opacity: 0.9; line-height: 1.6; margin: 0; font-weight: 600;" data-ka="დაგვიკავშირდი და გახდი პარტნიორი" data-en="Contact us and become a partner">დაგვიკავშირდი და გახდი პარტნიორი</p>
       </div>
@@ -1595,7 +1621,7 @@ Through educational projects, workshops, and camps, you gain real experience fro
         <h4 data-ka="კონტაქტი" data-en="Contact">კონტაქტი</h4>
         <ul style="font-size: 13px; line-height: 1.6;">
           <li>📧 info@hsg.edu.ge</li>
-          <li data-ka="📍 ქ. თბილისი, მერაბ კოსტავას 77ა" data-en="📍 77a Kostava Street, TbilisiS">📍 ქ. თბილისი, მერაბ კოსტავას 77ა</li>
+          <li data-ka="📍 ქ. თბილისი, მერაბ კოსტავას 77ა" data-en="📍 77a Kostava Street, Tbilisi">📍 ქ. თბილისი, მერაბ კოსტავას 77ა</li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1739,7 +1765,6 @@ Through educational projects, workshops, and camps, you gain real experience fro
         modalNextBtn.style.display = 'none';
       }
 
-      // Reset modal background classes to standard base, then assign unique class dynamically
       modalImg.className = 'modal-img-side';
 
       if (btn.id === 'card-events') {

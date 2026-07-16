@@ -4,24 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- მთავარი სათაური SEO-სთვის (მაქსიმუმ 60 სიმბოლო) -->
   <title>High School of Georgia</title>
-  
-  <!-- საიტის აღწერა Google-ისთვის (ყველა ძირითადი საკვანძო სიტყვით) -->
   <meta name="description" content="High School of Georgia (ჰაისქული / HSG) არის საგანმანათლებლო პროგრამა მე-10, მე-11 და მე-12 კლასის მოსწავლეებისთვის. აღმოაჩინე შენი პროფესია ჩვენთან ერთად.">
-  
-  <!-- საკვანძო სიტყვები საძიებო სისტემებისთვის -->
   <meta name="keywords" content="hsg, high school of georgia, ჰაისქული, ჰაისქულ ოფ ჯორჯია, განათლება, პროფესიული ორიენტაცია, სკოლა საქართველოში">
   <meta name="author" content="High School of Georgia">
 
-  <!-- Open Graph ტეგები Facebook და LinkedIn გაზიარების ვიზუალისთვის -->
   <meta property="og:title" content="High School of Georgia | ჰაისქული">
-  <meta property="og:description" content="პროგრამა, რომელიც დამამთავრებელი კლასელებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება.">
-  <meta property="og:image" content="https://hsg.edu.ge/images/imenaqaveri.png"> <!-- ჩაწერეთ თქვენი რეალური დომენი -->
+  <meta property="og:description" content="პროგრამა, რომელიც დამამთავრებელი კლასების მოსწავლეებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება.">
+  <meta property="og:image" content="https://hsg.edu.ge/images/imenaqaveri.png">
   <meta property="og:url" content="https://hsg.edu.ge">
   <meta property="og:type" content="website">
 
-  <!-- სტრუქტურირებული მონაცემები (Google Schema JSON-LD) ორგანიზაციისთვის -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,7 +22,7 @@
     "name": "High School of Georgia",
     "alternateName": ["ჰაისქული", "HSG", "ჰაისქულ ოფ ჯორჯია"],
     "url": "https://hsg.edu.ge", 
-    "logo": "https://hsg.edu.ge/images/Untitled%20-%20June%2010,%202026%20at%2017.20.15.png",
+    "logo": "https://hsg.edu.ge/images/hsg-logo.png",
     "description": "საგანმანათლებლო პროგრამა მე-10, მე-11 და მე-12 კლასის მოსწავლეებისთვის საქართველოში.",
     "sameAs": [
       "https://www.facebook.com/HighSchoolOfGeorgia",
@@ -192,6 +185,7 @@
       font-weight: normal !important;
       font-style: normal;
     }
+
     /* LOGO BAR */
     .logo-bar {
       background: var(--accent);
@@ -941,7 +935,7 @@
       .side-project-card { padding: 25px; min-height: 180px; }
       .logo-bar { padding: 12px 20px; justify-content: flex-start; text-align: left; }
       .logo-bar-slot { flex-direction: row; gap: 15px; align-items: center; justify-content: flex-start; width: 100%; }
-      .logo-bar img { height: 45px; }
+      .logo-bar img { height: 45px; margin-left: 0; }
       .logo-text { font-size: 20px; }
       .card-btn { padding: 18px 20px; gap: 15px; min-height: 90px; }
       .mod-logo { height: 45px; }
@@ -1020,50 +1014,16 @@
         font-size: 12px;
       }
     }
-  </style>
 
-  <style>
-    /* ==========================================================================
-       👉 აქედან შეგიძლიათ გაასწოროთ ფოტოების პოზიციები (BACKGROUND POSITION)
-       ========================================================================== */
+    /* IMAGE POSITIONS */
+    .img-pos-events-card { background-position: center 20% !important; }
+    .img-pos-events-modal { background-position: center -100% !important; }
+    .img-pos-camps-modal { background-position: center 0px!important; }
+    .img-pos-championships-modal { background-position: 80% center !important; }
+    .img-pos-art-modal { background-position: 25% center !important; }
+    .img-pos-psychology-modal { background-position: 75% center !important; }
+    .img-pos-default-modal { background-position: center center !important; }
 
-    /* 1. 🎬 ღონისძიებების (Events) ფოტოს პოზიცია მთავარ გვერდზე (დიდ ბარათზე) */
-    .img-pos-events-card {
-      background-position: center 20% !important;
-    }
-
-    /* 2. 🎬 ღონისძიებების (Events) ფოტოს პოზიცია პოპ-აპ ფანჯარაში (Modal) */
-    .img-pos-events-modal {
-      background-position: center -100% !important;
-    }
-
-    /* 3. ⛺ ბანაკების (Camps) ფოტოს პოზიცია პოპ-აპ ფანჯარაში (Modal) */
-    .img-pos-camps-modal {
-      background-position: center 0px!important;
-    }
-
-    /* 4. 🏆 ჩემპიონატების (Championships) ფოტოს პოზიცია პოპ-აპ ფანჯარაში (Modal) */
-    .img-pos-championships-modal {
-      background-position: 80% center !important;
-    }
-
-    /* 5. 🎨 ხელოვნების (Art) მოდულის ფოტოს პოზიცია პოპ-აპში */
-    .img-pos-art-modal {
-      background-position: 25% center !important;
-    }
-
-    /* 6. 🧠 ფსიქოლოგიის (Psychology) მოდულის ფოტოს პოზიცია პოპ-აპში */
-    .img-pos-psychology-modal {
-      background-position: 75% center !important;
-    }
-
-    /* 7. ⚙️ ნაგულისხმევი (Default) პოზიცია ყველა სხვა ფოტოსთვის პოპ-აპში */
-    .img-pos-default-modal {
-      background-position: center center !important;
-    }
-  </style>
-
-  <style>
     /* SUBJECTS SECTION */
     .subjects-section {
       padding: 50px 80px;
@@ -1189,7 +1149,7 @@
       pointer-events: auto;
     }
 
-    /* ბაბლების ფერები */
+    /* BUBBLE COLORS */
     .sb-0 { background: #1e0a68; }
     .sb-1 { background: #0e6b9e; }
     .sb-2 { background: #087016; }
@@ -1203,7 +1163,7 @@
     .sb-10 { background: #5c2e00; }
     .sb-11 { background: #004d5c; }
 
-    /* დესკტოპის პოზიციონირება თითოეულისთვის ცალკე */
+    /* DESKTOP BUBBLE POSITIONS */
     #sb-law.visible { transform: translate(216.0px, 0.0px) scale(1) rotate(-6deg); transition-delay: 0.000s; }
     #sb-tech.visible { transform: translate(-174.0px, 112.2px) scale(1) rotate(1deg); transition-delay: 0.045s; }
     #sb-business.visible { transform: translate(21.0px, -168.8px) scale(1) rotate(-5deg); transition-delay: 0.090s; }
@@ -1217,55 +1177,24 @@
     #sb-achievements.visible { transform: translate(148.5px, -224.1px) scale(1) rotate(-1deg); transition-delay: 0.450s; }
     #sb-career.visible { transform: translate(126.7px, 240.7px) scale(1) rotate(6deg); transition-delay: 0.495s; }
 
-    /* 📱 მედია რექვერები ტაბლეტისა და ტელეფონისთვის */
     @media(max-width:768px) {
       .subjects-section { padding: 40px 15px; }
       .subjects-section h2 { font-size: 24px; margin-bottom: 10px; }
       .subjects-subtitle { font-size: 14px; margin-bottom: 25px; }
       .subjects-arena { height: 600px; max-width: 100%; }
-      
-      .subjects-trigger-btn { 
-        width: 145px; 
-        height: 145px; 
-        font-size: 13px; 
-        gap: 8px; 
-      }
-      .trigger-icon { 
-        width: 48px; 
-        height: 48px; 
-      }
-      
+      .subjects-trigger-btn { width: 145px; height: 145px; font-size: 13px; gap: 8px; }
+      .trigger-icon { width: 48px; height: 48px; }
       .subject-bubble { width: 110px; height: 75px; font-size: 11px; padding: 8px; margin-top: -37.5px; margin-left: -55px; }
     }
 
     @media(max-width:480px) {
       .subjects-arena { height: 650px; }
-      
-      .subjects-trigger-btn { 
-        width: 125px; 
-        height: 125px; 
-        font-size: 12px; 
-        gap: 6px; 
-      }
-      .trigger-icon { 
-        width: 40px; 
-        height: 40px; 
-      }
-      
-      .subject-bubble { 
-        width: 100px; 
-        height: 65px; 
-        font-size: 11px; 
-        padding: 6px;
-        margin-top: -32.5px;
-        margin-left: -50px; 
-      }
-      button {
-        -webkit-tap-highlight-color: transparent;
-        outline: none;
-      }
+      .subjects-trigger-btn { width: 125px; height: 125px; font-size: 12px; gap: 6px; }
+      .trigger-icon { width: 40px; height: 40px; }
+      .subject-bubble { width: 100px; height: 65px; font-size: 11px; padding: 6px; margin-top: -32.5px; margin-left: -50px; }
+      button { -webkit-tap-highlight-color: transparent; outline: none; }
 
-      /* მობილურის პოზიციონირება */
+      /* MOBILE BUBBLE POSITIONS */
       #sb-law.visible { transform: translate(120.0px, 0.0px) scale(1) rotate(-6deg); }
       #sb-tech.visible { transform: translate(-70.8px, 129.7px) scale(1) rotate(1deg); }
       #sb-business.visible { transform: translate(13.0px, -135.2px) scale(1) rotate(-5deg); }
@@ -1289,55 +1218,28 @@
       margin: 50px 0;
       flex-wrap: wrap;
     }
-    .partners-logos a {
-      display: contents;
-    }
+    .partners-logos a { display: contents; }
     .partners-logos img {
       width: auto;
       object-fit: contain;
       margin-top: -25px;
       margin-bottom: -150px;
     }
+    .logo-ug { max-height: 130px; }
+    .logo-factory { max-height: 240px; }
+    .partners-action { text-align: center; margin-top: 35px; padding-top: 70px; }
+    .partners-action .btn-primary { padding: 14px 35px; margin-bottom: 0px; margin-top: 90px; font-size: 16px; display: inline-block; }
 
-    .logo-ug {
-      max-height: 130px;
-    }
-
-    .logo-factory {
-      max-height: 240px;
-    }
-
-    .partners-action {
-      text-align: center;
-      margin-top: 35px;
-      padding-top: 70px;
-    }
-    .partners-action .btn-primary {
-      padding: 14px 35px;
-      margin-bottom: 0px;
-      margin-top: 90px;
-      font-size: 16px;
-      display: inline-block;
-    }
     @media(max-width: 768px) {
-      .partners-logos {
-        gap: 150px;
-        margin: 35px 0;
-        margin-bottom: 70px;
-      }
-      .logo-ug {
-        max-height: 130px;
-      }
-      .logo-factory {
-        max-height: 240px;
-      }
+      .partners-logos { gap: 150px; margin: 35px 0 70px; }
+      .logo-ug { max-height: 130px; }
+      .logo-factory { max-height: 240px; }
     }
 
     /* PARTNERS ACTION FRAMED BOX */
     .partners-action-box {
       display: inline-block;
       position: relative;
-      background: rgba(227, 18, 53, 0.04);
       padding: 20px 45px;
       border: none;
       border-radius: 12px;
@@ -1345,27 +1247,22 @@
       text-decoration: none;
       cursor: default;
     }
-    
     .partners-action-box::before {
       content: "";
       position: absolute;
-      width: 65px; 
-      height: 25px; 
+      width: 65px; height: 25px; 
       border-top: 3px solid var(--accent);
       border-left: 3px solid var(--accent);
-      top: 10px;
-      left: 10px;
+      top: 10px; left: 10px;
       pointer-events: none;
     }
     .partners-action-box::after {
       content: "";
       position: absolute;
-      width: 65px; 
-      height: 25px; 
+      width: 65px; height: 25px; 
       border-bottom: 3px solid var(--accent);
       border-right: 3px solid var(--accent);
-      bottom: 10px;
-      right: 10px;
+      bottom: 10px; right: 10px;
       pointer-events: none;
     }
   </style>
@@ -1391,7 +1288,7 @@
 
   <div class="logo-bar">
     <div class="logo-bar-slot">
-      <img src="images/Untitled - June 10, 2026 at 17.20.15.png" alt="Logo">
+      <img src="images/hsg-logo.png" alt="High School of Georgia Logo">
       <span class="logo-text" data-ka="High School of Georgia" data-en="High School of Georgia">High School of Georgia</span>
     </div>
   </div>
@@ -1401,9 +1298,9 @@
       <div class="slide" style="background-image:url('images/imenaqaveri.png')">
         <div class="slide-content">
           <h1>High School of Georgia</h1>
-          <p data-ka="პროგრამა, რომელიც დამამთავრებელი კლასელებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება."
+          <p data-ka="პროგრამა, რომელიც დამამთავრებელი კლასების მოსწავლეებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება."
              data-en="A program that helps graduating students choose the right professional direction.">
-            პროგრამა, რომელიც დამამთავრებელი კლასელებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება.</p>
+            პროგრამა, რომელიც დამამთავრებელი კლასების მოსწავლეებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება.</p>
         </div>
       </div>
       <div class="slide" style="background-image:url('images/bolozari.jpg')">
@@ -1484,7 +1381,7 @@ Through educational projects, workshops, and camps, you gain real experience fro
     
     <div class="subjects-arena" id="subjectsArena">
       <button class="subjects-trigger-btn pulsing" id="subjectsTrigger" aria-expanded="false">
-        <span class="trigger-icon"><img src="images/Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo"></span>
+        <span class="trigger-icon"><img src="images/hsg-logo.png" alt="High School of Georgia Logo" class="mod-logo"></span>
         <span data-ka="საგნები" data-en="Subjects">რას ისწავლი ჰაისქულში</span>
       </button>
 
@@ -1497,7 +1394,7 @@ Through educational projects, workshops, and camps, you gain real experience fro
       <div class="subject-bubble sb-6" id="sb-art" data-ka="ხელოვნება" data-en="Art">ხელოვნება</div>
       <div class="subject-bubble sb-7" id="sb-psychology" data-ka="ფსიქოლოგია" data-en="Psychology">ფსიქოლოგია</div>
       <div class="subject-bubble sb-8" id="sb-philosophy" data-ka="ფილოსოფია" data-en="Philosophy">ფილოსოფია</div>
-      <div class="subject-bubble sb-9" id="sb-ai" data-ka="AI-სტილები" data-en="AI Skills">AI-სქილები</div>
+      <div class="subject-bubble sb-9" id="sb-ai" data-ka="AI-სქილები" data-en="AI Skills">AI-სქილები</div>
       <div class="subject-bubble sb-10" id="sb-achievements" data-ka="კაცობრიობის\nმიღწევები" data-en="Human\nAchievements">კაცობრიობის<br>მიღწევები</div>
       <div class="subject-bubble sb-11" id="sb-career" data-ka="კარიერული\nგანვითარება" data-en="Career\nDevelopment">კარიერული<br>განვითარება</div>
     </div>
@@ -1509,32 +1406,32 @@ Through educational projects, workshops, and camps, you gain real experience fro
       <button class="card-btn mod-business" data-bg="images/BIZNES1.jpg" data-title-ka="ბიზნესი და ეკონომიკა" data-title-en="Business and Economics" data-desc-ka="გაიგეთ როგორ იქმნება წარმატებული ბიზნესი ნულიდან და რა დგას თანამედროვე მენეჯმენტის, ფინანსებისა და მარკეტინგის უკან. მოდული შეგასწავლის გუნდისა და პროექტების მართვას, მოგცემს პრაქტიკულ ცოდნას და მოგამზადებთ საკუთარი იდეის შესამუშავებლად, განსავითარებლად და წარსადგენად." data-desc-en="Learn how a successful business is built from scratch and what lies behind modern management, finance, and marketing. The module will teach you how to manage teams and projects, provide you with practical knowledge, and prepare you to develop, grow, and present your own idea.">
         <div class="card-bg-img" style="background-image:url('images/BIZNES1.jpg')"></div>
         <div class="card-btn-content"><h3 data-ka="ბიზნესი და ეკონომიკა" data-en="Business and Economics">ბიზნესი და ეკონომიკა</h3></div>
-        <img src="images/Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
+        <img src="images/hsg-logo.png" alt="High School of Georgia Module Icon" class="mod-logo">
       </button>
       <button class="card-btn mod-law" data-bg="images/LAW.jpg" data-title-ka="სამართალი" data-title-en="Law" data-desc-ka="მოდულის ფარგლებში გაარჩევთ რეალურ ქეისებს, შეხვდებით პრაქტიკოს ადვოკატს და ჩაატარებთ იმიტირებულ სასამართლო პროცესს. ისწავლით, როგორ მუშაობს პარლამენტი და  მედიაცია, როგორ იღებენ გადაწყვეტილებებს მოსამართლეები და ნაფიცი მსაჯულები." data-desc-en="Within the module, you will analyze real cases, meet with a practicing attorney, and conduct a simulated court trial. You will learn how parliament and mediation work, and how judges and juries make decisions.">
         <div class="card-bg-img" style="background-image:url('images/LAW.jpg')"></div>
         <div class="card-btn-content"><h3 data-ka="სამართალი" data-en="Law">სამართალი</h3></div>
-        <img src="images/Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
+        <img src="images/hsg-logo.png" alt="High School of Georgia Module Icon" class="mod-logo">
       </button>
       <button class="card-btn mod-politics" data-bg="images/politika.jpg" data-title-ka="საერთაშორისო ურთიერთობები" data-title-en="International relations" data-desc-ka="გააანალიზეთ საერთაშორისო ურთიერთობები, გეოპოლიტიკური პროცესები და გაიგეთ, თუ როგორ მუშაობს გლობალური მართვის სისტემები." data-desc-en="Analyze international relations, geopolitical processes, and discover how global governance systems function.">
         <div class="card-bg-img" style="background-image:url('images/politika.jpg')"></div>
         <div class="card-btn-content"><h3 data-ka="საერთაშორისო ურთიერთობები" data-en="International relations">საერთაშორისო ურთიერთობები</h3></div>
-        <img src="images/Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
+        <img src="images/hsg-logo.png" alt="High School of Georgia Module Icon" class="mod-logo">
       </button>
       <button class="card-btn mod-art" data-bg="images/art.jpg" data-title-ka="ხელოვნება" data-title-en="Art" data-desc-ka="აღმოაჩინეთ კინემატოგრაფიის, მხატვრობის, მუსიკისა და შემოქმედებითი ინდუსტრიების როლი კაცობრიობის ისტორიასა და ყოველდღიურობაში." data-desc-en="Discover the role of cinematography, painting, music, and creative industries in human history and daily life.">
         <div class="card-bg-img" style="background-image:url('images/art.jpg')"></div>
         <div class="card-btn-content"><h3 data-ka="ხელოვნება" data-en="Art">ხელოვნება</h3></div>
-        <img src="images/Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
+        <img src="images/hsg-logo.png" alt="High School of Georgia Module Icon" class="mod-logo">
       </button>
       <button class="card-btn mod-psychology" data-bg="images/FSIXALOGIA.jpg" data-title-ka="ფსიქოლოგია" data-title-en="Psychology" data-desc-ka="ჩაწვდით ადამიანის ქცევის მოტივებს, ემოციებს, ინტერპერსონალურ კომუნიკაციასა და პიროვნული განვითარების ფსიქოლოგიურ ასპექტებს." data-desc-en="Understand the motives of human behavior, emotions, interpersonal communication, and psychological aspects of personal growth.">
         <div class="card-bg-img" style="background-image:url('images/FSIXALOGIA.jpg')"></div>
         <div class="card-btn-content"><h3 data-ka="ფსიქოლოგია" data-en="Psychology">ფსიქოლოგია</h3></div>
-        <img src="images/Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
+        <img src="images/hsg-logo.png" alt="High School of Georgia Module Icon" class="mod-logo">
       </button>
       <button class="card-btn mod-tech" data-bg="images/MECNIEREBA.jpg" data-title-ka="ტექნოლოგიები და მეცნიერება" data-title-en="Technology &amp; Science" data-desc-ka="გაეცანით თანამედროვე ტექნოლოგიურ ინოვაციებს, პროგრამირების საფუძვლებს და სამეცნიერო მიღწევებს, რომლებიც ცვლიან სამყაროს." data-desc-en="Explore modern technological innovations, programming fundamentals, and scientific breakthroughs that are reshaping our world.">
         <div class="card-bg-img" style="background-image:url('images/MECNIEREBA.jpg')"></div>
         <div class="card-btn-content"><h3 data-ka="ტექნოლოგიები და მეცნიერება" data-en="Technology &amp; Science">ტექნოლოგიები და მეცნიერება</h3></div>
-        <img src="images/Untitled - June 10, 2026 at 17.20.15.png" alt="Logo" class="mod-logo">
+        <img src="images/hsg-logo.png" alt="High School of Georgia Module Icon" class="mod-logo">
       </button>
     </div>
   </section>
@@ -1574,10 +1471,10 @@ Through educational projects, workshops, and camps, you gain real experience fro
     <h2 data-ka="პარტნიორები" data-en="Partners">პარტნიორები</h2>
     <div class="partners-logos">
       <a href="https://ug.edu.ge/ge" target="_blank">
-        <img src="images/ug white logo.png" class="logo-ug" alt="Partner 1">
+        <img src="images/ug-white-logo.png" class="logo-ug" alt="University of Georgia Logo">
       </a>
       <a href="https://ugstartup.ge" target="_blank">
-        <img src="images/UG STARTUP FACTORY WHITE LOGO (svg)-01.svg" class="logo-factory" alt="Partner 2">
+        <img src="images/ug-startup-factory-logo.svg" class="logo-factory" alt="UG Startup Factory Logo">
       </a>
     </div>
     <div class="partners-action" style="text-align: center; margin-top: 40px;">
@@ -1587,7 +1484,6 @@ Through educational projects, workshops, and camps, you gain real experience fro
     </div>
   </section>
 
-  <!-- Popup Modal Structure -->
   <div class="modal-overlay" id="modModal">
     <div class="modal-box">
       <div class="modal-img-side" id="modalImg">
@@ -1607,7 +1503,7 @@ Through educational projects, workshops, and camps, you gain real experience fro
     <div class="footer-container">
       <div class="footer-col">
         <h4>High School of Georgia</h4>
-        <p style="line-height: 1.6; font-size: 13px;" data-ka="პროგრამა, რომელიც დამამთავრებელი კლასელებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება." data-en="A program that helps graduating students choose the right professional direction.">პროგრამა, რომელიც დამამთავრებელი კლასელებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება.</p>
+        <p style="line-height: 1.6; font-size: 13px;" data-ka="პროგრამა, რომელიც დამამთავრებელი კლასების მოსწავლეებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება." data-en="A program that helps graduating students choose the right professional direction.">პროგრამა, რომელიც დამამთავრებელი კლასების მოსწავლეებს სწორი პროფესიული მიმართულების არჩევაში ეხმარება.</p>
       </div>
       <div class="footer-col">
         <h4 data-ka="ნავიგაცია" data-en="Navigation">ნავიგაცია</h4>

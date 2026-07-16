@@ -1282,6 +1282,7 @@
     .partners-action {
       text-align: center;
       margin-top: 35px;
+      padding-top: 70px;
     }
     .partners-action .btn-primary {
       padding: 14px 35px;
@@ -1302,6 +1303,42 @@
       .logo-factory {
         max-height: 240px;
       }
+    }
+
+    /* PARTNERS ACTION FRAMED BOX (MODIFIED) */
+    .partners-action-box {
+      display: inline-block;
+      position: relative;
+      padding: 20px 45px;
+      border: none; /* გარეთა ჩარჩო მოშორებულია */
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      text-decoration: none;
+      cursor: default; /* 👈 შეიცვალა default-ით, რომ კურსორმა ფორმა არ იცვალოს */
+    }
+    
+    /* ჩარჩოს შიდა კუთხეები წითელ ფერში */
+    .partners-action-box::before {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-top: 3px solid var(--accent);
+      border-left: 3px solid var(--accent);
+      top: 10px;
+      left: 10px;
+      pointer-events: none;
+    }
+    .partners-action-box::after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-bottom: 3px solid var(--accent);
+      border-right: 3px solid var(--accent);
+      bottom: 10px;
+      right: 10px;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -1516,8 +1553,11 @@ Through educational projects, workshops, and camps, you gain real experience fro
         <img src="images/UG STARTUP FACTORY WHITE LOGO (svg)-01.svg" class="logo-factory" alt="Partner 2">
       </a>
     </div>
-    <div class="partners-action">
-      <a class="btn-primary" href="#" data-ka="გახდი პარტნიორი" data-en="Become a Partner">გახდი პარტნიორი</a>
+    <div class="partners-action" style="text-align: center; margin-top: 40px;">
+      <!-- 👈 <a> ტეგი შეიცვალა <div>-ით, რომ სრულიად გაქრეს ლინკის ქცევა -->
+      <div class="partners-action-box">
+        <p style="font-size: 18px; color: var(--text); opacity: 0.9; line-height: 1.6; margin: 0; font-weight: 600;" data-ka="დაგვიკავშირდი და გახდი პარტნიორი" data-en="Contact us and become a partner">დაგვიკავშირდი და გახდი პარტნიორი</p>
+      </div>
     </div>
   </section>
 

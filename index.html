@@ -1259,6 +1259,9 @@
       margin: 50px 0;
       flex-wrap: wrap;
     }
+    .partners-logos a {
+      display: contents;
+    }
     .partners-logos img {
       width: auto;
       object-fit: contain;
@@ -1502,11 +1505,16 @@ Through educational projects, workshops, and camps, you gain real experience fro
     </div>
   </section>
 
+  <!-- Wrapping partners section images in anchor tags with layout-safe styles -->
   <section id="partners" class="section">
     <h2 data-ka="პარტნიორები" data-en="Partners">პარტნიორები</h2>
     <div class="partners-logos">
-      <img src="images/ug white logo.png" class="logo-ug" alt="Partner 1">
-      <img src="images/UG STARTUP FACTORY WHITE LOGO (svg)-01.svg" class="logo-factory" alt="Partner 2">
+      <a href="https://ug.edu.ge/ge" target="_blank">
+        <img src="images/ug white logo.png" class="logo-ug" alt="Partner 1">
+      </a>
+      <a href="https://ugstartup.ge" target="_blank">
+        <img src="images/UG STARTUP FACTORY WHITE LOGO (svg)-01.svg" class="logo-factory" alt="Partner 2">
+      </a>
     </div>
     <div class="partners-action">
       <a class="btn-primary" href="#" data-ka="გახდი პარტნიორი" data-en="Become a Partner">გახდი პარტნიორი</a>
